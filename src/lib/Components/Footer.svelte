@@ -6,10 +6,13 @@
     <div class="container mx-auto px-4">
         <div class="grid center grid-cols-1 md:grid-cols-4 gap-12">
             <!-- Brand Section -->
-            <div class="space-y-4">
+            <div class="space-y-4 ">
                 <h3 class="text-2xl font-bold">LuhBea</h3>
                 <p class="">Crafting moments of serenity through the art of scent.</p>
                 <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/profile.php?id=61550866414034&locale=pt_PT">
+                        <Icon icon="logos:facebook" width="24" height="24" />
+                    </a>
                     <a href="https://www.tiktok.com/@luhbeacandles?_t=ZG-8wV0kOxcdQu&_r=1" class="text-black">
                         <Icon icon="logos:tiktok-icon" width="24" height="24" />
                     </a>
@@ -22,7 +25,7 @@
 
             <!-- Quick Links -->
             <div>
-                <ul class="space-y-2">
+                <ul class="space-y-2 mt-10">
                     <li><a href="/products" class="transition-colors">Shop</a></li>
                     <li><a href="#" class="transition-colors">Collections</a></li>
                     <li><a href="#" class="transition-colors">Molds</a></li>
@@ -34,7 +37,7 @@
             <!-- Customer Service -->
             <div>
 
-                <ul class="space-y-2">
+                <ul class="space-y-2 mt-10">
                     <li><a href="/about" class="transition-colors">FAQ</a></li>
                     <li><a href="#" class="transition-colors">Privacy Policy</a></li>
                     <li><a href="#" class="transition-colors">Terms of Service</a></li>

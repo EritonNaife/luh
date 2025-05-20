@@ -29,7 +29,6 @@
     font-family: 'linotype-didot';
     src: url('/fonts/linotype-didot/DidotLTPro-BoldItalic.ttf') format('truetype');
     font-weight: bold;
-    font-style: italic;
 }
 
 body {
