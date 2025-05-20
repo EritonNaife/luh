@@ -35,8 +35,7 @@
     <section id="Latest-products" class="p-4">
     
         <div class="flex justify-center gap-4 p-4">
-            <h2 class="text-2xl lg:text-3xl">You might like</h2>
-            <h2 class="text-2xl opacity-50 lg:text-3xl">Whats New</h2>
+            <h2 class="text-2xl lg:text-3xl">Whats New</h2>
         </div>
         
         <ProductSlider/>
