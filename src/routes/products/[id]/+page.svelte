@@ -27,7 +27,7 @@
     <section id="" class="h-screen flex flex-col justify-center items-center lg:flex-row">
 
       <div class="w-100 h-100 lg:w-150 lg:h-150 flex lg:items-center">
-        <img src={product.imageUrl} alt={product.name}   class="aspect-[1/1]">
+        <img src="/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png" alt={product.name}   class="aspect-[1/1]">
       </div>
 
       <div class="flex flex-col gap-5">

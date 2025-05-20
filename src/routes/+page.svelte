@@ -18,9 +18,10 @@
 
 <main>
     
-    <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
-        <div class="relative bg-cover bg-center h-screen " style="background-image: url('images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg')">
+    <section id="Hero-section " in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
+        <div class="relative h-screen w-full">
             <div class="absolute inset-0 bg-black/40 "></div>
+			<img src="images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg" alt="" class="w-full h-full object-cover">
             <div class="absolute bottom-10 left-20 flex flex-col justify-center items-center text-center text-white lg:top-40 lg:left-240 " in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
                 <p class="text-lg md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
@@ -54,7 +55,7 @@
     </section>
     
     
-    <section id="Cta" class="relative h-screen lg:mt-53">
+    <section id="Cta" class="relative h-screen w-full lg:mt-53">
 
         <img src="images/Gemini_Generated_Image_ehaa16ehaa16ehaa.jpeg" alt="Image" class=" h-full w-full object-cover">  
            
