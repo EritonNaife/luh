@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+:root {
+    /* Primary Foundation */
+    --color-soft-beige: #ECE6D4;
+    
+    /* Key Information & Depth */
+    --color-deep-burgundy: #470303;
+    
+    /* Supportive Details & Structure */
+    --color-charcoal-gray: #787878;
+    
+    /* Engagement & Highlights */
+    --color-warm-peach: #EEC78B;
+    
+    /* Subtle Separation */
+    --color-light-gray: #DDDDDD;
+}
+
+@font-face {
+    font-family: 'Europa';
+    src: url('/Europa/europa.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'linotype-didot';
+    src: url('/fonts/linotype-didot/DidotLTPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+  
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'linotype-didot', serif;
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+/* Utility classes for common color applications */
+.text-secondary {
+    color: var(--color-charcoal-gray);
+}
+
+.bg-accent {
+    background-color: var(--color-warm-peach);
+}
+
+.border-subtle {
+    border-color: var(--color-light-gray);
+}
+
+.btn-primary {
+    background-color: var(--color-deep-burgundy);
+    color: var(--color-soft-beige);
+}
+
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--color-warm-peach);
+    color: var(--color-deep-burgundy);
+}
+
+.btn-secondary {
+    background-color: var(--color-warm-peach);
+    color: var(--color-deep-burgundy);
+}
+  
