@@ -7,7 +7,7 @@
         <div class="grid center grid-cols-1 md:grid-cols-4 gap-12">
             <!-- Brand Section -->
             <div class="space-y-4">
-                <h3 class="text-2xl font-bold">LuhBela</h3>
+                <h3 class="text-2xl font-bold">LuhBea</h3>
                 <p class="">Crafting moments of serenity through the art of scent.</p>
                 <div class="flex space-x-4">
                     <a href="https://www.tiktok.com/@luhbeacandles?_t=ZG-8wV0kOxcdQu&_r=1" class="text-black">
