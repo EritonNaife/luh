@@ -23,6 +23,16 @@
     // Optional: Recalculate on resize if the layout is very fluid
     // window.addEventListener('resize', handleResize);
     // return () => window.removeEventListener('resize', handleResize);
+
+    const firstCard = scrollContainer?.querySelector('.card-item');
+      if (firstCard) {
+        // Get the computed style to include margin/gap
+        const style = window.getComputedStyle(firstCard);
+        const cardWidth = firstCard.clientWidth;
+        // Assuming gap-x-4 which is 1rem = 16px
+        const gap = 16;
+        scrollAmount = cardWidth + gap;
+      }
   });
 
   function calculateScrollAmount() {
@@ -117,6 +127,31 @@
 			</div>
 		  {/each}
 		</div>
+    
+    <div class="absolute inset-y-0 left-0 flex items-center -translate-x-4 md:-translate-x-8">
+      <button
+        on:click={scrollPrev}
+        aria-label="Previous Card"
+        class="bg-gray-700 hover:bg-gray-900 text-white rounded-full p-2 shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+   </div>
+   
+    <div class="absolute inset-y-0 right-0 flex items-center translate-x-4 md:translate-x-8">
+      <button
+        on:click={scrollNext}
+        aria-label="Next Card"
+        class="bg-gray-700 hover:bg-gray-900 text-white rounded-full p-2 shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+   </div>
+
 
 		</div>
 	</div>
