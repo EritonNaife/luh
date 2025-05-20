@@ -79,8 +79,7 @@
       <ShopDropdown />
       <a href="/discounts" class="hover:underline">Discounts</a>
       <a href="/shop/points" class="hover:underline">Points Shop</a>
-      <a href="/about" class="hover:underline">About</a> 
-      <a href="/contact" class="hover:underline">Contact</a>
+    
     </nav>
 
     <div class="hidden md:flex items-center space-x-5">
