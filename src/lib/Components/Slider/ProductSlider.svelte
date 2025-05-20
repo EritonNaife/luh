@@ -108,7 +108,7 @@
 			  <img
 				src={product.imageUrl}
 				alt={product.name}
-				class="w-full object-cover h-50 lg:h-75"/>
+				class="w-full object-cover h-50 lg:h-80 lg:w-65 lg:h-90"/>
 			  <div class="py-4">
 				<h3 class="text-[17px] lg:text-xl">{product.name}</h3>
 				<p class="text-sm">{product.description}</p> 
