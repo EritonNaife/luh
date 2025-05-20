@@ -19,7 +19,7 @@
 <main>
     
     <section id="Hero-section " in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
-        <div class="relative h-screen w-full overflow-hidden">
+        <div class="relative h-screen">
             <div class="absolute inset-0 bg-black/40 "></div>
 			<img src="images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg" alt="" class="w-full h-full object-cover">
             <div class="absolute bottom-10 left-20 flex flex-col justify-center items-center text-center text-white lg:top-40 lg:left-240 " in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
@@ -55,7 +55,7 @@
     </section>
     
     
-    <section id="Cta" class="relative h-screen w-full overflow-hidden lg:mt-53">
+    <section id="Cta" class="relative h-screen lg:mt-53">
 
         <img src="images/Gemini_Generated_Image_ehaa16ehaa16ehaa.jpeg" alt="Image" class=" h-full w-full object-cover">  
            
