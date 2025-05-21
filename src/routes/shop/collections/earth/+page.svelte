@@ -27,7 +27,7 @@
             <h1 class="absolute text-3xl text-white lg:text-5xl mb-20" in:fly={{duration:2000, y:100}} >Earth Candle Collection</h1>
         </div>
 
-        <div class="p-4 flex flex-col justify-center items-center">
+        <div class="p-4 flex flex-col justify-center items-center gap-2">
             <h2 class="text-2xl/8 font-light lg:text-2xl">Bring the Forest Home</h2>
             <p class="text-center text-md/8 font-light lg:text-xl">Ground yourself in nature’s finest: warm cedarwood, fresh eucalyptus, and rich vetiver to reconnect mind and space</p>
         </div>
