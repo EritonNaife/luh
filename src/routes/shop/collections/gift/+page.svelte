@@ -28,14 +28,14 @@
         </div>
 
         <!--
-            
+
             <div class="p-5 flex flex-col justify-center items-center">
                 <p class="text-center text-2xl/8 font-light lg:text-xl">
                     Wrapped in intention, the Gift Collection turns scent into sentiment. Delicate florals, warm resins, and bright botanicals are presented in timeless vessels—ready to be treasured. Whether marking a milestone or offering everyday elegance, these candles elevate the art of giving. Thoughtful, refined, and universally loved, they speak without words and linger with grace.</p>
             </div>
         -->
 
-        <div class="flex flex-col justify-center items-center">
+        <div class="p-4 flex flex-col justify-center items-center gap-2">
             <h2 class="text-2xl/8 font-light lg:text-2xl">Return to Stillness</h2>
             <p class="text-center text-md/8 font-light lg:text-xl">Soft chamomile, white lavender, and clean woods bring peace to the moment and quiet to the mind</p>
         </div>

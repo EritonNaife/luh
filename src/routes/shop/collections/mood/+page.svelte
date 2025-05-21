@@ -44,7 +44,7 @@
         -->
 
       
-        <div class="flex flex-col justify-center items-center">
+        <div class="p-4 flex flex-col justify-center items-center gap-2">
             <h2 class="text-2xl/8 font-light lg:text-2xl">Shift the Energy</h2>
             <p class="text-center text-md/8 font-light lg:text-xl">From smoky vetiver to sultry amber, set the tone with scents that inspire focus, creativity, and emotion</p>
         </div>
