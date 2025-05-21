@@ -28,17 +28,7 @@
             </div>
         </div>    
     </section>
-    
-    <section id="Latest-products" class="p-4">
-    
-        <div class="flex justify-center gap-4 p-4">
-            <h2 class="text-2xl lg:text-3xl">You might like</h2>
-            <h2 class="text-2xl opacity-50 lg:text-3xl">Whats New</h2>
-        </div>
-        
-        <ProductSlider/>
-    </section>
-    
+   
     <section id="Collections-section" class="">
       
             <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">You might like</h2>
@@ -54,7 +44,7 @@
     </section>
   
 
-<section id="Cta" class="relative h-screen lg:mt-53">
+	<section id="Cta" class="relative h-screen lg:mt-53">
 
         <img src="images/Gemini_Generated_Image_ehaa16ehaa16ehaa.jpeg" alt="Image" class=" h-full w-full object-cover">  
            
