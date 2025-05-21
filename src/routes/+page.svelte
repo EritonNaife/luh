@@ -41,7 +41,7 @@
     
     <section id="Collections-section" class="">
       
-            <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">You might like</h2>
+            <h2 class=" text-2xl text-center lg:text-3xl bg-[#fae0df]">You might like</h2>
     
             <div class="p-2 grid grid-cols-2 lg:flex justify-center lg:gap-5">
                 <Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth"/>
