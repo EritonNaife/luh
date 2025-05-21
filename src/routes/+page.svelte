@@ -43,12 +43,18 @@
       
             <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">You might like</h2>
     
-           
+            <div class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4">
+                <Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth"/>
+                <Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>
+                <Collection link="shop/collections/gift" url = "images/gift-collection-candle.jpeg" caption="Gift"/>
+                <Collection link="shop/collections/mood" url="images/mood-collection-candle.jpeg" caption="Mood"/>
+                
+            </div>
     
     </section>
-    
-    
-    <section id="Cta" class="relative h-screen lg:mt-53">
+    <!--
+
+<section id="Cta" class="relative h-screen lg:mt-53">
 
         <img src="images/Gemini_Generated_Image_ehaa16ehaa16ehaa.jpeg" alt="Image" class=" h-full w-full object-cover">  
            
@@ -60,7 +66,11 @@
         </div>           
     </section>
     
+	-->
+    
+    
 </main>
+
 <style>
 	@media screen and (min-width: 500px) {
 		:global(#slidy_cards .slidy-ul li) {width: 70vw;}
