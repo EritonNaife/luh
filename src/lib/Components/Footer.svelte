@@ -49,12 +49,7 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Stay Updated</h4>
                 <p class="mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
-                <form class="space-y-2">
-                    <input type="email" placeholder="Your email address" class="w-110 border-2 border-primary-500/20 rounded-lg focus:outline-none focus:border-primary-500 text-dark lg:w-full">
-                    <button type="submit" class="bg-black text-white w-110 py-2 rounded-lg hover:bg-white hover:text-black transition-colors lg:w-full">
-                        Subscribe
-                    </button>
-                </form>
+               
             </div>
         </div>
 
