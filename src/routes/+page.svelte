@@ -39,7 +39,14 @@
         <ProductSlider/>
     </section>
     
-   
+    <section id="Collections-section" class="">
+      
+            <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">You might like</h2>
+    
+           
+    
+    </section>
+    
     
     <section id="Cta" class="relative h-screen lg:mt-53">
 
