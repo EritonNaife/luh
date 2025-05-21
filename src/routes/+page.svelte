@@ -16,9 +16,9 @@
 </script>
 
 
-<main>
-    
-    <section id="Hero-section" class="relative h-screen w-full" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
+<main class="w-full">
+    <!--
+		 <section id="Hero-section" class="relative min-h-screen w-full flex flex-col items-center justify-center" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
 		<div class="absolute inset-0 z-0">
 			<img src="images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg" alt="" class="w-full h-full object-cover">
 			<div class="absolute inset-0 bg-black/30"></div>
@@ -32,6 +32,13 @@
 		  
     </section>
     
+	-->
+   
+	<section class="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6 lg:px-16 py-16 md:py-32">
+		
+		<div class="absolute inset-0 bg-cover bg-center" style = "background-image:url('images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg');"></div>
+	</section>
+
     <section id="Latest-products" class="p-4">
     
         <div class="flex justify-center gap-4 p-4">
