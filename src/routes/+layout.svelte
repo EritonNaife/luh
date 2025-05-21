@@ -5,7 +5,7 @@
 </script>
 
 
-<div class="">
+<div class="grid h-screen grid-rows-[auto_1fr_auto]">
 	<Header/>
 
 	<slot/>
