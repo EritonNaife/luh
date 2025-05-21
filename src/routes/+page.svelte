@@ -16,55 +16,24 @@
 </script>
 
 
-<main class="w-full">
-    <!--
-		 <section id="Hero-section" class="relative min-h-screen w-full flex flex-col items-center justify-center" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
-		<div class="absolute inset-0 z-0">
-			<img src="images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg" alt="" class="w-full h-full object-cover">
-			<div class="absolute inset-0 bg-black/30"></div>
-		</div>
-		
-		<div class="absolute bottom-10 left-20 flex flex-col justify-center items-center text-center text-white lg:top-40 lg:left-240 " in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
-			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
-			<p class="text-lg md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
-			<button class="mt-8 py-1 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Learn More</button>
-		</div>
-		  
+<main>
+    
+    <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
+        <div class="relative bg-cover bg-center h-screen " style="background-image: url('images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg')">
+            <div class="absolute inset-0 bg-black/40 "></div>
+            <div class="absolute bottom-10 left-20 flex flex-col justify-center items-center text-center text-white lg:top-40 lg:left-240 " in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
+                <p class="text-lg md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
+                <button class="mt-8 py-1 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Learn More</button>
+            </div>
+        </div>    
     </section>
     
-	-->
-   
-	<section
-        class="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6 lg:px-16 py-16 md:py-32">
-        <!-- Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center"
-            style="background-image: url('https://plus.unsplash.com/premium_photo-1695762436987-1cf827e5f1dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGJ1cmdlcmFpfGVufDB8MHwwfHx8MA%3D%3D');">
-        </div>
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-
-        <!-- Content -->
-        <div class="relative z-10 text-white max-w-2xl">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                Welcome to Our Platform
-            </h1>
-            <p class="mt-4 text-lg md:text-xl">
-                Discover amazing features and join us today.
-            </p>
-            <div class="mt-6">
-                <a href="#"
-                    class="group px-6 py-3 bg-red-500 hover:bg-red-600 rounded-lg text-lg font-semibold transition inline-flex items-center">
-                    Get Started
-                    <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
     <section id="Latest-products" class="p-4">
     
         <div class="flex justify-center gap-4 p-4">
-            <h2 class="text-2xl lg:text-3xl">Whats New</h2>
+            <h2 class="text-2xl lg:text-3xl">You might like</h2>
+            <h2 class="text-2xl opacity-50 lg:text-3xl">Whats New</h2>
         </div>
         
         <ProductSlider/>
