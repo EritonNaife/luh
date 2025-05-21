@@ -28,7 +28,7 @@
         <img src={url} alt="" class="w-full h-full object-cover transition-trasnform duration-700 group-hover:scale-103">
     </header>
 
-    <footer class="absolute">
-        <p>{caption}</p>
+    <footer class="absolute ">
+        <h3>{caption}</h3>
     </footer>
 </a>
