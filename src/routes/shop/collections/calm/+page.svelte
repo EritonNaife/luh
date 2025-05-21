@@ -27,6 +27,11 @@
             <img src="/images/calm.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
             <h1 class="absolute text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}}  >Calm Candle Collection</h1>
         </div>
+
+        <div class="flex flex-col justify-center items-center">
+            <h2 class="text-xl lg:text-2xl">Breathe In, Unwind, Repeat</h2>
+            <p class="text-center text-md lg:text-xl">Discover soft lavender and chamomile blends that transform any moment into a sanctuary of serenity.</p>
+        </div>
        
     </section>
 
