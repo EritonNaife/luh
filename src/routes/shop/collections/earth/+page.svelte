@@ -22,7 +22,7 @@
 
     <section class="hero-section space-y-5">
 
-        <div class="h-170 flex justify-center items-center" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }} >
+        <div class="h-[70vh] flex justify-center items-center" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }} >
             <img src="/images/earth.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
             <h1 class="absolute top-130 text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}} >Earth Candle Collection</h1>
         </div>
