@@ -58,12 +58,7 @@
 
         <img src="images/Gemini_Generated_Image_ehaa16ehaa16ehaa.jpeg" alt="Image" class=" h-full w-full object-cover">  
            
-        <div class="absolute flex flex-col items-center gap-4 bottom-[10%] left-[25%] right-[25%] lg:bottom-[15%] lg:-left-[30%] ">
-
-            <h2 class="text-2xl tracking-tight lg:text-3xl">Discover</h2>
-            <h2 class="text-3xl tracking-tight lg:text-3xl">Your Signature Scent</h2>    
-            <button class="py-2 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Explore Collection</button>
-        </div>           
+                
     </section>
     
 </main>
