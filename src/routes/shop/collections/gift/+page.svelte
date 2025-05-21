@@ -22,7 +22,7 @@
 
     <section class="hero-section" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }} >
 
-        <div class="h-[50vh] flex justify-center items-end"  >
+        <div class="h-[40vh] flex justify-center items-end"  >
             <img src="/images/gift.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
             <h1 class="absolute text-3xl text-white lg:text-5xl mb-20" in:fly={{duration:2000, y:100}} >Gift Candle Collection</h1>
         </div>
