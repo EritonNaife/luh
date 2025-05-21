@@ -29,7 +29,7 @@
         </div>
 
         <div class="p-5 flex flex-col justify-center items-center">
-            <p class="text-center text-2xl/8 font-light lg:text-xl">
+            <p class="text-center text-xl/8 font-light lg:text-xl">
                 Exhale and soften into stillness. The Calm Collection is a 
                 gentle whisper of serenity—notes of chamomile, creamy sandalwood, 
                 and fresh linen soothe the senses. Drift through fields of white lavender 
