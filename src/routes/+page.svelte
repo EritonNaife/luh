@@ -37,7 +37,7 @@
             <h2 class="text-2xl opacity-50 lg:text-3xl">Whats New</h2>
         </div>
         
-        
+        <ProductSlider/>
     </section>
     
     <section id="Collections-section" class="">

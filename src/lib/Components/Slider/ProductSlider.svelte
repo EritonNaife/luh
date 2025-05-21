@@ -109,7 +109,7 @@
 </script>
 
 <div class="flex justify-center">
-	<div class="w-100 lg:w-7xl font-sans">
+	<div class="w-[80vw] font-sans">
 		<div class="relative">
 			<div bind:this={scrollContainer} on:scroll={debouncedScrollHandler}  style="-webkit-overflow-scrolling: touch;"
 			class="flex overflow-x-auto snap-x scroll-smooth p-4 space-x-4 scrollbar-hide">
