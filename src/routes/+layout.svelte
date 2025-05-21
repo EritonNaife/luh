@@ -8,7 +8,7 @@
 <div class="grid h-screen grid-rows-[auto_1fr_auto]">
 	<Header/>
 
-
+	<slot/>
 
 	<Footer/>
 </div>
