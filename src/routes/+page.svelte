@@ -70,7 +70,7 @@
 
             <h2 class="text-2xl tracking-tight lg:text-3xl">Discover</h2>
             <h2 class="text-3xl tracking-tight lg:text-3xl">Your Signature Scent</h2>    
-            <button class="py-2 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Explore Collection</button>
+            <a href="/shop/collections/mood" class="py-2 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Explore Collection</a>
         </div>           
     </section>
     
