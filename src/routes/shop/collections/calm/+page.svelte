@@ -23,16 +23,29 @@
 
     <section class="" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }}>
 
-        <div class="h-[80vh] flex justify-center items-center">
+        <div class="h-[40vh] flex justify-center items-end">
             <img src="/images/calm.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
-            <h1 class="absolute bottom-60 text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}}  >Calm Candle Collection</h1>
+            <h1 class="absolute text-3xl mb-20 text-white font-light lg:text-5xl " in:fly={{duration:2000, y:100}}  >Calm Candle Collection</h1>
         </div>
 
-        <div class="flex flex-col justify-center items-center">
-            <h2 class="text-xl lg:text-2xl">Breathe In, Unwind, Repeat</h2>
-            <p class="text-center text-md lg:text-xl">Discover soft lavender and chamomile blends that transform any moment into a sanctuary of serenity.</p>
+        <div class="p-5 flex flex-col justify-center items-center">
+            <p class="text-center text-2xl/8 font-light lg:text-xl">
+                Exhale and soften into stillness. The Calm Collection is a 
+                gentle whisper of serenity—notes of chamomile, creamy sandalwood, 
+                and fresh linen soothe the senses. Drift through fields of white lavender 
+                and morning dew, where time slows and quiet reigns. Each candle is a sanctuary,
+                crafted to bring peaceful rituals and grounded beauty to your everyday.
+            </p>
         </div>
        
+    </section>
+
+    <section class="">
+
+        <div class="">
+
+        </div>
+
     </section>
 
     <!--

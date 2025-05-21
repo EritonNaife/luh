@@ -35,9 +35,10 @@
         </div>
         
 
-        <div class="flex flex-col justify-center items-center">
-            <h2 class="text-xl lg:text-2xl">Breathe In, Unwind, Repeat</h2>
-            <p class="text-center lg:text-xl">Discover soft lavender and chamomile blends that transform any moment into a sanctuary of serenity.</p>
+        <div class="p-5 flex flex-col justify-center items-center">
+            <p class="text-center text-2xl/8 font-light lg:text-xl">
+                Light to shift the atmosphere. The Mood Collection harnesses scent as emotion—bold amber, smoky vetiver, and wild fig stir something deep. From warm, grounding blends to bright, playful accords, each candle invites transformation. Whether you seek focus, romance, or energy, this is your ritual—an olfactive switch to tune the day, the room, and yourself.
+            </p>
         </div>
 
     </section>

@@ -28,8 +28,8 @@
         </div>
 
         <div class="flex flex-col justify-center items-center">
-            <h2 class="text-xl lg:text-2xl">Bring the Forest Home</h2>
-            <p class="text-center lg:text-xl">Ground yourself in nature’s finest: warm cedarwood, fresh eucalyptus, and rich vetiver to reconnect mind and space</p>
+            <h2 class="text-2xl/8 font-light  lg:text-2xl">Bring the Forest Home</h2>
+            <p class="text-center text-md/8 lg:text-xl">Ground yourself in nature’s finest: warm cedarwood, fresh eucalyptus, and rich vetiver to reconnect mind and space</p>
         </div>
 
     </section>

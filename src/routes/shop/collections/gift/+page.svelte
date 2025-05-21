@@ -27,9 +27,9 @@
             <h1 class="absolute top-130 text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}} >Gift Candle Collection</h1>
         </div>
 
-        <div class="flex flex-col justify-center items-center">
-            <h2 class="text-xl lg:text-2xl">Breathe In, Unwind, Repeat</h2>
-            <p class="text-center lg:text-xl">Discover soft lavender and chamomile blends that transform any moment into a sanctuary of serenity.</p>
+        <div class="p-5 flex flex-col justify-center items-center">
+            <p class="text-center text-2xl/8 font-light lg:text-xl">
+                Wrapped in intention, the Gift Collection turns scent into sentiment. Delicate florals, warm resins, and bright botanicals are presented in timeless vessels—ready to be treasured. Whether marking a milestone or offering everyday elegance, these candles elevate the art of giving. Thoughtful, refined, and universally loved, they speak without words and linger with grace.</p>
         </div>
 
     </section>
