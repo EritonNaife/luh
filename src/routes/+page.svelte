@@ -16,60 +16,6 @@
 </script>
 
 
-<main>
-    
-    <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
-        <div class="relative bg-cover bg-center h-screen " style="background-image: url('images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg')">
-            <div class="absolute inset-0 bg-black/40 "></div>
-            <div class="absolute bottom-10 left-20 flex flex-col justify-center items-center text-center text-white lg:top-40 lg:left-240 " in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
-                <p class="text-lg md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
-                <button class="mt-8 py-1 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Learn More</button>
-            </div>
-        </div>    
-    </section>
-    
-    <section id="Latest-products" class="p-4">
-    
-        <div class="flex justify-center gap-4 p-4">
-            <h2 class="text-2xl lg:text-3xl">You might like</h2>
-            <h2 class="text-2xl opacity-50 lg:text-3xl">Whats New</h2>
-        </div>
-        
-        <ProductSlider/>
-    </section>
-    
-    <section id="Collections-section" class="">
-      
-            <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">You might like</h2>
-    
-            <div class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4">
-                <Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth"/>
-                <Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>
-                <Collection link="shop/collections/gift" url = "images/gift-collection-candle.jpeg" caption="Gift"/>
-                <Collection link="shop/collections/mood" url="images/mood-collection-candle.jpeg" caption="Mood"/>
-                
-            </div>
-    
-    </section>
-    <!--
-
-<section id="Cta" class="relative h-screen lg:mt-53">
-
-        <img src="images/Gemini_Generated_Image_ehaa16ehaa16ehaa.jpeg" alt="Image" class=" h-full w-full object-cover">  
-           
-        <div class="absolute flex flex-col items-center gap-4 bottom-[10%] left-[25%] right-[25%] lg:bottom-[15%] lg:-left-[30%] ">
-
-            <h2 class="text-2xl tracking-tight lg:text-3xl">Discover</h2>
-            <h2 class="text-3xl tracking-tight lg:text-3xl">Your Signature Scent</h2>    
-            <button class="py-2 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Explore Collection</button>
-        </div>           
-    </section>
-    
-	-->
-    
-    
-</main>
 
 <style>
 	@media screen and (min-width: 500px) {
