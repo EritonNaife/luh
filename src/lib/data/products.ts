@@ -22,7 +22,7 @@ export interface Product {
       price: 20.00,
       description: 'Invigorating blend of sea salt and fresh air.',
       reviews: 34,
-      imageUrl: '/images/ocean.jpg',
+      imageUrl: 'images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png',
     },
     {
       id: '3',
