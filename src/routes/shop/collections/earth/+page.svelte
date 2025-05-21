@@ -39,18 +39,20 @@
     
     <section id="product-display" class="mt-10">
         
-        <div class="p-2 flex justify-around w-full">
+        <div class="p-2 flex justify-between w-full border-[1px]">
 
             <div class="">
                 <button class="">Filter</button>
             </div>
 
-            <div class=""></div>
-
             <div class="">
                 <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
             </div>
-         
+
+            <div class="flex items-center gap-1">
+                <Icon icon="material-symbols-light:square" class="size-7 text-black/70"/>
+                <Icon icon="clarity:grid-view-solid" class="size-6 text-black/70" />
+            </div>
         </div>
         
         <div id="product-grid" class="p-2 grid grid-cols-2 justify-items-center space-y-4">
