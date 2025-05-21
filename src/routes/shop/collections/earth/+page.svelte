@@ -18,9 +18,9 @@
 
 
 
-<main class="relative space-y-20">
+<main>
 
-    <section class="hero-section space-y-5">
+    <section class="hero-section">
 
         <div class="h-[70vh] flex justify-center items-end sm:h-[80vh] md:h-[70vh] lg:h-[80vh]" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }} >
             <img src="/images/earth.jpeg" alt="http://localhost:5173/images/earth.jpegCalm Collection" class="w-full h-full object-cover">
