@@ -38,7 +38,13 @@
     
     <section id="product-display" class="h-screen">
 
-      
+        <div class="flex justify-around w-full border-1">
+
+            <div class="">
+                <button>Filter</button>
+            </div>
+
+        </div>
 
     </section>
 

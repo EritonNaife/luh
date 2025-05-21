@@ -18,7 +18,7 @@
 
 
 
-<main>
+<main class="">
 
     <section class="hero-section" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }}>
 
@@ -34,23 +34,32 @@
 
     </section>
     
-    <!--
-         <section id="product-display" class="">
+    
+    <section id="product-display" class="mt-10">
+        
+        <div class="p-2 flex justify-around w-full">
 
-        <div class="flex justify-center items-center w-full border-1">
-
-            <div class="border-r-1">
-
+            <div class="">
                 <button class="">Filter</button>
-
             </div>
 
+            <div class=""></div>
+
+            <div class="">
+                <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
+            </div>
          
+        </div>
+        
+        <div id="product-grid" class="p-2 grid grid-cols-2">
+            {#each featuredProducts as product}
+                <ProductCard {product} />
+            {/each}
         </div>
 
     </section>
 
 
-    -->
+
    
 </main>
