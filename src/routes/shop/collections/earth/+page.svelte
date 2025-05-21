@@ -55,9 +55,9 @@
         
         <div id="product-grid" class="p-4 grid grid-cols-2 justify-items-center">
             {#each featuredProducts as product}
-                <div class="card flex flex-col gap-2">
+                <div class="card flex flex-col">
 
-                    <header class="w-[40vw] border-1">
+                    <header class="w-[50vw] h-60 border-1">
                         <img src={product.imageUrl} alt={product.name} class="w-full h-full object-cover">
                     </header>
 
