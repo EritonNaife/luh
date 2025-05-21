@@ -22,13 +22,13 @@
 
 -->
 
-<a href={link} class="relative w-[45vw] md:w-[48vw] lg:w-[24vw] group cursor-pointer flex flex-col items-center">
+<a href={link} class="relative w-[49vw] md:w-[48vw] lg:w-[24vw] group cursor-pointer flex flex-col items-center">
 
     <header class="aspect-[3/4] w-full">
         <img src={url} alt="" class="w-full h-full object-cover transition-trasnform duration-700 group-hover:scale-103">
     </header>
 
-    <footer>
+    <footer class="absolute">
         <p>{caption}</p>
     </footer>
 </a>
