@@ -24,7 +24,7 @@
 
             <div class="absolute inset-0 bg-black/40 "></div>
 
-            <div class="absolute text-white mb-5 lg:right-30 lg:top-90" in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
+            <div class="absolute bottom-30 text-white mb-5 md:right-30 md:top-90" in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
                 <p class="text-md md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
