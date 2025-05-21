@@ -26,10 +26,10 @@
 
 <main>
 
-    <section class="hero-section">
+    <section class="hero-section" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }}>
 
-        <div class="h-[70vh] flex justify-center items-center" 
-             in:scale={{duration: 1000, start: 1.5 , opacity: 0 }} >
+        <div class="h-[70vh] flex justify-center items-end" 
+              >
              
             <img src="/images/mood.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
             <h1 class="absolute top-130 text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}} >Mood Candle Collection</h1>
@@ -44,7 +44,7 @@
         -->
 
       
-        <div class="p-4 flex flex-col justify-center items-center gap-2">
+        <div class="p-4 flex flex-col justify-center items-center gap-2"in:fly={{duration:2000, y:100}} >
             <h2 class="text-2xl/8 font-light lg:text-2xl">Shift the Energy</h2>
             <p class="text-center text-md/8 font-light lg:text-xl">From smoky vetiver to sultry amber, set the tone with scents that inspire focus, creativity, and emotion</p>
         </div>

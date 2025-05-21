@@ -28,14 +28,29 @@
         </div>
 
         <div class="p-4 flex flex-col justify-center items-center gap-2" in:fly={{duration:2000, y:100}} >
-            <h2 class="text-2xl/8 font-light lg:text-2xl">Bring the Forest Home</h2>
-            <p class="text-center text-md/8 font-light lg:text-xl">Ground yourself in nature’s finest: warm cedarwood, fresh eucalyptus, and rich vetiver to reconnect mind and space</p>
+            <h2 class="text-2xl/8 font-light lg:text-2xl"> Bring the Forest Home</h2>
+            <p class="text-center text-md/8 font-light lg:text-xl"> Ground yourself in nature’s finest: warm cedarwood, fresh eucalyptus, and rich vetiver to reconnect mind and space</p>
         </div>
 
     </section>
     
-    <section id="product-display" class="h-screen">
+    <!--
+         <section id="product-display" class="">
+
+        <div class="flex justify-center items-center w-full border-1">
+
+            <div class="border-r-1">
+
+                <button class="">Filter</button>
+
+            </div>
+
+         
+        </div>
 
     </section>
 
+
+    -->
+   
 </main>
