@@ -4,8 +4,10 @@
     import ProductCard from '$lib/Components/Cards/ProductCard.svelte';
 	import { fly, scale } from 'svelte/transition';
 
+    let icon:string = "mynaui:plus";
     let isAscending = false;
     let filterMenu = false;
+    
     function  toggleFilterMenu()  {
         filterMenu = !filterMenu;
     }
@@ -51,9 +53,19 @@
          
         </div>
         
-        <div id="product-grid" class="p-2 grid grid-cols-2">
+        <div id="product-grid" class="p-4 grid grid-cols-2 justify-items-center">
             {#each featuredProducts as product}
-                <ProductCard {product} />
+                <div class="card flex flex-col gap-2">
+
+                    <header class="w-[40vw] border-1">
+                        <img src={product.imageUrl} alt={product.name} class="w-full h-full object-cover">
+                    </header>
+
+                    <footer>
+                        <h3>{product.name}</h3>
+                        <p>€ {product.price}</p>
+                    </footer>
+                </div>
             {/each}
         </div>
 
