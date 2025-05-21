@@ -57,7 +57,7 @@
             {#each featuredProducts as product}
                 <div class="card flex flex-col gap-2">
 
-                    <header class="w-[45vw] h-60 border-1">
+                    <header class="w-[45vw] h-50 border-1">
                         <img src={product.imageUrl} alt={product.name} class="w-full h-full object-cover">
                     </header>
 
