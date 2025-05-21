@@ -21,12 +21,13 @@
 <main class="relative">
 
 
-    <section class="">
+    <section class="" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }}>
 
-        <div class="h-[80vh]">
+        <div class="h-[80vh] flex justify-center items-center">
             <img src="/images/calm.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
+            <h1 class="absolute text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}}  >Calm Candle Collection</h1>
         </div>
-
+       
     </section>
 
     <!--
