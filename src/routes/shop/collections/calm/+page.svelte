@@ -25,7 +25,7 @@
 
         <div class="h-[80vh] flex justify-center items-center">
             <img src="/images/calm.jpeg" alt="Calm Collection" class="w-full h-full object-cover">
-            <h1 class="absolute text-3xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}}  >Calm Candle Collection</h1>
+            <h1 class="absolute bottom-50 text-4xl text-white lg:text-5xl" in:fly={{duration:2000, y:100}}  >Calm Candle Collection</h1>
         </div>
 
         <div class="flex flex-col justify-center items-center">
