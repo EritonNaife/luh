@@ -41,15 +41,19 @@
         
         <div class="p-1 flex justify-between w-full border-y-[0.5px]">
 
-            <div class="w-[40%] flex justify-center">
+            <div class="">
                 <button class="">Filter</button>
             </div>
 
-            <div class="w-[50%] flex justify-center border-x-[0.5px]">
+         
+
+            <div class="">
                 <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
             </div>
 
-            <div class="w-[20%] flex justify-center items-center gap-1">
+            
+
+            <div class="flex justify-center items-center gap-1">
                 <Icon icon="material-symbols-light:square" class="size-7 text-black/70"/>
                 <Icon icon="clarity:grid-view-solid" class="size-6 text-black/70" />
             </div>
