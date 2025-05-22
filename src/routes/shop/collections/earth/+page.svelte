@@ -61,11 +61,12 @@
         
         <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4">
             {#each featuredProducts as product}
-                <div class="card flex flex-col gap-2">
 
-                    <a href="/products/{product.id}" class="p-1 relative w-[45vw] h-50 bg-cover bg-center flex justify-end items-end" style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
-                        <div class="bg-white">
-                            <Icon icon = "mynaui:plus" class="size-8"/>
+                <div class="card flex flex-col gap-2 group cursor-pointer">
+
+                    <a href="/products/{product.id}" class="p-2 relative w-[45vw] h-50 bg-cover bg-center flex justify-end items-end" style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
+                        <div class="bg-white transition-transform duration-300 group-hover:-translate-y-2 ">
+                            <Icon icon = "mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90"/>
                         </div>
                     </a>
 
