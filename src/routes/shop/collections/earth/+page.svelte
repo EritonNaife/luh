@@ -39,17 +39,17 @@
     
     <section id="product-display" class="mt-10">
         
-        <div class="p-2 flex justify-between w-full border-[1px]">
+        <div class="p-1 flex justify-between w-full border-y-[0.5px]">
 
-            <div class="">
+            <div class="w-[40%] flex justify-center">
                 <button class="">Filter</button>
             </div>
 
-            <div class="">
+            <div class="w-[50%] flex justify-center border-x-[0.5px]">
                 <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
             </div>
 
-            <div class="flex items-center gap-1">
+            <div class="w-[20%] flex justify-center items-center gap-1">
                 <Icon icon="material-symbols-light:square" class="size-7 text-black/70"/>
                 <Icon icon="clarity:grid-view-solid" class="size-6 text-black/70" />
             </div>
