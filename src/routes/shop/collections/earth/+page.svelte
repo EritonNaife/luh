@@ -4,7 +4,7 @@
     import ProductCard from '$lib/Components/Cards/ProductCard.svelte';
 	import { fly, scale } from 'svelte/transition';
 
-    let icon:string = "mynaui:plus";
+
     let isAscending = false;
     let filterMenu = false;
     
@@ -63,9 +63,11 @@
             {#each featuredProducts as product}
                 <div class="card flex flex-col gap-2">
 
-                    <header class="w-[45vw] h-50">
-                        <img src="/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png" alt={product.name} class="w-full h-full object-cover">
-                    </header>
+                    <a href="/products/{product.id}" class="p-1 relative w-[45vw] h-50 bg-cover bg-center flex justify-end items-end" style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
+                        <div class="bg-white">
+                            <Icon icon = "mynaui:plus" class="size-8"/>
+                        </div>
+                    </a>
 
                     <footer>
                         <h3>{product.name}</h3>
