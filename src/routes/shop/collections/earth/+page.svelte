@@ -53,7 +53,7 @@
 
             
 
-            <div class="p-2 w-[20%] border-l-[0.5px] flex justify-center items-center gap-1">
+            <div class="p-2 images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngw-[20%] border-l-[0.5px] flex justify-center items-center gap-1">
                 <Icon icon="material-symbols-light:square" class="size-7 text-black/70"/>
                 <Icon icon="clarity:grid-view-solid" class="size-6 text-black/70" />
             </div>
@@ -63,8 +63,8 @@
             {#each featuredProducts as product}
                 <div class="card flex flex-col gap-2">
 
-                    <header class="w-[45vw] h-50 border-1">
-                        <img src="" alt={product.name} class="w-full h-full object-cover">
+                    <header class="w-[45vw] h-50">
+                        <img src="/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png" alt={product.name} class="w-full h-full object-cover">
                     </header>
 
                     <footer>
