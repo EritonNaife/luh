@@ -39,7 +39,7 @@
     
     <section id="product-display" class="mt-10">
         
-        <div class="flex justify-between w-full border-t-[0.5px] border-b-[0.5px]">
+        <div class="flex justify-between w-full border-t-[1px] border-b-[1px]">
 
             <div class="w-[30%] flex justify-center">
                 <button class="">Filter</button>
