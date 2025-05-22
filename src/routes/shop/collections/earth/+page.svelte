@@ -59,7 +59,7 @@
             </div>
         </div>
         
-        <div id="product-grid" class="p-2 grid grid-cols-2 justify-items-center space-y-4">
+        <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4">
             {#each featuredProducts as product}
                 <div class="card flex flex-col gap-2">
 
