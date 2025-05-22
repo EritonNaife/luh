@@ -41,19 +41,19 @@
         
         <div class="flex justify-between w-full border-t-[1px] border-b-[1px]">
 
-            <div class="w-[30%] flex justify-center">
+            <div class="p-2 w-[30%] flex justify-center">
                 <button class="">Filter</button>
             </div>
 
          
 
-            <div class="w-[30%] border-l-[0.5px] flex justify-center">
+            <div class="p-2 w-[30%] border-l-[0.5px] flex justify-center">
                 <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
             </div>
 
             
 
-            <div class="w-[20%] border-l-[0.5px] flex justify-center items-center gap-1">
+            <div class="p-2 w-[20%] border-l-[0.5px] flex justify-center items-center gap-1">
                 <Icon icon="material-symbols-light:square" class="size-7 text-black/70"/>
                 <Icon icon="clarity:grid-view-solid" class="size-6 text-black/70" />
             </div>
@@ -64,7 +64,7 @@
                 <div class="card flex flex-col gap-2">
 
                     <header class="w-[45vw] h-50 border-1">
-                        <img src={product.imageUrl} alt={product.name} class="w-full h-full object-cover">
+                        <img src="" alt={product.name} class="w-full h-full object-cover">
                     </header>
 
                     <footer>
