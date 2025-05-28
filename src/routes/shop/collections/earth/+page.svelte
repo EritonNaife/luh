@@ -59,12 +59,16 @@
             </div>
         </div>
         
-        <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4">
+        <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4 md:grid-cols-3 lg:grid-cols-4">
             {#each featuredProducts as product}
 
                 <div class="card flex flex-col gap-2 group cursor-pointer">
 
-                    <a href="/products/{product.id}" class="p-2 relative w-[45vw] h-50 bg-cover bg-center flex justify-end items-end" style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
+                    <a href="/products/{product.id}" 
+                       class="w-58 h-72 sm:w-8 sm:h-100 md:w-[31vw] md:h-[30vh] 
+                              lg:w-[24vw] lg:h-[40vh] p-2 relative bg-cover bg-center flex justify-end items-end" 
+                       style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
+
                         <div class="bg-white transition-transform duration-300 group-hover:-translate-y-2 ">
                             <Icon icon = "mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90"/>
                         </div>
@@ -80,7 +84,4 @@
 
     </section>
 
-
-
-   
 </main>
