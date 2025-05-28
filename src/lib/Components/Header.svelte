@@ -78,7 +78,7 @@
       <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
     </div>
 
-    <a href="/" class="">Logo</a> 
+    <a href="/" class="text-2xl">Logo</a> 
 
     <nav class="hidden lg:flex space-x-6 items-center">
       <ShopDropdown />
@@ -87,6 +87,7 @@
     </nav>
 
     <div class="hidden relative lg:flex items-center">
+      
       <div class="relative flex justify-center">
         <input
           type="text"
@@ -112,7 +113,7 @@
       
     </div>
 
-    <div class="flex gap-4">     
+    <div class="flex gap-1 lg:gap-4">     
       
       <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
         <Icon icon="ph:user-light" class="size-6" />
@@ -128,13 +129,26 @@
 
   </div>
 
-  <div class="relative flex flex-col p-2 border-b-2 w-full lg:hidden">
-    <div class="flex justify-end">
-      <Icon icon="mdi:magnify" width="24" height="24" class=""/>
+  <!--
+    <div class="relative flex flex-col p-2 w-full lg:hidden {isScrolled ? 'text-black bg-white' : `${baseTextClass} ${baseBgClass} `}">
+
+    <div class="flex justify-end ">
+      <Icon icon="mdi:magnify" class="size-7"/>
     </div>
   </div>
-
+  -->
  
+  <input type="text" placeholder="Try searching for..." class=" transition-all duration-300 ease-in-out
+                                                                
+                                                                border-0 
+                                                                focus:ring-0 focus:outline-none
+                                                                py-2 pr-10
+                                                                w-full
+    {isScrolled ? 'placeholder-black border-black bg-white border-b-0' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} ${'bg-transparent'} ${'border-b-2'}` }"/>
+   
+    <div class="absolute left-[92%] top-[69%]">
+      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-black' : baseTextClass}" />
+    </div>
 </header>
 
 {#if isMobileNavOpen}
