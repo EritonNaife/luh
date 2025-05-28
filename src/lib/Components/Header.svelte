@@ -139,14 +139,14 @@
   -->
  
   <input type="text" placeholder="Try searching for..." class=" transition-all duration-300 ease-in-out
-                                                                
-                                                                border-0 
+                                                                flex lg:hidden
+                                                                border-0 border-b-2
                                                                 focus:ring-0 focus:outline-none
                                                                 py-2 pr-10
                                                                 w-full
-    {isScrolled ? 'placeholder-black border-black bg-white border-b-0' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} ${'bg-transparent'} ${'border-b-2'}` }"/>
+    {isScrolled ? 'placeholder-black border-white' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} ${" bg-transparent" }` }"/>
    
-    <div class="absolute left-[92%] top-[69%]">
+    <div class="absolute left-[92%] top-[69%] flex lg:hidden">
       <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-black' : baseTextClass}" />
     </div>
 </header>

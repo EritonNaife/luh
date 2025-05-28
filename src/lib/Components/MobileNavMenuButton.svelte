@@ -39,7 +39,7 @@
 
 <button
     on:click={toggle}
-    class="md:hidden p-2 rounded-lg"
+    class="lg:hidden p-2 rounded-lg"
     aria-label={isOpen ? "Close menu" : "Open menu"}
 >
     <Icon 
