@@ -21,11 +21,9 @@
 </script>
 
 
+<section class="h-screen flex items-center">
 
-<main class="">
-    <section class="h-screen flex items-center">
-
-        <div class="w-full max-w-md mx-auto space-y-12">
+        <div class="w-full w-xs mx-auto space-y-12 md:w-[25vw]">
 
             <h1 class="text-center text-2xl lg:text-4xl">My Account</h1>
 
@@ -38,11 +36,7 @@
             
             {#if menu}
 
-                <div 
-                    class="flex flex-col gap-10"
-                  
-                  
-                >
+                <div class="flex flex-col gap-10"  >
 
                     <div class="border-b-1 w-full">
                         <input type="email" placeholder="Email" class="border-none">
@@ -94,5 +88,4 @@
 
         </div>
         
-    </section>
-</main>
+</section>
