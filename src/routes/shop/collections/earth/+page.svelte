@@ -65,7 +65,7 @@
                 <div class="card flex flex-col gap-2 group cursor-pointer">
 
                     <a href="/products/{product.id}" 
-                       class="w-[45vw] h-[40vh] sm:w-8 sm:h-100 md:w-[31vw] md:h-[30vh] 
+                       class="w-[45vw] h-[35vh] sm:w-8 sm:h-100 md:w-[31vw] md:h-[30vh] 
                               lg:w-[24vw] lg:h-[40vh] p-2 relative bg-cover bg-center flex justify-end items-end" 
                        style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
 
