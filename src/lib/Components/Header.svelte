@@ -82,7 +82,7 @@
     
     </nav>
 
-    <div class="hidden md:flex items-center space-x-5">
+    <div class="flex items-center space-x-5">
       <div class="relative w-full flex justify-center">
         <input
           type="text"
@@ -93,7 +93,7 @@
             border-0 border-b-2
             focus:ring-0 focus:outline-none
             py-2 pr-10
-            w-90 focus:w-120
+            w-60 sm:w-90 md:focus:w-120
             {isScrolled ? 'placeholder-black border-black focus:border-black' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
           "
           on:focus={() => (focused = true)}
@@ -105,17 +105,18 @@
         </div>
       </div>
 
-      <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
+      <button class="hidden md:flex" on:click={() => (isSlidingRegisterOpen = true)}>
         <Icon icon="ph:user-light" class="text-2xl" />
       </button>
-      <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
-      <button class="" on:click={() => (isSlidingCartOpen = true)}>
+      <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl hidden md:flex" /></a>
+      <button class="hidden md:flex" on:click={() => (isSlidingCartOpen = true)}>
         <Icon icon="ph:shopping-cart-simple-light" class="text-2xl" />
       </button>
     </div>
 
     <MobileNavMenuButton isOpen={isMobileNavOpen} toggle={() => (isMobileNavOpen = !isMobileNavOpen)} />
   </div>
+  
 </header>
 
 {#if isMobileNavOpen}
