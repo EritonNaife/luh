@@ -19,7 +19,7 @@
 
 <div 
     class="fixed p-6 top-0 right-0 w-full max-w-xs mx-auto h-full shadow-lg bg-white z-50 flex flex-col"
-    transition:slide = {{duration: 700, axis: 'x', easing: cubicInOut}}
+    transition:slide = {{duration: 300, axis: 'x', easing: cubicInOut}}
 >
 
     <div class="w-full mx-auto">

@@ -18,7 +18,7 @@
 
 
 <div class="fixed inset-y-0 top-0 right-0 w-full max-w-xs h-full shadow-lg bg-white z-50 flex flex-col"
-transition:slide = {{duration: 500, axis: 'x', easing: quartInOut}}
+transition:slide = {{duration: 300, axis: 'x', easing: quartInOut}}
 >
 
     <div class="header p-5 flex justify-between items-center text-2xl">
