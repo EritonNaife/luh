@@ -67,23 +67,27 @@
   <AnnouncementBar />
 </div>
 
-<header
-  class="fixed top-10 left-0 w-full z-40 transition-all duration-300 ease-in-out {isScrolled
+<header class="fixed top-10 left-0 w-full z-40 transition-all duration-300 ease-in-out flex flex-col {isScrolled
     ? 'text-black bg-[#fae0df]' 
     : `${baseTextClass} ${baseBgClass}`}"
 >
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="h1 mr-15">Logo</a> 
+  <div class="p-4 flex justify-between items-center lg:px-10">
 
-    <nav class="hidden md:flex space-x-6 items-center">
+    <div class="flex items-center lg:hidden">
+      <MobileNavMenuButton isOpen={isMobileNavOpen} toggle={() => (isMobileNavOpen = !isMobileNavOpen)} />
+      <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
+    </div>
+
+    <a href="/" class="">Logo</a> 
+
+    <nav class="hidden lg:flex space-x-6 items-center">
       <ShopDropdown />
       <a href="/discounts" class="hover:underline">Discounts</a>
       <a href="/shop/points" class="hover:underline">Points Shop</a>
-    
     </nav>
 
-    <div class="hidden md:flex items-center space-x-5">
-      <div class="relative w-full flex justify-center">
+    <div class="hidden relative lg:flex items-center">
+      <div class="relative flex justify-center">
         <input
           type="text"
           placeholder="Try searching for..."
@@ -105,17 +109,32 @@
         </div>
       </div>
 
-      <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
-        <Icon icon="ph:user-light" class="text-2xl" />
-      </button>
-      <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
-      <button class="" on:click={() => (isSlidingCartOpen = true)}>
-        <Icon icon="ph:shopping-cart-simple-light" class="text-2xl" />
-      </button>
+      
     </div>
 
-    <MobileNavMenuButton isOpen={isMobileNavOpen} toggle={() => (isMobileNavOpen = !isMobileNavOpen)} />
+    <div class="flex gap-4">     
+      
+      <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
+        <Icon icon="ph:user-light" class="size-6" />
+      </button>
+
+      <a href="/wishlist"> <Icon icon="ph:heart-light" class="size-6 hidden lg:flex" /></a>
+
+      <button class="" on:click={() => (isSlidingCartOpen = true)}>
+        <Icon icon="ph:shopping-cart-simple-light" class="size-6" />
+      </button>
+      
+    </div>
+
   </div>
+
+  <div class="relative flex flex-col p-2 border-b-2 w-full lg:hidden">
+    <div class="flex justify-end">
+      <Icon icon="mdi:magnify" width="24" height="24" class=""/>
+    </div>
+  </div>
+
+ 
 </header>
 
 {#if isMobileNavOpen}
