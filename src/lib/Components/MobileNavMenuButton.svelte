@@ -7,7 +7,7 @@
     export let toggle: () => void;
 
     // Threshold for when to change the header color (in pixels)
-  const SCROLL_THRESHOLD: number = 1000;
+  const SCROLL_THRESHOLD: number = 10;
 
   let currentPath: string;
   $: currentPath = $page.url.pathname;
