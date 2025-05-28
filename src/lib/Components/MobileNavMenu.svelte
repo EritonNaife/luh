@@ -21,27 +21,30 @@
   </script>
   
   <!-- Backdrop -->
-  <div class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity" on:click={handleClose} />
+  <div class="fixed inset-0 z-50 bg-[#8D3C42]/50 backdrop-blur-sm transition-opacity" on:click={handleClose} />
   
   <!-- Menu Container -->
   <div class="fixed inset-y-0 left-0 z-50 w-full max-w-xs bg-white shadow-xl overflow-y-auto">
     <div class="flex h-full flex-col">
         <!-- Header -->
         <div class="flex items-center justify-between border-b border-[#F9F5F3] px-4 py-4">
-            <span class="text-lg font-semibold">Candle Menu</span>
+            <span class="text-lg font-[PlayfairDisplay] font-semibold text-[#8D3C42]">Candle Menu</span>
             <button 
                 on:click={handleClose} 
                 class="rounded-full p-2 hover:bg-[#F9F5F3] transition-colors"
             >
-                <Icon icon="material-symbols:close" class="h-6 w-6" />
+                <Icon icon="material-symbols:close" class="h-6 w-6 text-[#8D3C42]" />
                 <span class="sr-only">Close</span>
             </button>
         </div>
   
-       
+        <!-- Search bar area -->
+        <div class="px-4 py-3">
+            <SearchBar />
+        </div>
   
         <!-- User Account & Cart Row -->
-        <div class="flex justify-between items-center px-4 py-3">
+        <div class="flex justify-between items-center px-4 py-3 bg-[#F9F5F3]/50">
             <a href="/register" class="flex items-center text-[#8D3C42] font-medium">
                 <Icon icon="mdi:account" class="h-5 w-5 mr-2" />
                 My Account
@@ -136,7 +139,7 @@
                     on:click={() => toggleItem('rewards')}
                     class="flex w-full items-center justify-between py-4 text-base font-medium text-[#8D3C42]"
                 >
-                    <span>Points</span>
+                    <span>Rewards</span>
                     <Icon
                         icon={openItem === 'rewards' ? 'material-symbols:expand-less' : 'material-symbols:expand-more'}
                         class="h-6 w-6 text-[#D4A373]"
@@ -210,7 +213,7 @@
   
             <!-- Additional Links -->
             <div class="mt-6 space-y-4 border-t border-[#F9F5F3] pt-6">
-                <a href="/discounts" class="flex items-center justify-between py-2 text-base font-medium text-[#8D3C42] hover:bg-[#F9F5F3] px-2 rounded-lg nav-link">
+                <a href="/sale" class="flex items-center justify-between py-2 text-base font-medium text-[#8D3C42] hover:bg-[#F9F5F3] px-2 rounded-lg nav-link">
                     Sale <Icon icon="material-symbols:chevron-right" class="h-5 w-5 text-[#D4A373]" />
                 </a>
                 <a href="/about" class="flex items-center justify-between py-2 text-base font-medium text-[#8D3C42] hover:bg-[#F9F5F3] px-2 rounded-lg nav-link">
