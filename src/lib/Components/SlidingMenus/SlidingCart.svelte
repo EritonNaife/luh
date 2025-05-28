@@ -17,7 +17,7 @@
 
 
 
-<div class="fixed inset-y-0 top-0 right-0 w-full max-w-xs h-full shadow-lg bg-white z-50 flex flex-col"
+<div class="fixed inset-y-0 top-0 right-0 w-xs md:w-lg  h-full shadow-lg bg-white z-50 flex flex-col"
 transition:slide = {{duration: 300, axis: 'x', easing: quartInOut}}
 >
 
