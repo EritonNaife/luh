@@ -146,7 +146,7 @@
                                                                 w-full
     {isScrolled ? 'placeholder-black border-white' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} ${" bg-transparent" }` }"/>
    
-    <div class="absolute left-[92%] top-[69%] flex lg:hidden">
+    <div class="absolute left-[92%] top-[69%] flex lg:hidden sm:left-[94%] md:left-[96%]">
       <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-black' : baseTextClass}" />
     </div>
 </header>

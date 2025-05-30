@@ -1,4 +1,5 @@
 <script lang="ts">
+    import SlidingOption from '$lib/Components/SlidingMenus/SlidingOption.svelte';
     import Icon from '@iconify/svelte';
     import { featuredProducts } from '$lib/data/products';
     import ProductCard from '$lib/Components/Cards/ProductCard.svelte';
@@ -83,5 +84,6 @@
         </div>
 
     </section>
-
 </main>
+<SlidingOption/>
+
