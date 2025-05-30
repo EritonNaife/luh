@@ -6,7 +6,7 @@
 
 
 
-<div class="absolute py-4 bottom-0 w-full h-[30vh] bg-white shadow-2xl flex flex-col justify-center items-center gap-6">
+<div class="fixed py-4 bottom-0 w-full h-[30vh] bg-white shadow-2xl flex flex-col justify-center items-center gap-6">
 
     <h2 class="text-xl">Choose an Options</h2>
     
@@ -16,7 +16,7 @@
         {/each}
     </div>
     
-    <a href="" class="mx-auto w-[95vw] py-2 border-1 text-center hover:text-white hover:bg-black">Add to Cart</a>
+    <a href="" class="mx-auto w-[90vw] py-2 border-1 text-center hover:text-white hover:bg-black">Add to Cart</a>
 
 </div>
 
