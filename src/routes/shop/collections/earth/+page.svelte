@@ -8,6 +8,11 @@
 
     let isAscending = false;
     let filterMenu = false;
+    let isSizeOptions = false
+
+    function toggleSizeOptions(){
+        isSizeOptions = !isSizeOptions;
+    }
     
     function  toggleFilterMenu()  {
         filterMenu = !filterMenu;
@@ -65,15 +70,15 @@
 
                 <div class="card flex flex-col gap-2 group cursor-pointer">
 
-                    <a href="/products/{product.id}" 
+                    <div
                        class="w-[45vw] h-[30vh] sm:w-8 sm:h-100 md:w-[31vw] md:h-[30vh] 
                               lg:w-[24vw] lg:h-[40vh] p-2 relative bg-cover bg-center flex justify-end items-end" 
                        style="background-image: url('/images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png');">
 
-                        <div class="bg-white transition-transform duration-300 group-hover:-translate-y-2 ">
-                            <Icon icon = "mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90"/>
+                        <div class="bg-white transition-transform duration-300 group-hover:-translate-y-2 "on:click ={toggleSizeOptions}>
+                            <Icon icon = "mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90" />
                         </div>
-                    </a>
+                    </div>
 
                     <footer>
                         <h3>{product.name}</h3>
@@ -85,5 +90,9 @@
 
     </section>
 </main>
+
+{#if isSizeOptions}
 <SlidingOption/>
+{/if}
+
 
