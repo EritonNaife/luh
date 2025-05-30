@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
-
+	import { cubicInOut } from "svelte/easing";
+    import { slide } from "svelte/transition";
     let sizes = ['S', 'M' , "L"];
 </script>
 
 
 
-<div class="fixed py-4 bottom-0 w-full h-[30vh] bg-white shadow-2xl flex flex-col justify-center items-center gap-6">
+<div class="fixed py-4 bottom-0 w-full h-[20vh] bg-white shadow-2xl flex flex-col justify-center items-center gap-6" 
+     transition:slide = {{duration:300, axis: 'y' ,easing: cubicInOut}}>
 
     <h2 class="text-xl">Choose an Options</h2>
     
