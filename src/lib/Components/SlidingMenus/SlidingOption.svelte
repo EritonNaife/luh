@@ -7,7 +7,7 @@
 
 
 
-<div class="fixed py-4 bottom-0 w-full h-[24vh] bg-white shadow-black shadow-2xl flex flex-col justify-center items-center gap-6" 
+<div class="fixed py-4 bottom-0 w-full h-[24vh] bg-white inset-ring-2 inset-ring-black/20 flex flex-col justify-center items-center gap-6" 
      transition:slide = {{duration:300, axis: 'y' ,easing: cubicInOut}}>
 
     <h2 class="text-xl">Choose an Option</h2>
