@@ -14,9 +14,12 @@
 <div class="fixed py-4 bottom-0 w-full h-[24vh] bg-white shadow-[0px_6px_15px_5px_rgba(51,51,51,0.8)] flex flex-col justify-center gap-6 lg:hidden" 
      transition:slide = {{duration:300, axis: 'y' ,easing: cubicInOut}}>
 
-    <div class="w-full flex justify-between">
-        <h2 class="text-xl text-center ml-[40%]">Pick a size:</h2>
-        <button class="" on:click={closeMenu}><Icon icon="ei:close" class=" size-6 mr-1" /></button>
+    <div class="relative w-full max-w-x flex justify-center items-center">
+        <h2 class="text-xl text-center">Pick a size:</h2>
+        <div class="absolute right-4 top-1/2 -translate-y-2">
+            <button class="" on:click={closeMenu}><Icon icon="ei:close" class=" size-6 mr-1" /></button>
+        </div>
+        
     </div>
     
     
