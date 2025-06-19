@@ -26,9 +26,7 @@
             <!-- Quick Links -->
             <div>
                 <ul class="space-y-2 mt-10">
-                    <li><a href="/products" class="transition-colors">Shop</a></li>
-                    <li><a href="#" class="transition-colors">Collections</a></li>
-                    <li><a href="#" class="transition-colors">Molds</a></li>
+                    
                     <li><a href="/about" class=" transition-colors">About Us</a></li>
                     <li><a href="#" class="transition-colors">Contact</a></li>
                 </ul>
