@@ -37,8 +37,6 @@ body {
   
 h1, h2, h3, h4, h5, h6 {
     font-family: 'linotype-didot', serif;
-    font-style: italic;
-
 }
 
 /* Utility classes for common color applications */

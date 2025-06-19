@@ -12,7 +12,7 @@ export interface Product {
       id: '1',
       name: 'Lavender Dream Candle',
       price: 18.00,
-      description: 'Relaxing scent of fresh lavender fields.',
+      description: 'Relaxing scent of fresh lavender fields',
       reviews: 123,
       imageUrl: 'images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.png', // We'll need to put images in /static
     },
