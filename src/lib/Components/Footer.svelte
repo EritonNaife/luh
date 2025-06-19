@@ -2,7 +2,7 @@
     import Icon from "@iconify/svelte";
 </script>
 
-<footer class="p-12 bg-[#fae0df]">
+<footer class="p-12 bg-white">
     <div class="container mx-auto">
         <div class="grid center grid-cols-1 md:grid-cols-4 gap-12">
             <!-- Brand Section -->
