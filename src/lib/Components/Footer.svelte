@@ -2,7 +2,7 @@
     import Icon from "@iconify/svelte";
 </script>
 
-<footer class="p-12 bg-white shadow-xl/30">
+<footer class="p-12 bg-[#fff9f9] border-[#f3e0df] border-t-1">
     <div class="container mx-auto">
         <div class="grid center grid-cols-1 md:grid-cols-4 gap-12">
             <!-- Brand Section -->
@@ -28,7 +28,7 @@
                 <ul class="space-y-2 mt-10">
                     
                     <li><a href="/about" class=" transition-colors">About Us</a></li>
-                    <li><a href="#" class="transition-colors">Contact</a></li>
+                    <li><a href="/contacts" class="transition-colors">Contact</a></li>
                 </ul>
             </div>
 
@@ -36,7 +36,7 @@
             <div>
 
                 <ul class="space-y-2 mt-10">
-                    <li><a href="/about" class="transition-colors">FAQ</a></li>
+                    <li><a href="" class="transition-colors">FAQ</a></li>
                     <li><a href="#" class="transition-colors">Privacy Policy</a></li>
                     <li><a href="#" class="transition-colors">Terms of Service</a></li>
                 </ul>
