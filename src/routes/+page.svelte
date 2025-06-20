@@ -47,7 +47,7 @@
         <ProductSlider/>
     </section>
     
-    <section id="Collections-section" class="">
+    <section id="Collections-section" class="mb-20">
       
             <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">Collections</h2>
     
@@ -61,12 +61,6 @@
     
     </section>
   
-
-	
-    
-
-    
-    
 </main>
 
 <style>
