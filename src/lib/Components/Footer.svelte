@@ -5,11 +5,13 @@
 <footer class="p-12 bg-[#fff9f9] border-[#f3e0df] border-t-1">
     <div class="container mx-auto">
         <div class="grid center grid-cols-1 md:grid-cols-4 gap-12">
+            
             <!-- Brand Section -->
             <div class="space-y-4 ">
                 <h3 class="text-2xl font-bold">LuhBea</h3>
                 <p class="">Bring a little bit of light into your life.</p>
-                <div class="flex space-x-4">
+
+                <div class="mt-25 flex space-x-4">
                     <a href="https://www.facebook.com/profile.php?id=61550866414034&locale=pt_PT">
                         <Icon icon="logos:facebook" width="24" height="24" />
                     </a>
