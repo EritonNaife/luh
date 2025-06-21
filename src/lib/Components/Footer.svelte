@@ -3,11 +3,14 @@
 </script>
 
 <footer class="p-12 bg-[#fff9f9] border-[#f3e0df] border-t-1">
+    
     <div class="container mx-auto">
+
         <div class="grid center grid-cols-1 md:grid-cols-4 gap-12">
             
             <!-- Brand Section -->
             <div class="space-y-4 ">
+
                 <h3 class="text-2xl font-bold">LuhBea</h3>
                 <p class="">Bring a little bit of light into your life.</p>
 
@@ -23,6 +26,7 @@
                     </a>
                     
                 </div>
+                
             </div>
 
             <!-- Quick Links -->
@@ -62,6 +66,8 @@
         <div class="border-t mt-12 pt-8 text-center">
             <p>&copy; 2025 LuhBea. All rights reserved.</p>
         </div>
+
     </div>
+
 </footer>
 

@@ -31,13 +31,26 @@
     font-weight: bold;
 }
 
-body {
-    font-family: 'Work Sans', sans-serif;
-}
-  
+
+/*   
 h1, h2, h3, h4, h5, h6 {
     font-family: 'linotype-didot', serif;
 }
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+ */
+
+ h1,h2,h3,h4{
+    font-family: "Playfair Display", serif;
+}
+
+ p,a,button{
+    font-family: "Open Sans", sans-serif;
+ }
+
+
 
 /* Utility classes for common color applications */
 .text-secondary {
