@@ -14,13 +14,12 @@
     let section4InView: boolean = false;
 
     const options = {
-    rootMargin: '00px', // Trigger animation 50px before element enters viewport
+     // Trigger animation 50px before element enters viewport
     threshold: 0.2,     // Trigger when 20% of element is visible
     unobserveOnEnter: true // Stop observing after first animation
     };
 
     const section2Options = {
-    rootMargin: '100px',
     threshold: 0.2,
     unobserveOnEnter: true
   };
