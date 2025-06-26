@@ -8,12 +8,40 @@
 
   
     let isInView: boolean = false;
+    let section2InView: boolean = false;
+    let section3InView: boolean = false;
+    let section3CardsInView: boolean = false;
+    let section4InView: boolean = false;
 
     const options = {
-    rootMargin: '50px', // Trigger animation 50px before element enters viewport
+    rootMargin: '00px', // Trigger animation 50px before element enters viewport
     threshold: 0.2,     // Trigger when 20% of element is visible
     unobserveOnEnter: true // Stop observing after first animation
     };
+
+    const section2Options = {
+    rootMargin: '100px',
+    threshold: 0.2,
+    unobserveOnEnter: true
+  };
+
+  const section3Options = {
+    rootMargin: '80px',
+    threshold: 0.1,
+    unobserveOnEnter: true
+  };
+  
+  const section3CardsOptions = {
+    rootMargin: '50px',
+    threshold: 0.2,
+    unobserveOnEnter: true
+  };
+  
+  const section4Options = {
+    rootMargin: '100px',
+    threshold: 0.3,
+    unobserveOnEnter: true
+  };
 
     // Handle visibility changes
     const handleInViewChange = (event: CustomEvent) => {
@@ -65,44 +93,40 @@
     >
 
             {#if isInView}
-                <h2 class="text-4xl font-light leading-snug tracking-tight mb-4" in:fade={{ delay: 100, duration: 800 }} > Turning Moments into Memories</h2>
-                <p class="font-light leading-relaxed" in:fade={{ delay: 300, duration: 800 }} >
+                <h2 class="text-4xl font-light leading-snug tracking-tight mb-4" in:fade={{ delay: 200, duration: 800 }} > Turning Moments into Memories</h2>
+                <p class="font-light leading-relaxed" in:fade={{ delay: 400, duration: 800 }} >
                         We are a brand of decorative and aromatic candles created with one purpose: to turn everyday moments into sensory experiences full of meaning. Every candle we craft is thoughtfully designed — made to delight the eyes, warm the space, and touch the heart.
                 </p>  
             {/if}       
     </section>
 
-    <section id="section2" class="section bg-stone-100">
+    <section id="section2" class="section bg-stone-100" use:inview={section2Options} on:inview_change={(e) => section2InView = e.detail.inView}>
 
-        <IntersectionObserver element = {section2} let:intersecting>
-            
-            <div class="container mx-auto px-6 py-12 text-center flex flex-col items-center gap-4 md:flex-row md:justify-center" bind:this={section2} >
+       
+        <div class="container mx-auto px-6 py-12 text-center flex flex-col items-center gap-4 md:flex-row md:justify-center">
+            {#if section2InView}
+                <div class="flex flex-col justify-center items-center md:flex-row " in:fly={{y:110,duration:900,delay:800}}>
 
-                {#if intersecting}
 
-                <div class=""></div>
-                    <div class="flex-shrink-0"  in:scale={{ start: 0.8, duration: 400, delay: 300, easing: quintOut }} >
+                    <div class="flex-shrink-0" in:fade={{duration:800}}>
                         <svg class="w-10 h-10 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345h5.584a.563.563 0 01.321.988l-4.204 3.055a.563.563 0 00-.182.557l1.528 4.707a.562.562 0 01-.812.622l-4.204-3.055a.563.563 0 00-.58 0l-4.204 3.055a.562.562 0 01-.812-.622l1.528-4.707a.563.563 0 00-.182-.557l-4.204-3.055a.563.563 0 01.321-.988h5.584a.563.563 0 00.475-.345L11.48 3.5z" />
                         </svg>
                     </div>
         
-                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{delay:700}}>
+                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{duration: 800}}>
                         Crafted with 100% organic waxes, each candle offers a clean, toxin-free burn for moments of comfort and peace.
                     </h3>
-                {/if}
-            </div>
-        </IntersectionObserver>
-       
-
+                </div>
+            {/if}
+        </div>
     </section>
 
     <section id="section3" class="bg-white">
 
-        <IntersectionObserver element={section3} let:intersecting>
-            <div class="container mx-auto px-6 py-16 lg:py-24" bind:this={section3}>
+            <div class="container mx-auto px-6 py-16 lg:py-24">
     
-               {#if intersecting}
+         
                     <div class="text-center max-w-3xl mx-auto mb-12">
                         <h2 class="text-4xl font-light leading-snug tracking-tight "
                             in:fly={{  delay: 100, duration: 600, y: 20 }}
@@ -147,10 +171,7 @@
                         </div>
     
                     </div>
-               {/if}
-    
             </div>
-        </IntersectionObserver>
     </section>
     
     <section id="section4" class="mx-auto px-6 py-16 lg:py-24">
