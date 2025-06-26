@@ -80,14 +80,13 @@
 
                 {#if intersecting}
 
-                <div class=""></div>
                     <div class="flex-shrink-0"  in:scale={{ start: 0.8, duration: 400, delay: 300, easing: quintOut }} >
                         <svg class="w-10 h-10 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345h5.584a.563.563 0 01.321.988l-4.204 3.055a.563.563 0 00-.182.557l1.528 4.707a.562.562 0 01-.812.622l-4.204-3.055a.563.563 0 00-.58 0l-4.204 3.055a.562.562 0 01-.812-.622l1.528-4.707a.563.563 0 00-.182-.557l-4.204-3.055a.563.563 0 01.321-.988h5.584a.563.563 0 00.475-.345L11.48 3.5z" />
                         </svg>
                     </div>
         
-                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{delay:550}}>
+                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{delay:800}}>
                         Crafted with 100% organic waxes, each candle offers a clean, toxin-free burn for moments of comfort and peace.
                     </h3>
                 {/if}
