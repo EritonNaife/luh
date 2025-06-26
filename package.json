@@ -47,6 +47,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
-		"@slidy/svelte": "^3.5.3"
+		"@slidy/svelte": "^3.5.3",
+		"svelte-inview": "^4.0.4"
 	}
 }

@@ -1,18 +1,28 @@
 <script lang="ts">
 
 	import { fade, fly,scale,slide } from 'svelte/transition';
+     import { inview } from 'svelte-inview';
     import IntersectionObserver from "svelte-intersection-observer";
     import type { TransitionConfig } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
   
+    let isInView: boolean = false;
+
+    const options = {
+    rootMargin: '50px', // Trigger animation 50px before element enters viewport
+    threshold: 0.2,     // Trigger when 20% of element is visible
+    unobserveOnEnter: true // Stop observing after first animation
+    };
+
+    // Handle visibility changes
+    const handleInViewChange = (event: CustomEvent) => {
+        const { inView } = event.detail;
+        isInView = inView;
+    };
+
 	let section1: HTMLElement;
-    
-
     let section2: HTMLElement;
-
-
-
     let section3: HTMLElement;
     let section4: HTMLElement;
 
@@ -48,28 +58,18 @@
 
 
 
-    <section id="section1" class="container mx-auto px-6 py-16 lg:py-24 text-center max-w-4xl">
+    <section id="section1" 
+             class="container mx-auto px-6 py-16 lg:py-24 text-center max-w-4xl"
+             use:inview={options}
+             on:inview_change ={handleInViewChange}
+    >
 
-        <IntersectionObserver element = {section1} let:intersecting>
-
-            <div class="" bind:this={section1}>
-
-               {#if intersecting}
-                <div in:fade={{delay:100, duration:500}}>
-
-                    <h2 class="text-4xl font-light leading-snug tracking-tight mb-4" in:slide={{axis:"y",delay:200,duration:600}} >Turning Moments into Memories</h2>
-                    <p class="font-light leading-relaxed" in:slide={{ axis :"y", delay:300, duration: 600 }}>
-                            We are a brand of decorative and aromatic candles created with one purpose: to turn everyday moments into sensory experiences full of meaning. Every candle we craft is thoughtfully designed — made to delight the eyes, warm the space, and touch the heart.
-                    </p>  
-
-                </div>
-                    
-               {/if}
-
-            </div>
-
-        </IntersectionObserver>
-
+            {#if isInView}
+                <h2 class="text-4xl font-light leading-snug tracking-tight mb-4" in:fade={{ delay: 100, duration: 800 }} > Turning Moments into Memories</h2>
+                <p class="font-light leading-relaxed" in:fade={{ delay: 300, duration: 800 }} >
+                        We are a brand of decorative and aromatic candles created with one purpose: to turn everyday moments into sensory experiences full of meaning. Every candle we craft is thoughtfully designed — made to delight the eyes, warm the space, and touch the heart.
+                </p>  
+            {/if}       
     </section>
 
     <section id="section2" class="section bg-stone-100">
