@@ -142,37 +142,36 @@
 
                    
     
-                    <div class="grid md:grid-cols-3 gap-8 text-center">
-    
-                        <div class="p-8 border border-stone-200 rounded-lg"
-                            in:fly={{ delay: 400, duration: 700, y: 40 }}
-                        >
-                            <div class="flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-700 rounded-full mx-auto mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    <div class="grid md:grid-cols-3 gap-8 text-center" use:inview={section3CardsOptions}
+                    on:inview_change={(e) => section3CardsInView = e.detail.inView}>
+
+                        {#if section3CardsInView}
+
+                            <div class="p-8 border border-stone-200 rounded-lg" in:fly={{ delay: 800, duration: 800, y: 40 }}>
+                                <div class="flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-700 rounded-full mx-auto mb-4">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-normal leading-normal mb-2">Thoughtfully Designed</h3>
+                                <p class="font-light leading-relaxed">Made to delight the eyes, warm the space, and touch the heart.</p>
                             </div>
-                            <h3 class="text-2xl font-normal leading-normal mb-2">Thoughtfully Designed</h3>
-                            <p class="font-light leading-relaxed">Made to delight the eyes, warm the space, and touch the heart.</p>
-                        </div>
-    
-                        <div class="p-8 border border-stone-200 rounded-lg"
-                            in:fly={{  delay: 550, duration: 700, y: 40 }}
-                        >
-                            <div class="flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-700 rounded-full mx-auto mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+
+                            <div class="p-8 border border-stone-200 rounded-lg" in:fly={{delay: 1100, duration: 700, y: 40 }}>
+                                <div class="flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-700 rounded-full mx-auto mb-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-normal leading-normal mb-2">Authenticity & Affection</h3>
+                                <p class="font-light leading-relaxed">From packaging to fragrance, every detail is chosen with genuine care.</p>
                             </div>
-                            <h3 class="text-2xl font-normal leading-normal mb-2">Authenticity & Affection</h3>
-                            <p class="font-light leading-relaxed">From packaging to fragrance, every detail is chosen with genuine care.</p>
-                        </div>
-    
-                        <div class="p-8 border border-stone-200 rounded-lg"
-                            in:fly={{ delay: 700, duration: 700, y: 40 }}
-                        >
-                            <div class="flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-700 rounded-full mx-auto mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m-2.122-2.122a2 2 0 010 2.828m-2.121-2.121a2 2 0 00-2.828 0M4.929 4.929a10 10 0 0114.142 0"></path></svg>
+
+                            <div class="p-8 border border-stone-200 rounded-lg"in:fly={{ delay: 1500, duration: 700, y: 40 }}>
+                                <div class="flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-700 rounded-full mx-auto mb-4">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m-2.122-2.122a2 2 0 010 2.828m-2.121-2.121a2 2 0 00-2.828 0M4.929 4.929a10 10 0 0114.142 0"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-normal leading-normal  mb-2">Sensory Experiences</h3>
+                                <p class="font-light leading-relaxed">Transforming your space with scents that evoke emotion and meaning.</p>
                             </div>
-                            <h3 class="text-2xl font-normal leading-normal  mb-2">Sensory Experiences</h3>
-                            <p class="font-light leading-relaxed">Transforming your space with scents that evoke emotion and meaning.</p>
-                        </div>
+                        {/if}
+                        
     
                     </div>
 
