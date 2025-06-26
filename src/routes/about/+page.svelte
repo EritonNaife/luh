@@ -87,7 +87,7 @@
                         </svg>
                     </div>
         
-                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{delay:800}}>
+                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{delay:700}}>
                         Crafted with 100% organic waxes, each candle offers a clean, toxin-free burn for moments of comfort and peace.
                     </h3>
                 {/if}
