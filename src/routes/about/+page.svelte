@@ -124,19 +124,23 @@
 
     <section id="section3" class="bg-white">
 
-            <div class="container mx-auto px-6 py-16 lg:py-24">
-    
-         
+            <div class="container mx-auto px-6 py-16 lg:py-24" use:inview={section3Options} on:inview_change={(e) => section3InView = e.detail.inView}>
+
+                {#if section3InView}
                     <div class="text-center max-w-3xl mx-auto mb-12">
+
                         <h2 class="text-4xl font-light leading-snug tracking-tight "
-                            in:fly={{  delay: 100, duration: 600, y: 20 }}
+                            in:fly={{  delay: 200, duration: 800, y: 20 }}
                         >Our Commitment to You</h2>
                         <p class="mt-4 font-light leading-relaxed"
-                            in:fly={{delay: 250, duration: 600, y: 20 }}
-                        >
+                            in:fly={{delay: 350, duration: 800, y: 20 }}
+                        > 
                             Our commitment is to be different — not just in what we offer, but in how we connect with you. From the packaging to the fragrances, everything is done with attention, authenticity, and affection.
                         </p>
                     </div>
+                {/if}
+
+                   
     
                     <div class="grid md:grid-cols-3 gap-8 text-center">
     
@@ -171,6 +175,7 @@
                         </div>
     
                     </div>
+
             </div>
     </section>
     
