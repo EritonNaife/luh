@@ -80,6 +80,7 @@
 
                 {#if intersecting}
 
+                <div class=""></div>
                     <div class="flex-shrink-0"  in:scale={{ start: 0.8, duration: 400, delay: 300, easing: quintOut }} >
                         <svg class="w-10 h-10 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345h5.584a.563.563 0 01.321.988l-4.204 3.055a.563.563 0 00-.182.557l1.528 4.707a.562.562 0 01-.812.622l-4.204-3.055a.563.563 0 00-.58 0l-4.204 3.055a.562.562 0 01-.812-.622l1.528-4.707a.563.563 0 00-.182-.557l-4.204-3.055a.563.563 0 01.321-.988h5.584a.563.563 0 00.475-.345L11.48 3.5z" />
@@ -152,29 +153,19 @@
         </IntersectionObserver>
     </section>
     
-    <section id="section4" class="bg-amber-50">
-        <IntersectionObserver element={section4} let:intersecting>
-            <div class="container mx-auto px-6 py-16 lg:py-24 text-center max-w-4xl flex flex-col items-center" bind:this={section4}>
-    
-                {#if intersecting}
-                    <div class="mb-8 overflow-hidden rounded-lg shadow-lg" in:fly={{ delay: 100, duration: 800, y: -50, easing: quintOut }}>
-                        <img src="https://via.placeholder.com/600x400/FDBA74/FFFFFF?text=Candle+Image" alt="Warm Candle" class="w-full h-auto object-cover">
-                    </div>
-    
-                    <h2 class="text-4xl font-light leading-snug tracking-tight mb-4" in:fade={{ delay: 700, duration: 600 }}>
-                        Ignite Your Sensory Journey
-                    </h2>
-                    <p class="font-light leading-relaxed mb-8" in:fade={{ delay: 850, duration: 600 }}>
-                        Discover the perfect candle to transform your space and elevate your everyday moments. Explore our exquisite collection today.
-                    </p>
-                    <a href="/shop" class="inline-block bg-amber-700 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-amber-800 transition-colors"
-                       in:fade={{ delay: 1000, duration: 600 }}>
-                        Shop Our Collection
-                    </a>
-                {/if}
-    
-            </div>
-        </IntersectionObserver>
+    <section id="section4" class="mx-auto px-6 py-16 lg:py-24">
+
+        <div class="text-center max-w-3xl mx-auto">
+            <img src="https://images.unsplash.com/photo-1596205219446-522514930b80?q=80&w=1964&auto=format&fit=crop" alt="Person enjoying a Luh Bea candle" class="w-full h-80 object-cover rounded-lg shadow-lg mb-8">
+            <h2 class="text-4xl font-light leading-snug tracking-tight mb-4">You Are Part of Our Story</h2>
+            <p class="text-lg font-light leading-relaxed mb-8">
+                Each candle is a reminder that care begins within — and spreads gently, like a flame, to every place it reaches. Thank you for letting us be part of your space.
+            </p>
+            <a href="#" class="text-sm font-body font-semibold uppercase tracking-wider inline-block bg-stone-800 text-white py-3 px-8 rounded-lg hover:bg-stone-900 transition-colors duration-300 shadow-md">
+                Explore Our Collection
+            </a>
+        </div>
+
     </section>
 
 </main>
