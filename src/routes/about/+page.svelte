@@ -15,7 +15,7 @@
 
     const options = {
      // Trigger animation 50px before element enters viewport
-    threshold: 0.2,     // Trigger when 20% of element is visible
+    threshold: 0.1,     // Trigger when 20% of element is visible
     unobserveOnEnter: true // Stop observing after first animation
     };
 
@@ -25,20 +25,20 @@
   };
 
   const section3Options = {
-    rootMargin: '80px',
-    threshold: 0.1,
+
+    threshold: 0.2,
     unobserveOnEnter: true
   };
   
   const section3CardsOptions = {
-    rootMargin: '50px',
+
     threshold: 0.2,
     unobserveOnEnter: true
   };
   
   const section4Options = {
-    rootMargin: '100px',
-    threshold: 0.3,
+
+    threshold: 0.2,
     unobserveOnEnter: true
   };
 
