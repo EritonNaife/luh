@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { PageData } from '../$types.js';
     import { featuredProducts } from '$lib/data/products';
-    import SlidingOption from '$lib/Components/SlidingMenus/SlidingOption.svelte';
+    import { selectedCurrency,formatPrice } from "$lib/stores/currency";
     import Icon from '@iconify/svelte';
 
   
@@ -52,7 +52,7 @@
 
                     <footer>
                         <h3>{product.name}</h3>
-                        <p>€ {product.price}</p>
+                        <p>{formatPrice(product.price,$selectedCurrency)}</p>
                     </footer>
                 </div>
             {/each}
@@ -62,6 +62,3 @@
     
 </main>
 
-{#if isSizeOptions}
-<SlidingOption closeMenu = {() => (isSizeOptions = false)}/>
-{/if}
