@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { PageData } from '../$types.js';
     import { featuredProducts } from '$lib/data/products';
+    import SlidingOption from '$lib/Components/SlidingMenus/SlidingOption.svelte';
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
     import Icon from '@iconify/svelte';
 
@@ -61,4 +62,3 @@
     </section>
     
 </main>
-

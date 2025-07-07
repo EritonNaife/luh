@@ -68,7 +68,7 @@
   <AnnouncementBar />
 </div>
 
-<header class="fixed top-6 left-0 w-full z-50 transition-all duration-300 ease-in-out flex flex-col {isScrolled
+<header class="fixed top-5 left-0 w-full z-50 transition-all duration-300 ease-in-out flex flex-col {isScrolled
     ? 'text-black bg-[#fae0df]' 
     : `${baseTextClass} ${baseBgClass}`}"
 >
