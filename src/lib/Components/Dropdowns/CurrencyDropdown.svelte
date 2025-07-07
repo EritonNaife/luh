@@ -112,11 +112,7 @@
               <div class="flex flex-col">
                 <span class="text-gray-900 font-medium">{currency.code}</span>
                 <span class="text-xs text-gray-500">{currency.name}</span>
-                {#if currency.code !== 'EUR'}
-                  <span class="text-xs text-gray-400">
-                    1 EUR = {currentRate.toFixed(4)} {currency.code}
-                  </span>
-                {/if}
+               
               </div>
             </div>
             {#if $selectedCurrency.code === currency.code}
