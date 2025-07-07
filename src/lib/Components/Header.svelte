@@ -116,7 +116,7 @@
 
     <div class="flex gap-1 lg:gap-4">  
       
-      <CurrencyDropdown />
+       <CurrencyDropdown />
       
       <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
         <Icon icon="ph:user-light" class="size-6" />
