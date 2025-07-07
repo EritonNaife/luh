@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Icon from '@iconify/svelte';
+  import CurrencyDropdown from './Dropdowns/CurrencyDropdown.svelte';
   // import SearchBar from './SearchBar.svelte'; // Assuming SearchBar is not used if input is directly in header
   import AnnouncementBar from './AnnouncementBar.svelte';
   import MobileNavMenuButton from './MobileNavMenuButton.svelte';
@@ -113,7 +114,9 @@
       
     </div>
 
-    <div class="flex gap-1 lg:gap-4">     
+    <div class="flex gap-1 lg:gap-4">  
+      
+      <CurrencyDropdown />
       
       <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
         <Icon icon="ph:user-light" class="size-6" />
@@ -146,6 +149,7 @@
                                                                 w-full
     {isScrolled ? 'placeholder-black border-white' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} ${" bg-transparent" }` }"/>
    
+
     <div class="absolute left-[92%] top-[69%] flex lg:hidden sm:left-[94%] md:left-[96%]">
       <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-black' : baseTextClass}" />
     </div>

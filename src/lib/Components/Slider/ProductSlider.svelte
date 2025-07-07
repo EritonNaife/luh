@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { selectedCurrency,formatPrice } from "$lib/stores/currency";
   import { featuredProducts, type Product } from "$lib/data/products";
 
   // Reference to the scrollable container element
@@ -79,10 +80,7 @@
 
   const debouncedScrollHandler = debounce(updateButtonStates, 100);
 
-  // Helper function to format price
-  function formatPrice(price: number): string {
-    return price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  }
+  
 </script>
 
 <div class="flex justify-center">
@@ -104,7 +102,7 @@
             <div class="py-4">
               <h3 class="text-[17px] lg:text-xl italic">{product.name}</h3>
               <p class="text-sm">{product.description}</p> 
-              <p class="text-[12px]">{formatPrice(product.price)}</p> 
+              <p class="text-[12px]">{formatPrice(product.price,$selectedCurrency)}</p> 
             </div>
           </div>
         {/each}

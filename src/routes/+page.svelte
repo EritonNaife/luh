@@ -1,10 +1,9 @@
 <script lang="ts">
-    import Collection from "$lib/Components/Cards/Collection.svelte";
-    import ProductCard from "$lib/Components/Cards/ProductCard.svelte";
+    import Collection from "$lib/Components/Cards/Collection.svelte"
     import ProductSlider from "$lib/Components/Slider/ProductSlider.svelte";
     import type { PageData } from "./$types";
     import { goto } from "$app/navigation";
-	import { fade, fly, slide } from "svelte/transition";
+	import { fade, fly} from "svelte/transition";
 	import { cubicIn, quartOut } from "svelte/easing";
 
     function handleClick(){

@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { PageData } from "./$types";
     import ProductCard from "$lib/Components/Cards/ProductCard.svelte";
-    // import { cartStore } from '$lib/stores/cartStore'; // We'll create the cart store soon
+   
   
     export let data: PageData;
     const products =data.products;
