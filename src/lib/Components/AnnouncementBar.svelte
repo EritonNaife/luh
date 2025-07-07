@@ -1,5 +1,5 @@
 <script lang="ts">
-    let announcements = ["Welcome to Luh Bea — candles made with love and essence 💗","Worldwide shipping","Free shipping from 60€","Also it should collar no header, está separado"];
+    let announcements = ["Welcome to 🔥  Luh Bea ","Worldwide shipping","Free shipping from 60€"];
 </script>
 
 <div class="flex w-full overflow-hidden bg-white text-[#2F2F2F] ">
