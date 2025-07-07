@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { featuredProducts,type Product } from "$lib/data/products";
+  import { onMount } from "svelte";
+  import { featuredProducts, type Product } from "$lib/data/products";
 
   // Reference to the scrollable container element
   let scrollContainer: HTMLElement;
@@ -10,77 +10,61 @@
   let isAtStart = true;
   let isAtEnd = false;
 
-
   // Calculate scroll amount based on the first card's width after component mounts
-  // Also set initial button states
   onMount(() => {
-    // Need a slight delay to ensure layout is fully calculated, especially with dynamic widths
     setTimeout(() => {
-        calculateScrollAmount();
-        updateButtonStates(); // Initial check
-    }, 50); // 50ms delay, adjust if needed
-
-    // Optional: Recalculate on resize if the layout is very fluid
-    // window.addEventListener('resize', handleResize);
-    // return () => window.removeEventListener('resize', handleResize);
-
-    const firstCard = scrollContainer?.querySelector('.card-item');
-      if (firstCard) {
-        // Get the computed style to include margin/gap
-        const style = window.getComputedStyle(firstCard);
-        const cardWidth = firstCard.clientWidth;
-        // Assuming gap-x-4 which is 1rem = 16px
-        const gap = 16;
-        scrollAmount = cardWidth + gap;
-      }
+      calculateScrollAmount();
+      updateButtonStates();
+    }, 100); // Increased delay slightly for better reliability
   });
 
   function calculateScrollAmount() {
-     if (!scrollContainer) return;
-     const firstCard = scrollContainer.querySelector('.product-card-item') as HTMLElement; // Use updated class name
-     if (firstCard) {
-       // Get the computed style to include margin/gap
-       const style = window.getComputedStyle(firstCard);
-       const cardWidth = firstCard.offsetWidth; // Use offsetWidth for full width including border/padding
-       // Get the gap from the container's style if possible, otherwise assume based on class
-       const containerStyle = window.getComputedStyle(scrollContainer);
-       // Note: Parsing gap reliably can be tricky. Assuming space-x-4 (1rem = 16px)
-       const gap = parseFloat(containerStyle.columnGap) || 16; // Use columnGap or fallback
-       // Scroll by the width of one card + one gap
-       scrollAmount = cardWidth + gap;
-       // console.log(`Calculated scroll amount: ${scrollAmount}`);
-     }
-  }
-
-  // Function to scroll to the previous card (scroll by one card width + gap)
-  function scrollPrev() {
-    if (scrollContainer) {
-      scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    if (!scrollContainer) return;
+    
+    // Look for the first product card div (direct child of the scroll container)
+    const firstCard = scrollContainer.querySelector('div:first-child') as HTMLElement;
+    
+    if (firstCard) {
+      const cardWidth = firstCard.offsetWidth;
+      // Get the gap from the container's computed style
+      const containerStyle = window.getComputedStyle(scrollContainer);
+      const gap = parseFloat(containerStyle.columnGap) || 16; // Fallback to 16px for space-x-4
+      
+      scrollAmount = cardWidth + gap;
+      console.log(`Calculated scroll amount: ${scrollAmount}px`); // Helpful for debugging
     }
   }
 
-  // Function to scroll to the next card (scroll by one card width + gap)
+  // Function to scroll to the previous card
+  function scrollPrev() {
+    if (scrollContainer && scrollAmount > 0) {
+      scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      // Update button states after scroll animation
+      setTimeout(updateButtonStates, 300);
+    }
+  }
+
+  // Function to scroll to the next card
   function scrollNext() {
-    if (scrollContainer) {
+    if (scrollContainer && scrollAmount > 0) {
       scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      // Update button states after scroll animation
+      setTimeout(updateButtonStates, 300);
     }
   }
 
   // Function to update button disabled states based on scroll position
   function updateButtonStates() {
-      if (!scrollContainer) return;
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-      // Add a small tolerance (e.g., 1px) for floating point inaccuracies
-      const tolerance = 1;
-      isAtStart = scrollLeft <= tolerance;
-      // Check if scrollLeft is at or very near the maximum scroll position
-      isAtEnd = scrollLeft >= scrollWidth - clientWidth - tolerance;
-
-      // Log scroll values for debugging
-      // console.log(`Scroll Left: ${scrollLeft.toFixed(2)}, Scroll Width: ${scrollWidth.toFixed(2)}, Client Width: ${clientWidth.toFixed(2)}, Is At Start: ${isAtStart}, Is At End: ${isAtEnd}`);
+    if (!scrollContainer) return;
+    
+    const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+    const tolerance = 2; // Slightly increased tolerance
+    
+    isAtStart = scrollLeft <= tolerance;
+    isAtEnd = scrollLeft >= scrollWidth - clientWidth - tolerance;
   }
 
-  // Debounce function to limit the rate of execution
+  // Debounce function
   function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
     let timeout: number | undefined;
     return function executedFunction(...args: Parameters<T>) {
@@ -93,14 +77,7 @@
     };
   }
 
-  // Debounced version of the scroll handler
-  const debouncedScrollHandler = debounce(updateButtonStates, 100); // Adjust delay if needed (100-150ms is usually good)
-
-  // Debounced resize handler
-  // const handleResize = debounce(() => {
-  //   calculateScrollAmount();
-  //   updateButtonStates();
-  // }, 200);
+  const debouncedScrollHandler = debounce(updateButtonStates, 100);
 
   // Helper function to format price
   function formatPrice(price: number): string {
@@ -109,64 +86,65 @@
 </script>
 
 <div class="flex justify-center">
-	<div class="w-[80vw] font-sans">
-		<div class="relative">
-			<div bind:this={scrollContainer} on:scroll={debouncedScrollHandler}  style="-webkit-overflow-scrolling: touch;"
-			class="flex overflow-x-auto snap-x scroll-smooth p-4 space-x-4 scrollbar-hide">
-			{#each featuredProducts as product}
-			<div class="flex-shrink-0 snap-center overflow-hidden flex flex-col w-56 lg:w-75">
-			  <img
-				src={product.imageUrl}
-				alt={product.name}
-				class="w-full object-cover h-50 lg:h-80 lg:w-65 lg:h-90"/>
-			  <div class="py-4">
-				<h3 class="text-[17px] lg:text-xl itallic">{product.name}</h3>
-				<p class="text-sm">{product.description}</p> 
-				<p class="text-[12px]">{formatPrice(product.price)}</p> 
-			  </div>
-			</div>
-		  {/each}
-		</div>
-    
-    <div class="absolute inset-y-0 left-0 flex items-center -translate-x-4 md:-translate-x-8">
-      <button
-        on:click={scrollPrev}
-        aria-label="Previous Card"
-        class="bg-gray-700 hover:bg-gray-900 text-white rounded-full p-2 shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+  <div class="w-[80vw] font-sans">
+    <div class="relative">
+      <div 
+        bind:this={scrollContainer} 
+        on:scroll={debouncedScrollHandler}  
+        style="-webkit-overflow-scrolling: touch;"
+        class="flex overflow-x-auto snap-x scroll-smooth p-4 space-x-4 scrollbar-hide"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-      </button>
-   </div>
-   
-    <div class="absolute inset-y-0 right-0 flex items-center translate-x-4 md:translate-x-8">
-      <button
-        on:click={scrollNext}
-        aria-label="Next Card"
-        class="bg-gray-700 hover:bg-gray-900 text-white rounded-full p-2 shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-        </svg>
-      </button>
-   </div>
-
-
-		</div>
-	</div>
+        {#each featuredProducts as product}
+          <div class="product-card flex-shrink-0 snap-center overflow-hidden flex flex-col w-56 lg:w-75">
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              class="w-full object-cover h-50 lg:h-80 lg:w-65 lg:h-90"
+            />
+            <div class="py-4">
+              <h3 class="text-[17px] lg:text-xl italic">{product.name}</h3>
+              <p class="text-sm">{product.description}</p> 
+              <p class="text-[12px]">{formatPrice(product.price)}</p> 
+            </div>
+          </div>
+        {/each}
+      </div>
+      
+      <div class="absolute inset-y-0 left-0 flex items-center -translate-x-4 md:-translate-x-8">
+        <button
+          on:click={scrollPrev}
+          disabled={isAtStart}
+          aria-label="Previous Card"
+          class="bg-gray-700 hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-full p-2 shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+      </div>
+      
+      <div class="absolute inset-y-0 right-0 flex items-center translate-x-4 md:translate-x-8">
+        <button
+          on:click={scrollNext}
+          disabled={isAtEnd}
+          aria-label="Next Card"
+          class="bg-gray-700 hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-full p-2 shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
-  
-
+</div>
 
 <style>
-	/* Utility to hide scrollbars */
-	.scrollbar-hide::-webkit-scrollbar {
-	  display: none; /* Safari and Chrome */
-	}
-	.scrollbar-hide {
-	  -ms-overflow-style: none;  /* IE and Edge */
-	  scrollbar-width: none;  /* Firefox */
-	}
-  </style>
-  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
