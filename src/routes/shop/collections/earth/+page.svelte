@@ -3,6 +3,7 @@
     import Icon from '@iconify/svelte';
     import { featuredProducts } from '$lib/data/products';
     import ProductCard from '$lib/Components/Cards/ProductCard.svelte';
+    import { selectedCurrency,formatPrice } from "$lib/stores/currency";
 	import { fly, scale } from 'svelte/transition';
 
 
@@ -57,6 +58,12 @@
                 <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
             </div>
 
+            
+
+            <div class="p-2 images/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngimages/ChatGPT Image Apr 27, 2025, 02_33_59 PM.pngw-[20%] border-l-[0.5px] flex justify-center items-center gap-1">
+                <Icon icon="material-symbols-light:square" class="size-7 text-black/70"/>
+                <Icon icon="clarity:grid-view-solid" class="size-6 text-black/70" />
+            </div>
         </div>
         
         <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4 md:grid-cols-3 lg:grid-cols-4">
@@ -76,14 +83,13 @@
 
                     <footer>
                         <h3>{product.name}</h3>
-                        <p>€ {product.price}</p>
+                        <p>{formatPrice(product.price,$selectedCurrency)}</p>
                     </footer>
                 </div>
             {/each}
         </div>
 
     </section>
-    
 </main>
 
 {#if isSizeOptions}

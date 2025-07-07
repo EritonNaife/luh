@@ -1,14 +1,10 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
-    import type { Product } from "$lib/data/products";
 	import { cubicInOut } from "svelte/easing";
     import { scale, slide } from "svelte/transition";
 
     export let closeMenu: () => void = () => {};
-    export let product: Product;
-
     let sizes = ['S', 'M' , "L"];
-
 </script>
 
 
@@ -55,24 +51,23 @@
 
         <div class=" h-70 flex flex-col">
 
-            <h3>{product.name}</h3>
-            <p class="text-xs mb-10">{product.price}</p>
+            <h3>Lavander Dream Candle</h3>
+            <p class="text-xs mb-10">Price</p>
 
             <div class="flex flex-col justify-center items-center gap-3 mb-5">
                 <h4>Select Size:</h4>
                 <div class="flex justify-center gap-4">
                     <button class="size-button border rounded-md px-4 py-2">
-                        S
+                        S <span class="block text-xs ">(€18)</span>
                     </button>
 
                     <button class="size-button border rounded-md px-4 py-2">
-                        S 
+                        S <span class="block text-xs ">(€18)</span>
                     </button>
 
                     <button class="size-button border rounded-md px-4 py-2">
-                        S 
+                        S <span class="block text-xs ">(€18)</span>
                     </button>
-
                 </div>
             </div>
 
