@@ -1,7 +1,5 @@
 <script lang="ts">
     import Icon from '@iconify/svelte';
-    import { featuredProducts } from '$lib/data/products';
-    import ProductCard from '$lib/Components/Cards/ProductCard.svelte';
     import { fly, scale } from 'svelte/transition';
 
     let isAscending = false;
