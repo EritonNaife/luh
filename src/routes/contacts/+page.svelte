@@ -1,16 +1,18 @@
 <script lang="ts">
-	import Icon from "@iconify/svelte";
-
+    import Icon from "@iconify/svelte";
+    import { fly } from 'svelte/transition'; // Import fly transition
 
 </script>
 
-
-
 <main class="h-screen mt-50 mb-50 mx-auto w-[90%] md:w-[90%] lg:w-[80%] xl:w-[70%] text-[#2F2F2F]">
 
-    <div class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden md:flex">
+    <div class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden md:flex" >
 
-        <div class="md:w-[60%] p-8 md:p-12">
+        <div
+            class="md:w-[60%] p-8 md:p-12"
+            in:fly="{{ x: -200, duration: 900, delay: 200 }}"
+            out:fly="{{ x: -200, duration: 500 }}"
+        >
             
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Get in Touch</h2>
             <p class="text-gray-600 mb-8">We'd love to hear from you. Fill out the form below.</p>
@@ -48,7 +50,11 @@
 
         </div>
 
-       <div class="md:w-[40%] bg-gray-50 p-8 md:p-12 flex flex-col justify-center">
+       <div
+            class="md:w-[40%] bg-gray-50 p-8 md:p-12 flex flex-col justify-center"
+            in:fly="{{ x: 200, duration: 800, delay: 400 }}"
+            out:fly="{{ x: 200, duration: 500 }}"
+       >
 
             <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
 

@@ -52,23 +52,18 @@
 
     </section>
    
-    <section 
-        id="Latest-products" 
-        class="p-4"
-        use:inview={{threshold: 0.3, rootMargin: '0px', unobserveOnEnter: true}}
-        on:inview_change={handleInViewChange}
-    >
+    <section id="Latest-products" class="p-4" use:inview={{threshold: 0.3, rootMargin: '0px', unobserveOnEnter: true}} on:inview_change={handleInViewChange} >
         {#if isInView}
-            <div 
-                class="flex justify-center gap-4 p-4"
-                in:fly={{duration: 800, y: 50, delay: 200, easing: quartOut}}
-            >
-                <h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
-            </div>
-            
-            <div in:fade={{duration: 2000, delay: 600, easing: quartOut}}>
-                <ProductSlider/>
-            </div>
+		<div 
+		class="flex justify-center gap-4 p-4"
+		in:fly={{duration: 1600, y: 50, delay: 400, easing: quartOut}}
+	>
+		<h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
+	</div>
+	
+	<div in:fade={{duration: 1600, delay: 800, easing: quartOut}}>
+		<ProductSlider/>
+	</div>
         {/if}
     </section>
     
@@ -79,22 +74,30 @@
         on:inview_change={(e) => sectionCollections = e.detail.inView}
     >
         {#if sectionCollections}
-            <h2 
-                class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
-                in:fly={{duration: 600, y: -30, delay: 300, easing: quartOut}}
-            >
-                Collections
-            </h2>
-    
-            <div 
-                class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4"
-                in:fly={{duration: 800, y: 50, delay: 800, easing: quartOut}}
-            >
-                <Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth"/>
-                <Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>
-                <Collection link="shop/collections/gift" url = "images/gift-collection-candle.jpeg" caption="Gift"/>
-                <Collection link="shop/collections/mood" url="images/mood-collection-candle.jpeg" caption="Mood"/>
-            </div>
+			<h2 
+			class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
+			in:fly={{duration: 600, y: -30, delay: 400, easing: quartOut}}
+		>
+			Collections
+			</h2>
+
+			<div 
+				class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4"
+				
+			>
+				<div class="" in:fly={{duration: 1600, y: 50, delay: 600, easing: quartOut}}>
+					<Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth" />
+				</div>
+
+				<div class="" in:fly={{duration: 1600, y: 50, delay: 800, easing: quartOut}}>
+					<Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>
+				</div>
+
+				<div class="" in:fly={{duration: 1600, y: 50, delay: 1000, easing: quartOut}}>
+					<Collection link="shop/collections/gift" url = "images/gift-collection-candle.jpeg" caption="Gift"/>
+				</div>				
+				
+			</div>
         {/if}
     </section>
   

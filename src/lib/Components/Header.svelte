@@ -79,7 +79,10 @@
       <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
     </div>
 
-    <a href="/" class="text-2xl">Logo</a> 
+    <a href="/" class="text-2xl">
+     <!--<img src="LuhBea Logotipo.svg" alt="" class="absolute size-50"> -->
+    Logo
+    </a> 
 
     <nav class="hidden lg:flex space-x-6 items-center">
       <ShopDropdown />
