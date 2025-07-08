@@ -6,7 +6,7 @@
 
 
 
-<main class="h-screen mt-50 mb-50 mx-auto w-[90%] md:w-[90%] lg:w-[80%] xl:w-[70%]">
+<main class="h-screen mt-50 mb-50 mx-auto w-[90%] md:w-[90%] lg:w-[80%] xl:w-[70%] text-[#2F2F2F]">
 
     <div class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden md:flex">
 

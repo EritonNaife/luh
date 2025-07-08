@@ -15,7 +15,7 @@
 </script>
 
 
-<main>
+<main class="text-[#2F2F2F]">
     
     <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
 		

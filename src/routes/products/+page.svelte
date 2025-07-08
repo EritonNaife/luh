@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { PageData } from '../$types.js';
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
+    import SlidingOption from '$lib/Components/SlidingMenus/SlidingOption.svelte';
     import Icon from '@iconify/svelte';
     
     export let data: PageData;
@@ -16,7 +17,7 @@
 </script>
 
 
-<main class="mt-40">
+<main class="mt-40 text-[#2F2F2F]">
 
     <section id="product-display" >
         

@@ -15,7 +15,7 @@
   
 </script>
 
-<main class="">
+<main class="text-[#2F2F2F]">
 
     <section class="mt-28 px-3 py-5 bg-[#ecebe7]/70 lg:py-10" in:scale={{duration:1000,start: 1.5, opacity:0}}>
 

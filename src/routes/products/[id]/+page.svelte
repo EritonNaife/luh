@@ -96,7 +96,7 @@
 	<meta property="og:url" content={$page.url.toString()} />
 </svelte:head>
 
-<main class="my-40 h-screen bg-gray-50">
+<main class="my-40 h-screen bg-gray-50 text-[#2F2F2F]">
 	<!-- Product Hero Section -->
 	<section 
 		class="bg-white py-8 lg:py-16"
