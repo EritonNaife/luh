@@ -2,8 +2,6 @@
 	import type { PageData } from './$types';
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
-  import { selectedCurrency,formatPrice } from "$lib/stores/currency";
-
 
 	export let data: PageData;
 
@@ -14,6 +12,22 @@
 	let activeTab = 'description';
 	let isLoading = false;
 	let addToCartMessage = '';
+	let selectedSize = '220g';
+	let currentImageIndex = 0;
+
+	// Size options with pricing
+	const sizeOptions = [
+		{ value: '220g', label: '220g', priceMultiplier: 1 },
+		{ value: '320g', label: '320g', priceMultiplier: 1.3 }
+	];
+
+	// Image gallery (in real app, this would come from product data)
+	const productImages = [
+		{ url: product.imageUrl, alt: `${product.name} - Main view` },
+		{ url: product.imageUrl, alt: `${product.name} - Side view` },
+		{ url: product.imageUrl, alt: `${product.name} - Top view` },
+		{ url: product.imageUrl, alt: `${product.name} - Detail view` }
+	];
 
 	// Tab content (in real app, this would come from the product data)
 	const tabContent = {
@@ -39,25 +53,50 @@
 		// Simulate API call
 		setTimeout(() => {
 			isLoading = false;
-			addToCartMessage = 'Added to cart!';
+			addToCartMessage = `Added ${quantity}x ${product.name} (${selectedSize}) to cart!`;
 			setTimeout(() => {
 				addToCartMessage = '';
 			}, 3000);
 		}, 500);
 	}
 
+	function changeImage(index: number) {
+		currentImageIndex = index;
+	}
+
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % productImages.length;
+	}
+
+	function prevImage() {
+		currentImageIndex = currentImageIndex === 0 ? productImages.length - 1 : currentImageIndex - 1;
+	}
+
+	// Get current price based on selected size
+	function getCurrentPrice(): number {
+		const selectedOption = sizeOptions.find(option => option.value === selectedSize);
+		return product.price * (selectedOption?.priceMultiplier || 1);
+	}
+
+	// Format price
+	function formatPrice(price: number): string {
+		return new Intl.NumberFormat('en-EU', {
+			style: 'currency',
+			currency: 'EUR'
+		}).format(price);
+	}
 </script>
 
 <svelte:head>
 	<title>{product.name} - Product Details</title>
-	<meta name="description" content={product.description || `Buy ${product.name}`} />
+	<meta name="description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price)}`} />
 	<meta property="og:title" content={product.name} />
-	<meta property="og:description" content={product.description || `Buy ${product.name}`} />
+	<meta property="og:description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price)}`} />
 	<meta property="og:image" content={product.imageUrl} />
 	<meta property="og:url" content={$page.url.toString()} />
 </svelte:head>
 
-<main class="mt-50 min-h-screen bg-gray-50">
+<main class="my-40 h-screen bg-gray-50">
 	<!-- Product Hero Section -->
 	<section 
 		class="bg-white py-8 lg:py-16"
@@ -65,15 +104,61 @@
 	>
 		<div class="container mx-auto px-4 max-w-7xl">
 			<div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
-				<!-- Product Image -->
+				<!-- Product Image Gallery -->
 				<div class="flex-1 flex justify-center">
 					<div class="w-full max-w-md lg:max-w-lg">
-						<img 
-							src={product.imageUrl} 
-							alt={product.name}
-							class="w-full aspect-square object-cover object-center rounded-lg shadow-lg"
-							loading="eager"
-						/>
+						<!-- Main Image -->
+						<div class="relative mb-4">
+							<img 
+								src={productImages[currentImageIndex].url} 
+								alt={productImages[currentImageIndex].alt}
+								class="w-full aspect-square object-cover object-center rounded-lg shadow-lg"
+								loading="eager"
+							/>
+							
+							<!-- Navigation arrows -->
+							<button
+								type="button"
+								class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+								on:click={prevImage}
+								aria-label="Previous image"
+							>
+								<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								</svg>
+							</button>
+							
+							<button
+								type="button"
+								class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+								on:click={nextImage}
+								aria-label="Next image"
+							>
+								<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
+						</div>
+
+						<!-- Image Thumbnails -->
+						<div class="flex gap-2 justify-center">
+							{#each productImages as image, index}
+								<button
+									type="button"
+									class="w-16 h-16 rounded-md overflow-hidden border-2 transition-colors {currentImageIndex === index 
+										? 'border-gray-900' 
+										: 'border-gray-200 hover:border-gray-400'}"
+									on:click={() => changeImage(index)}
+									aria-label={`View ${image.alt}`}
+								>
+									<img 
+										src={image.url} 
+										alt={image.alt}
+										class="w-full h-full object-cover object-center"
+									/>
+								</button>
+							{/each}
+						</div>
 					</div>
 				</div>
 
@@ -84,8 +169,13 @@
 							{product.name}
 						</h1>
 						<p class="text-3xl font-semibold text-gray-900">
-              {formatPrice(product.price,$selectedCurrency)}
+							{formatPrice(getCurrentPrice())}
 						</p>
+						{#if selectedSize === '320g'}
+							<p class="text-sm text-gray-600 mt-1">
+								Base price: {formatPrice(product.price)} (+30% for 320g)
+							</p>
+						{/if}
 					</div>
 
 					<!-- Stock Status -->
@@ -94,8 +184,39 @@
 						<span class="text-sm text-green-600 font-medium">In stock</span>
 					</div>
 
-					<!-- Quantity and Add to Cart -->
+					<!-- Size Selection and Quantity -->
 					<div class="space-y-4">
+						<!-- Size Selection -->
+						<div>
+							<label class="block text-sm font-medium text-gray-700 mb-2">
+								Size:
+							</label>
+							<div class="flex gap-3">
+								{#each sizeOptions as option}
+									<label class="flex items-center">
+										<input
+											type="radio"
+											name="size"
+											value={option.value}
+											bind:group={selectedSize}
+											class="sr-only"
+										/>
+										<div class="relative border-2 rounded-md px-4 py-2 cursor-pointer transition-colors {selectedSize === option.value 
+											? 'border-gray-900 bg-gray-900 text-white' 
+											: 'border-gray-300 hover:border-gray-400'}">
+											<span class="font-medium">{option.label}</span>
+											{#if option.value === '320g'}
+												<span class="text-xs block {selectedSize === option.value ? 'text-gray-300' : 'text-gray-500'}">
+													+30%
+												</span>
+											{/if}
+										</div>
+									</label>
+								{/each}
+							</div>
+						</div>
+
+						<!-- Quantity Selection -->
 						<div class="flex items-center gap-3">
 							<label for="quantity" class="text-sm font-medium text-gray-700">
 								Quantity:
@@ -129,6 +250,7 @@
 							</div>
 						</div>
 
+						<!-- Add to Cart Button -->
 						<button
 							type="button"
 							class="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
@@ -136,7 +258,7 @@
 							disabled={isLoading}
 							aria-describedby={addToCartMessage ? 'cart-message' : undefined}
 						>
-							{isLoading ? 'Adding...' : 'Add to Cart'}
+							{isLoading ? 'Adding...' : `Add to Cart - ${formatPrice(getCurrentPrice() * quantity)}`}
 						</button>
 
 						{#if addToCartMessage}
@@ -217,7 +339,8 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				<!-- Placeholder for related products -->
 				<!-- In a real app, you would loop through data.relatedProducts -->
-				</div>
+				
+			</div>
 		</div>
 	</section>
 </main>
