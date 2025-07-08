@@ -1,18 +1,18 @@
 <script lang="ts">
     import type { PageData } from '../$types.js';
-    import { featuredProducts } from '$lib/data/products';
-    import SlidingOption from '$lib/Components/SlidingMenus/SlidingOption.svelte';
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
     import Icon from '@iconify/svelte';
-
-  
+    
     export let data: PageData;
+
     const products = data.products;
+
     let isSizeOptions = false;
     
     function toggleSizeOptions(){
         isSizeOptions = !isSizeOptions;
     }
+    
 </script>
 
 
@@ -35,7 +35,7 @@
         </div>
         
         <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4 md:grid-cols-3 lg:grid-cols-4">
-            {#each featuredProducts as product}
+            {#each products as product}
 
                 <div class="card flex flex-col gap-2 group cursor-pointer">
 

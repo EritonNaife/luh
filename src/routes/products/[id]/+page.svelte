@@ -1,11 +1,10 @@
 <script lang="ts">
     import type { PageData } from "./$types";
-    import ProductCard from "$lib/Components/Cards/ProductCard.svelte";
-   
-  
+
     export let data: PageData;
-    const products =data.products;
-    const product = data.product;
+
+    
+    const {product} = data;
   
     // function handleAddToCart() {
     //   // Add product to cart using the store
@@ -20,14 +19,14 @@
     //   });
     //   alert(`${product.name} added to cart!`); // Simple confirmation
     // }
-  </script>
+</script>
 
   <main>
 
     <section id="" class="h-screen flex flex-col justify-center items-center lg:flex-row">
 
       <div class="w-100 h-100 lg:w-150 lg:h-150 flex lg:items-center">
-        <img src={product.imageUrl} alt={product.name}   class="aspect-[1/1]">
+        <img src={product.imageUrl} alt={product.name}   class="aspect-[1/1] object-cover obkect-center">
       </div>
 
       <div class="flex flex-col gap-5">
@@ -66,9 +65,7 @@
         <h2 class="text-2xl">Related Products</h2>
 
         <div class="cards lg:flex justify-center gap-5">
-          {#each products as product}
-            <ProductCard {product}/>
-          {/each}
+          
         </div>
       </div>
 

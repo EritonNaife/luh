@@ -5,19 +5,15 @@
 
     export let product: Product;
     
-    function handleClick(){
-        goto(`/products/${product.id}`);
-    }
 </script>
 
-<div class="product-card flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 lg:w-56 md:w-64 lg:w-72 ">
+<a href={`/products/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer">
 
     <div class="aspect-[4/5] sm:aspect-[3/4] md:aspect-[3/2] lg:aspect-[16/9]">
       <img
         src={product.imageUrl}
         alt={product.name}
-        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-        on:click={handleClick}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
     </div>
    
@@ -25,4 +21,4 @@
       <h3 class="text-lg lg:text-xl italic">{product.name}</h3>
       <p class="text-xs">{formatPrice(product.price,$selectedCurrency)}</p> 
     </div>
-</div>
+</a>

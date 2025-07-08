@@ -25,7 +25,7 @@ export const cups: Product[] = [
       name: 'Vintage Teacup Candle',
       price: 23.99,
       description: 'A charming soy wax candle poured into a vintage floral teacup. Perfect for cozy evenings.',
-      imageUrl: '/images/vintage-teacup-320.jpg',
+      imageUrl: 'images/cups/Gemini_Generated_Image_ks7iawks7iawks7i.png',
       weight: 320
     },
 
@@ -53,7 +53,7 @@ export const cups: Product[] = [
       name: 'Pastel Latte Cup Candle',
       price: 17.99,
       description: 'Soft pastel colors and a creamy vanilla scent in a latte-style cup.',
-      imageUrl: 'images/cups/pastel-latte-220.png',
+      imageUrl: '/static/images/cups/pastel-latte-220.png',
       weight: 220
     },
 
