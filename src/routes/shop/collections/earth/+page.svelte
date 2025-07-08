@@ -1,7 +1,6 @@
 <script lang="ts">
     import SlidingOption from '$lib/Components/SlidingMenus/SlidingOption.svelte';
     import Icon from '@iconify/svelte';
-    import { selectedCurrency,formatPrice } from "$lib/stores/currency";
 	import { fly, scale } from 'svelte/transition';
 
 
