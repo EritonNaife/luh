@@ -24,7 +24,7 @@
 
 <a href={link} class="relative w-[48vw] md:w-[48vw] lg:w-[24vw] group cursor-pointer flex flex-col items-center">
 
-    <header class="aspect-[3/4] w-full overflow-hidden">
+    <header class="aspect-[4/5]  w-full overflow-hidden">
         <img src={url} alt={caption} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
     </header>
 

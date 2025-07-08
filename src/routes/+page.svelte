@@ -85,17 +85,18 @@
 				class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4"
 				
 			>
-				<div class="" in:fly={{duration: 1600, y: 50, delay: 600, easing: quartOut}}>
-					<Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth" />
-				</div>
+				
+            <div class="" in:fly={{duration: 1600, y: 50, delay: 600, easing: quartOut}}>
+                <Collection link="shop/collections/earth" url="/images/collections/home_cups.png" caption="Cups" />
+            </div>
 
-				<div class="" in:fly={{duration: 1600, y: 50, delay: 800, easing: quartOut}}>
-					<Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>
-				</div>
+            <div class="" in:fly={{duration: 1600, y: 50, delay: 1000, easing: quartOut}}>
+                <Collection link="shop/collections/calm" url = "/images/collections/silicone.jpeg" caption="Molds"/>
+            </div>
 
-				<div class="" in:fly={{duration: 1600, y: 50, delay: 1000, easing: quartOut}}>
-					<Collection link="shop/collections/gift" url = "images/gift-collection-candle.jpeg" caption="Gift"/>
-				</div>				
+            <div class="" in:fly={{duration: 1600, y: 50, delay: 1400, easing: quartOut}}>
+                <Collection link="shop/collections/gift" url = "/images/collections/ceramic.png" caption="Ceramic"/>
+            </div>					
 				
 			</div>
         {/if}
