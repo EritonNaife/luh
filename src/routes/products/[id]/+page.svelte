@@ -1,74 +1,232 @@
 <script lang="ts">
-    import type { PageData } from "./$types";
+	import type { PageData } from './$types';
+	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
+  import { selectedCurrency,formatPrice } from "$lib/stores/currency";
 
-    export let data: PageData;
 
-    
-    const {product} = data;
-  
-    // function handleAddToCart() {
-    //   // Add product to cart using the store
-    //   cartStore.update(items => {
-    //     const existingItem = items.find(item => item.id === product.id);
-    //     if (existingItem) {
-    //       existingItem.quantity += 1;
-    //     } else {
-    //       items.push({ ...product, quantity: 1 });
-    //     }
-    //     return items;
-    //   });
-    //   alert(`${product.name} added to cart!`); // Simple confirmation
-    // }
+	export let data: PageData;
+
+	const { product } = data;
+
+	// State management
+	let quantity = 1;
+	let activeTab = 'description';
+	let isLoading = false;
+	let addToCartMessage = '';
+
+	// Tab content (in real app, this would come from the product data)
+	const tabContent = {
+		description: product.description || 'Product description coming soon...',
+		additional: 'Additional product information will be displayed here.',
+		reviews: 'Customer reviews will be shown here.',
+		usage: 'Instructions for product usage will be provided here.'
+	};
+
+	const tabs = [
+		{ id: 'description', label: 'Description' },
+		{ id: 'additional', label: 'Additional Information' },
+		{ id: 'reviews', label: 'Reviews' },
+		{ id: 'usage', label: 'Mode of use' }
+	];
+
+	function updateQuantity(delta: number) {
+		quantity = Math.max(1, quantity + delta);
+	}
+
+	function handleAddToCart() {
+		isLoading = true;
+		// Simulate API call
+		setTimeout(() => {
+			isLoading = false;
+			addToCartMessage = 'Added to cart!';
+			setTimeout(() => {
+				addToCartMessage = '';
+			}, 3000);
+		}, 500);
+	}
+
 </script>
 
-  <main>
+<svelte:head>
+	<title>{product.name} - Product Details</title>
+	<meta name="description" content={product.description || `Buy ${product.name}`} />
+	<meta property="og:title" content={product.name} />
+	<meta property="og:description" content={product.description || `Buy ${product.name}`} />
+	<meta property="og:image" content={product.imageUrl} />
+	<meta property="og:url" content={$page.url.toString()} />
+</svelte:head>
 
-    <section id="" class="h-screen flex flex-col justify-center items-center lg:flex-row">
+<main class="min-h-screen bg-gray-50">
+	<!-- Product Hero Section -->
+	<section 
+		class="bg-white py-8 lg:py-16"
+		aria-labelledby="product-title"
+	>
+		<div class="container mx-auto px-4 max-w-7xl">
+			<div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
+				<!-- Product Image -->
+				<div class="flex-1 flex justify-center">
+					<div class="w-full max-w-md lg:max-w-lg">
+						<img 
+							src={product.imageUrl} 
+							alt={product.name}
+							class="w-full aspect-square object-cover object-center rounded-lg shadow-lg"
+							loading="eager"
+						/>
+					</div>
+				</div>
 
-      <div class="w-100 h-100 lg:w-150 lg:h-150 flex lg:items-center">
-        <img src={product.imageUrl} alt={product.name}   class="aspect-[1/1] object-cover object-center">
-      </div>
+				<!-- Product Information -->
+				<div class="flex-1 space-y-6">
+					<div>
+						<h1 id="product-title" class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+							{product.name}
+						</h1>
+						<p class="text-3xl font-semibold text-gray-900">
+              {formatPrice(product.price,$selectedCurrency)}
+						</p>
+					</div>
 
-      <div class="flex flex-col gap-5">
-        <h2>{product.name}</h2>
-        <span>{product.price}€</span>
-        <p>in stock</p>
-        <div class="flex gap-3">
-          <button class="border-2 p-1 w-30">quantity</button>
-          <button class="p-2 bg-black text-white w-50">Add to cart</button>
-        </div>
-      </div>
+					<!-- Stock Status -->
+					<div class="flex items-center gap-2">
+						<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+						<span class="text-sm text-green-600 font-medium">In stock</span>
+					</div>
 
-    </section>
+					<!-- Quantity and Add to Cart -->
+					<div class="space-y-4">
+						<div class="flex items-center gap-3">
+							<label for="quantity" class="text-sm font-medium text-gray-700">
+								Quantity:
+							</label>
+							<div class="flex items-center border border-gray-300 rounded-md">
+								<button
+									type="button"
+									class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+									on:click={() => updateQuantity(-1)}
+									disabled={quantity <= 1}
+									aria-label="Decrease quantity"
+								>
+									-
+								</button>
+								<input
+									id="quantity"
+									type="number"
+									min="1"
+									bind:value={quantity}
+									class="w-16 text-center border-x border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+									aria-label="Product quantity"
+								/>
+								<button
+									type="button"
+									class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+									on:click={() => updateQuantity(1)}
+									aria-label="Increase quantity"
+								>
+									+
+								</button>
+							</div>
+						</div>
 
-  
-    <section id="details" class="flex justify-center">
+						<button
+							type="button"
+							class="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+							on:click={handleAddToCart}
+							disabled={isLoading}
+							aria-describedby={addToCartMessage ? 'cart-message' : undefined}
+						>
+							{isLoading ? 'Adding...' : 'Add to Cart'}
+						</button>
 
-      <div class="flex gap-10 py-4 border-t-2 w-100 lg:w-7xl lg:p-6 ">
-        <ul class="space-y-5">
-          <li class=""><div class="hidden lg:inline-flex"><span class="font-bold">-</span></div><a href="">Description</a></li>
-          <li><div class="hidden lg:inline-flex"><span class="font-bold">-</span></div><a href="">Additional Information</a></li>
-          <li><div class="hidden lg:inline-flex"><span class="font-bold">-</span></div><a href="">Reviews</a></li>
-          <li><div class="hidden lg:inline-flex"><span class="font-bold">-</span></div><a href="">Mode of use</a></li>
-        </ul>
+						{#if addToCartMessage}
+							<div id="cart-message" class="text-green-600 text-sm font-medium" role="status">
+								{addToCartMessage}
+							</div>
+						{/if}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <div class="content h-45 lg:border-l-2">
+	<!-- Product Details Section -->
+	<section class="bg-white border-t" aria-labelledby="details-title">
+		<div class="container mx-auto px-4 max-w-7xl py-8">
+			<h2 id="details-title" class="sr-only">Product Details</h2>
+			
+			<div class="flex flex-col lg:flex-row gap-8">
+				<!-- Tab Navigation -->
+				<nav class="lg:w-1/4" aria-label="Product information tabs">
+					<ul class="space-y-2 lg:space-y-4">
+						{#each tabs as tab}
+							<li>
+								<button
+									type="button"
+									class="w-full text-left px-4 py-2 rounded-md transition-colors {activeTab === tab.id 
+										? 'bg-gray-100 text-gray-900 font-medium' 
+										: 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}"
+									on:click={() => activeTab = tab.id}
+									aria-current={activeTab === tab.id ? 'page' : undefined}
+								>
+									<span class="hidden lg:inline-block mr-2 font-bold">-</span>
+									{tab.label}
+								</button>
+							</li>
+						{/each}
+					</ul>
+				</nav>
 
-        </div>
-      </div>
-    </section>
+				<!-- Tab Content -->
+				<div class="lg:w-3/4 lg:border-l lg:pl-8">
+					<div class="prose prose-gray max-w-none">
+						{#if activeTab === 'description'}
+							<div>
+								<h3 class="text-lg font-semibold mb-4">Description</h3>
+								<p>{tabContent.description}</p>
+							</div>
+						{:else if activeTab === 'additional'}
+							<div>
+								<h3 class="text-lg font-semibold mb-4">Additional Information</h3>
+								<p>{tabContent.additional}</p>
+							</div>
+						{:else if activeTab === 'reviews'}
+							<div>
+								<h3 class="text-lg font-semibold mb-4">Reviews</h3>
+								<p>{tabContent.reviews}</p>
+							</div>
+						{:else if activeTab === 'usage'}
+							<div>
+								<h3 class="text-lg font-semibold mb-4">Mode of Use</h3>
+								<p>{tabContent.usage}</p>
+							</div>
+						{/if}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section id="related" class="mt-10 flex justify-center">
+	<!-- Related Products Section -->
+	<section class="bg-gray-50 py-16" aria-labelledby="related-title">
+		<div class="container mx-auto px-4 max-w-7xl">
+			<h2 id="related-title" class="text-2xl font-bold text-gray-900 mb-8">
+				Related Products
+			</h2>
+			
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+				<!-- Placeholder for related products -->
+				<!-- In a real app, you would loop through data.relatedProducts -->
+				</div>
+		</div>
+	</section>
+</main>
 
-      <div class="w-100 h-150 flex flex-col gap-10 lg:w-350">
-
-        <h2 class="text-2xl">Related Products</h2>
-
-        <div class="cards lg:flex justify-center gap-5">
-          
-        </div>
-      </div>
-
-    </section>
-    
-  </main>
+<style>
+	/* Custom styles for better focus indicators */
+	button:focus-visible,
+	input:focus-visible {
+		outline: 2px solid #3b82f6;
+		outline-offset: 2px;
+	}
+</style>

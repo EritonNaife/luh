@@ -18,10 +18,10 @@
                     <a href="https://www.facebook.com/profile.php?id=61550866414034&locale=pt_PT">
                         <Icon icon="logos:facebook" width="24" height="24" />
                     </a>
-                    <a href="https://www.tiktok.com/@luhbeacandles?_t=ZG-8wV0kOxcdQu&_r=1" class="text-black">
+                    <a href="https://www.tiktok.com/@luhbeacandles?_t=ZG-8wV0kOxcdQu&_r=1">
                         <Icon icon="logos:tiktok-icon" width="24" height="24" />
                     </a>
-                    <a href="https://www.instagram.com/luhbeacandles?igsh=dDR5cXlhOHpobzQ2" class="text-black">
+                    <a href="https://www.instagram.com/luhbeacandles?igsh=dDR5cXlhOHpobzQ2">
                         <Icon icon="skill-icons:instagram" width="25" height="25" />
                     </a>
                     
