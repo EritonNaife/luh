@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { selectedCurrency,formatPrice } from "$lib/stores/currency";
-  import { featuredProducts, type Product } from "$lib/data/products";
+  import { featuredCups} from "$lib/data/products";
+  import SliderCard from "../Cards/SliderCard.svelte";
+  import ProductCard from "../Cards/ProductCard.svelte";
 
   // Reference to the scrollable container element
   let scrollContainer: HTMLElement;
@@ -92,19 +93,8 @@
         style="-webkit-overflow-scrolling: touch;"
         class="flex overflow-x-auto snap-x scroll-smooth p-4 space-x-4 scrollbar-hide"
       >
-        {#each featuredProducts as product}
-          <div class="product-card flex-shrink-0 snap-center overflow-hidden flex flex-col w-56 lg:w-75">
-            <img
-              src={product.imageUrl}
-              alt={product.name}
-              class="w-full object-cover h-50 lg:h-80 lg:w-65 lg:h-90"
-            />
-            <div class="py-4">
-              <h3 class="text-[17px] lg:text-xl italic">{product.name}</h3>
-              <p class="text-sm">{product.description}</p> 
-              <p class="text-[12px]">{formatPrice(product.price,$selectedCurrency)}</p> 
-            </div>
-          </div>
+        {#each featuredCups as product}
+          <SliderCard {product}/>
         {/each}
       </div>
       

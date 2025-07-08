@@ -11,32 +11,32 @@
   
     const categories = [
       {
-        title: 'Collections',
-        hrefBase: '/shop/collections',
+        title: 'Cups',
+        hrefBase: '/shop/cups',
         items: [
-          { name: 'Calm', href: '/calm' },
-          { name: 'Earth', href: '/earth' },
-          { name: 'Mood', href: '/mood' },
-          { name: 'Gift', href: '/gift' },
+          { name: 'Home', href: '/home' },
+          //{ name: 'Earth', href: '/earth' },
+          //{ name: 'Mood', href: '/mood' },
+          //{ name: 'Gift', href: '/gift' },
         ],
       },
       {
-        title: 'Moldes',
+        title: 'Molds',
         hrefBase: '/shop/moldes',
         items: [
           { name: 'Silicone Molds', href: '/silicone' },
-          { name: 'Pros Acrylic Molds', href: '/pros-acrylic' },
-          { name: 'Metal Molds', href: '/metal' },
-          { name: 'Plastic Molds', href: '/plastic' },
+          //{ name: 'Pros Acrylic Molds', href: '/pros-acrylic' },
+          //{ name: 'Metal Molds', href: '/metal' },
+          //{ name: 'Plastic Molds', href: '/plastic' },
         ],
       },
       {
-        title: 'Packs',
+        title: 'Ceramics',
         hrefBase: '/shop/packs',
         items: [
           { name: 'Relaxation Pack', href: '/relaxation' },
-          { name: 'Focus & Clarity Pack', href: '/focus-clarity' },
-          { name: 'Romance Pack', href: '/romance' },
+          //{ name: 'Focus & Clarity Pack', href: '/focus-clarity' },
+          //{ name: 'Romance Pack', href: '/romance' },
         ],
       },
     ];
@@ -49,7 +49,7 @@
     on:focusout="{hideDropdown}"
   
   >
-    <a href="/products" class="hover:underline" aria-haspopup="true" aria-expanded="{isHovering}">Shop</a>
+    <a href="/products" class="hover:underline" aria-haspopup="true" aria-expanded="{isHovering}">Collections</a>
   
     {#if isHovering}
       <div

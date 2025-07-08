@@ -1,9 +1,9 @@
 
-import { featuredProducts,type Product } from "$lib/data/products";
+import { cups,type Product } from "$lib/data/products";
 import type { ServerLoad } from "@sveltejs/kit";
 
 export const load: ServerLoad = async () =>{
-    const products: Product[] =featuredProducts;
+    const products: Product[] =cups;
 
     return{
         products
