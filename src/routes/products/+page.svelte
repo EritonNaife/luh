@@ -16,7 +16,7 @@
 </script>
 
 
-<main class="mt-50">
+<main class="mt-40">
 
     <section id="product-display" >
         
