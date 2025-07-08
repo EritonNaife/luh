@@ -1,24 +1,46 @@
 <script lang="ts">
     import Collection from "$lib/Components/Cards/Collection.svelte"
     import ProductSlider from "$lib/Components/Slider/ProductSlider.svelte";
+    import { inview } from 'svelte-inview';
     import type { PageData } from "./$types";
     import { goto } from "$app/navigation";
-	import { fade, fly} from "svelte/transition";
-	import { cubicIn, quartOut } from "svelte/easing";
+    import { fade, fly} from "svelte/transition";
+    import { cubicIn, quartOut } from "svelte/easing";
 
     function handleClick(){
         goto('/products');
     }
     
+	let isInView: boolean = false;
     export let data:PageData;
-    
-</script>
 
+	let sectionLatestProducts: boolean = false;
+    
+    // State for controlling section visibility
+    let latestProductsVisible = false;
+    let collectionsVisible = false;
+    
+    // Event handlers for inview
+
+    function handleLatestProductsInview(event:CustomEvent) {
+        latestProductsVisible = event.detail.inView;
+    }
+
+	const handleInViewChange = (event: CustomEvent) => {
+        const { inView } = event.detail;
+        isInView = inView;
+    };
+    
+    function handleCollectionsInview(event:CustomEvent) {
+        collectionsVisible = event.detail.inView;
+    }
+</script>
 
 <main class="text-[#2F2F2F]">
     
+
     <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
-		
+        
         <div class="relative bg-cover bg-center h-screen flex flex-col items-center justify-end text-center" style="background-image: url('images/Gemini_Generated_Image_ue7vpkue7vpkue7v.jpeg')">
 
             <div class="absolute inset-0 bg-black/40 "></div>
@@ -35,75 +57,97 @@
 
     </section>
    
-	 
-    <section id="Latest-products" class="p-4">
-    
-        <div class="flex justify-center gap-4 p-4">
-            <h2 class="text-2xl lg:text-3xl font-medium ">You might like</h2>
-        </div>
-        
-        <ProductSlider/>
+    <section 
+        id="Latest-products" 
+        class="p-4"
+        use:inview={{threshold: 0.3, rootMargin: '0px'}}
+        on:inview_change={handleLatestProductsInview}
+    >
+        {#if latestProductsVisible}
+            <div 
+                class="flex justify-center gap-4 p-4"
+                in:fly={{duration: 800, y: 50, delay: 200, easing: quartOut}}
+            >
+                <h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
+            </div>
+            
+            <div in:fade={{duration: 2000, delay: 600, easing: quartOut}}>
+                <ProductSlider/>
+            </div>
+        {/if}
     </section>
     
-    <section id="Collections-section" class="mb-20">
-      
-            <h2 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]">Collections</h2>
+    <section 
+        id="Collections-section" 
+        class="mb-20"
+        use:inview={{threshold: 0.2, rootMargin: '10px'}}
+        on:inview_change={handleCollectionsInview}
+    >
+        {#if collectionsVisible}
+            <h2 
+                class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
+                in:fly={{duration: 600, y: -30, delay: 100, easing: quartOut}}
+            >
+                Collections
+            </h2>
     
-            <div class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4">
+            <div 
+                class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4"
+                in:fly={{duration: 800, y: 50, delay: 300, easing: quartOut}}
+            >
                 <Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth"/>
                 <Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>
                 <Collection link="shop/collections/gift" url = "images/gift-collection-candle.jpeg" caption="Gift"/>
                 <Collection link="shop/collections/mood" url="images/mood-collection-candle.jpeg" caption="Mood"/>
-                
             </div>
-    
+        {/if}
     </section>
   
 </main>
 
 <style>
-	@media screen and (min-width: 500px) {
-		:global(#slidy_cards .slidy-ul li) {width: 70vw;}
-	}	
-	@media screen and (min-width: 600px) {
-		:global(#slidy_cards .slidy-ul li) {width: 50vw;}
-	}
-	@media screen and (min-width: 700px) {
-		:global(#slidy_cards .slidy-ul li) {width: 33vw;}
-	}
-	:global(#slidy_cards .slidy-ul li img) {
-			transform: scale(1);
-			transition: transform 350ms, box-shadow 350ms;
-	}
-	:global(#slidy_cards .slidy-ul li) {overflow: visible}
-	:global(#slidy_cards .slidy-ul li.active img) {
-			transform: scale(1.15);
-			box-shadow: 0 14px 25px rgba(0, 0, 0, 0.36);
-	}
-	:global(body) { margin: 0; padding: 0}
-	.slide {
-		position: relative;
-		display: flex;
-		flex-flow: column;
-		text-align: center;
-		align-content: center;
-		justify-content: center;
-		height: 100%;
-		border-radius: 1rem;
-	}
-	.slide img {
-		max-height: 200px;
-		width: 100%;
-		height: 100%;
-		box-sizing: border-box;
-		vertical-align: middle;
-		object-fit: cover;
-		position: relative;
-		z-index: 1;
-		border-radius: 1rem;
-		box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
-	}
-	.slide article {
-		padding: 1rem;
-	}
+    @media screen and (min-width: 500px) {
+        :global(#slidy_cards .slidy-ul li) {width: 70vw;}
+    }   
+    @media screen and (min-width: 600px) {
+        :global(#slidy_cards .slidy-ul li) {width: 50vw;}
+    }
+    @media screen and (min-width: 700px) {
+        :global(#slidy_cards .slidy-ul li) {width: 33vw;}
+    }
+    :global(#slidy_cards .slidy-ul li img) {
+            transform: scale(1);
+            transition: transform 350ms, box-shadow 350ms;
+    }
+    :global(#slidy_cards .slidy-ul li) {overflow: visible}
+    :global(#slidy_cards .slidy-ul li.active img) {
+            transform: scale(1.15);
+            box-shadow: 0 14px 25px rgba(0, 0, 0, 0.36);
+    }
+    :global(body) { margin: 0; padding: 0}
+    .slide {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        border-radius: 1rem;
+    }
+    .slide img {
+        max-height: 200px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+        border-radius: 1rem;
+        box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+    }
+    .slide article {
+        padding: 1rem;
+    }
 </style>

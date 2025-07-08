@@ -2,8 +2,7 @@
 
 	import { fade, fly,scale,slide } from 'svelte/transition';
      import { inview } from 'svelte-inview';
-    import IntersectionObserver from "svelte-intersection-observer";
-    import type { TransitionConfig } from 'svelte/transition';
+
 	import { quintOut } from 'svelte/easing';
 
   
@@ -47,12 +46,6 @@
         const { inView } = event.detail;
         isInView = inView;
     };
-
-	let section1: HTMLElement;
-    let section2: HTMLElement;
-    let section3: HTMLElement;
-    let section4: HTMLElement;
-
    
 </script>
 
