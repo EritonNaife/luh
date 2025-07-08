@@ -11,29 +11,24 @@
         goto('/products');
     }
     
-	let isInView: boolean = false;
+	
     export let data:PageData;
 
+
+    let isInView: boolean = false;
 	let sectionLatestProducts: boolean = false;
+	let sectionCollections: boolean = false;
+
     
     // State for controlling section visibility
     let latestProductsVisible = false;
     let collectionsVisible = false;
-    
-    // Event handlers for inview
-
-    function handleLatestProductsInview(event:CustomEvent) {
-        latestProductsVisible = event.detail.inView;
-    }
 
 	const handleInViewChange = (event: CustomEvent) => {
         const { inView } = event.detail;
         isInView = inView;
     };
-    
-    function handleCollectionsInview(event:CustomEvent) {
-        collectionsVisible = event.detail.inView;
-    }
+ 
 </script>
 
 <main class="text-[#2F2F2F]">
@@ -60,10 +55,10 @@
     <section 
         id="Latest-products" 
         class="p-4"
-        use:inview={{threshold: 0.3, rootMargin: '0px'}}
-        on:inview_change={handleLatestProductsInview}
+        use:inview={{threshold: 0.3, rootMargin: '0px', unobserveOnEnter: true}}
+        on:inview_change={handleInViewChange}
     >
-        {#if latestProductsVisible}
+        {#if isInView}
             <div 
                 class="flex justify-center gap-4 p-4"
                 in:fly={{duration: 800, y: 50, delay: 200, easing: quartOut}}
@@ -80,10 +75,10 @@
     <section 
         id="Collections-section" 
         class="mb-20"
-        use:inview={{threshold: 0.2, rootMargin: '10px'}}
-        on:inview_change={handleCollectionsInview}
+        use:inview={{threshold: 0.2, rootMargin: '40px'}}
+        on:inview_change={(e) => sectionCollections = e.detail.inView}
     >
-        {#if collectionsVisible}
+        {#if sectionCollections}
             <h2 
                 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
                 in:fly={{duration: 600, y: -30, delay: 100, easing: quartOut}}
@@ -93,7 +88,7 @@
     
             <div 
                 class="py-4 space-y-2 grid justify-items-center grid-cols-2 lg:flex justify-center lg:gap-4"
-                in:fly={{duration: 800, y: 50, delay: 300, easing: quartOut}}
+                in:fly={{duration: 800, y: 50, delay: 800, easing: quartOut}}
             >
                 <Collection link="shop/collections/earth" url="images/earth-collection-candle.jpeg" caption="Earth"/>
                 <Collection link="shop/collections/calm" url = "images/calm-collection-candle.jpeg" caption="Calm"/>

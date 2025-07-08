@@ -1,8 +1,7 @@
 <script lang="ts">
 
 	import { fade, fly,scale,slide } from 'svelte/transition';
-     import { inview } from 'svelte-inview';
-
+    import { inview } from 'svelte-inview';
 	import { quintOut } from 'svelte/easing';
 
   
