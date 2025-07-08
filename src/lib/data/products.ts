@@ -16,7 +16,7 @@ export const cups: Product[] = [
       name: 'Vintage Teacup Candle',
       price: 18.99,
       description: 'A charming soy wax candle poured into a vintage floral teacup. Perfect for cozy evenings.',
-      imageUrl: 'images/cups/Gemini_Generated_Image_ks7iawks7iawks7i.png',
+      imageUrl: '/images/cups/Gemini_Generated_Image_ks7iawks7iawks7i.png',
       weight: 220
     },
 
@@ -147,7 +147,7 @@ export const cups: Product[] = [
       name: 'Vintage Teacup Candle',
       price: 18.99,
       description: 'A charming soy wax candle poured into a vintage floral teacup. Perfect for cozy evenings.',
-      imageUrl: 'images/cups/Gemini_Generated_Image_ks7iawks7iawks7i.png',
+      imageUrl: '/images/cups/Gemini_Generated_Image_ks7iawks7iawks7i.png',
       weight: 220
     },
 
