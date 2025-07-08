@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
+	import { formatPrice,selectedCurrency } from '$lib/stores/currency';
 
 	export let data: PageData;
 
@@ -78,20 +79,14 @@
 		return product.price * (selectedOption?.priceMultiplier || 1);
 	}
 
-	// Format price
-	function formatPrice(price: number): string {
-		return new Intl.NumberFormat('en-EU', {
-			style: 'currency',
-			currency: 'EUR'
-		}).format(price);
-	}
+	
 </script>
 
 <svelte:head>
 	<title>{product.name} - Product Details</title>
-	<meta name="description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price)}`} />
+	<meta name="description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price,$selectedCurrency)}`} />
 	<meta property="og:title" content={product.name} />
-	<meta property="og:description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price)}`} />
+	<meta property="og:description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price,$selectedCurrency)}`} />
 	<meta property="og:image" content={product.imageUrl} />
 	<meta property="og:url" content={$page.url.toString()} />
 </svelte:head>
@@ -169,13 +164,9 @@
 							{product.name}
 						</h1>
 						<p class="text-3xl font-semibold text-gray-900">
-							{formatPrice(getCurrentPrice())}
+							{formatPrice(getCurrentPrice(),$selectedCurrency)}
 						</p>
-						{#if selectedSize === '320g'}
-							<p class="text-sm text-gray-600 mt-1">
-								Base price: {formatPrice(product.price)} (+30% for 320g)
-							</p>
-						{/if}
+						
 					</div>
 
 					<!-- Stock Status -->
@@ -258,7 +249,7 @@
 							disabled={isLoading}
 							aria-describedby={addToCartMessage ? 'cart-message' : undefined}
 						>
-							{isLoading ? 'Adding...' : `Add to Cart - ${formatPrice(getCurrentPrice() * quantity)}`}
+							{isLoading ? 'Adding...' : `Add to Cart - ${formatPrice(getCurrentPrice() * quantity,$selectedCurrency)}`}
 						</button>
 
 						{#if addToCartMessage}
