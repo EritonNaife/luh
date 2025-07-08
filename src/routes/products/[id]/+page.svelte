@@ -26,7 +26,7 @@
     <section id="" class="h-screen flex flex-col justify-center items-center lg:flex-row">
 
       <div class="w-100 h-100 lg:w-150 lg:h-150 flex lg:items-center">
-        <img src={product.imageUrl} alt={product.name}   class="aspect-[1/1] object-cover obkect-center">
+        <img src={product.imageUrl} alt={product.name}   class="aspect-[1/1] object-cover object-center">
       </div>
 
       <div class="flex flex-col gap-5">

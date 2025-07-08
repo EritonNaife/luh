@@ -2,7 +2,7 @@
     import Icon from "@iconify/svelte";
 </script>
 
-<footer class="p-12 bg-[#FFEFEF]/60 border-[#f3e0df] border-t-1">
+<footer class="p-12 bg-[#fae0df] border-[#f3e0df] border-t-1">
     
     <div class="container mx-auto">
 
