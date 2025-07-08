@@ -81,7 +81,7 @@
         {#if sectionCollections}
             <h2 
                 class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
-                in:fly={{duration: 600, y: -30, delay: 100, easing: quartOut}}
+                in:fly={{duration: 600, y: -30, delay: 300, easing: quartOut}}
             >
                 Collections
             </h2>
