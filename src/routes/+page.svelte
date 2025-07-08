@@ -75,7 +75,7 @@
     <section 
         id="Collections-section" 
         class="mb-20"
-        use:inview={{threshold: 0.2, rootMargin: '40px'}}
+        use:inview={{threshold: 0.2, rootMargin: '0px',unobserveOnEnter: true}}
         on:inview_change={(e) => sectionCollections = e.detail.inView}
     >
         {#if sectionCollections}
