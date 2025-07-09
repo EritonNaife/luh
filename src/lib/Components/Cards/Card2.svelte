@@ -37,5 +37,6 @@
         <h3>{product.name}</h3>
         <p>{formatPrice(product.price,$selectedCurrency)}</p>
     </footer>
+    
 </div>
 

@@ -31,7 +31,7 @@
  
 </script>
 
-<main class="text-[#737373]">
+<main class="text-gray-700">
     
 
     <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
@@ -56,12 +56,12 @@
         {#if isInView}
 		<div 
 		class="flex justify-center gap-4 p-4"
-		in:fly={{duration: 1600, y: 50, delay: 400, easing: quartOut}}
+		in:fly={{duration: 1800, y: 50, delay: 400, easing: quartOut}}
 	>
 		<h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
 	</div>
 	
-	<div in:fade={{duration: 1600, delay: 800, easing: quartOut}}>
+	<div in:fade={{duration: 1800, delay: 1000, easing: quartOut}}>
 		<ProductSlider/>
 	</div>
         {/if}
@@ -76,7 +76,7 @@
         {#if sectionCollections}
 			<h2 
 			class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
-			in:fly={{duration: 600, y: -30, delay: 400, easing: quartOut}}
+			in:fly={{duration: 600, y: -30, delay: 800, easing: quartOut}}
 		>
 			Collections
 			</h2>
@@ -86,15 +86,15 @@
 				
 			>
 				
-            <div class="" in:fly={{duration: 1600, y: 50, delay: 600, easing: quartOut}}>
+            <div class="" in:fly={{duration: 1800, y: 50, delay: 1000, easing: quartOut}}>
                 <Collection link="shop/cups/home" url="/images/collections/home_cups.png" caption="Cups" />
             </div>
 
-            <div class="" in:fly={{duration: 1600, y: 50, delay: 1000, easing: quartOut}}>
+            <div class="" in:fly={{duration: 1600, y: 50, delay: 1400, easing: quartOut}}>
                 <Collection link="shop/molds/silicone" url = "/images/collections/silicone.jpeg" caption="Molds"/>
             </div>
 
-            <div class="" in:fly={{duration: 1600, y: 50, delay: 1400, easing: quartOut}}>
+            <div class="" in:fly={{duration: 1600, y: 50, delay: 1800, easing: quartOut}}>
                 <Collection link="shop/collections/ceramics" url = "/images/collections/ceramic.png" caption="Ceramic"/>
             </div>					
 				
