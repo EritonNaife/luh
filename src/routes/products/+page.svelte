@@ -17,7 +17,7 @@
 </script>
 
 
-<main class="mt-40 text-[#2F2F2F]">
+<main class="mt-40 text-[#737373]">
 
     <section id="product-display" >
         

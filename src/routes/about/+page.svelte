@@ -48,7 +48,7 @@
    
 </script>
 
-<main class="w-full mt-[25%] lg:mt-[5%] text-[#2F2F2F]">
+<main class="w-full mt-[25%] lg:mt-[5%] text-[#737373]">
 
     <header class="bg-white">
         

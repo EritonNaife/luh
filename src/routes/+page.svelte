@@ -31,7 +31,7 @@
  
 </script>
 
-<main class="text-[#2F2F2F]">
+<main class="text-[#737373]">
     
 
     <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
@@ -87,7 +87,7 @@
 			>
 				
             <div class="" in:fly={{duration: 1600, y: 50, delay: 600, easing: quartOut}}>
-                <Collection link="shop/collections/earth" url="/images/collections/home_cups.png" caption="Cups" />
+                <Collection link="shop/cups/home" url="/images/collections/home_cups.png" caption="Cups" />
             </div>
 
             <div class="" in:fly={{duration: 1600, y: 50, delay: 1000, easing: quartOut}}>

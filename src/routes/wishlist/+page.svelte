@@ -3,7 +3,7 @@
 </script>
 
 
-<main class="">
+<main class="text-[#737373]">
     <section class="h-screen w-full max-auto flex flex-col justify-center">
         <h1 class="flex justify-center mb-30 text-3xl md:text-4xl">WishList</h1>
 
