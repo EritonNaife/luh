@@ -80,7 +80,7 @@
     </div>
 
     <a href="/" class="text-2xl flex items-center ">
-     <img src="LuhBea Logotipo.svg" alt="" class="absolute size-50 ">
+      LOGO
     </a> 
 
     <nav class="hidden lg:flex space-x-6 items-center">
