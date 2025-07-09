@@ -8,6 +8,13 @@ export interface Product {
   weight: number;
 }
 
+export interface Mold{
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  imageUrls: string[];
+}
 
 export const cups: Product[] = [
   
@@ -137,10 +144,10 @@ export const cups: Product[] = [
       imageUrl: '/images/cups/Gemini_Generated_Image_yf8i73yf8i73yf8i.png',
       weight: 320
     }
-  ];
+];
 
 
-  export const featuredCups: Product[] = [
+export const featuredCups: Product[] = [
 
     {
       id: 'cup-001-220',
@@ -205,4 +212,37 @@ export const cups: Product[] = [
       imageUrl: '/images/cups/Gemini_Generated_Image_yf8i73yf8i73yf8i.png',
       weight: 220
     }
-  ];
+];
+
+export const siliconeMolds: Mold[] = [
+  {
+    id: "torso001",
+    name: "Torso Candle Mold",
+    price: 24.99,
+    description: "A detailed silicone mold shaped like a human torso, perfect for elegant candle designs.",
+    imageUrls: [
+      "/images/silicone_prod_grid/silicone-torso.png",
+      "/images/silicone_prod_grid/silicone_torso_candle2.jpg"
+    ]
+  },
+  {
+    id: "heart001",
+    name: "Heart Candle Mold",
+    price: 19.99,
+    description: "A romantic heart-shaped silicone mold, ideal for gifts and special occasions.",
+    imageUrls: [
+      "/images/silicone_prod_grid/heart_candle1.png",
+      "/images/silicone_prod_grid/heart_candle2.jpg.jpg"
+    ]
+  },
+  {
+    id: "spiral001",
+    name: "Spiral Candle Mold",
+    price: 21.5,
+    description: "An artistic spiral silicone mold that creates eye-catching candle designs.",
+    imageUrls: [
+      "/images/silicone_prod_grid/silcone-spiral1.png",
+      "https://example.com/images/spiral-2.jpg"
+    ]
+  }
+];
