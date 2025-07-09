@@ -156,7 +156,7 @@ export const cups: Product[] = [
       name: 'Modern Espresso Cup Candle',
       price: 16.49,
       description: 'A sleek candle with bold scents served in a black ceramic espresso cup.',
-      imageUrl: 'images/cups/Gemini_Generated_Image_xnab4oxnab4oxnab.png',
+      imageUrl: '/images/cups/Gemini_Generated_Image_xnab4oxnab4oxnab.png',
       weight: 220
     },
 
@@ -166,7 +166,7 @@ export const cups: Product[] = [
       name: 'Pastel Latte Cup Candle',
       price: 17.99,
       description: 'Soft pastel colors and a creamy vanilla scent in a latte-style cup.',
-      imageUrl: 'images/cups/pastel-latte-220.png',
+      imageUrl: '/images/cups/pastel-latte-220.png',
       weight: 220
     },
 
@@ -175,7 +175,7 @@ export const cups: Product[] = [
       name: 'Speckled Stoneware Mug Candle',
       price: 19.49,
       description: 'Earthy and calming, this candle is hand-poured in a rustic speckled stoneware mug with a sandalwood scent.',
-      imageUrl: 'images/cups/Gemini_Generated_Image_n7mnain7mnain7mn.png',
+      imageUrl: '/images/cups/Gemini_Generated_Image_n7mnain7mnain7mn.png',
       weight: 220
     },
 
@@ -193,7 +193,7 @@ export const cups: Product[] = [
       name: 'Artisan Clay Cup Candle',
       price: 18.75,
       description: 'Handcrafted clay cup filled with a eucalyptus-scented soy wax blend. A natural and calming vibe.',
-      imageUrl: 'images/cups/Gemini_Generated_Image_lfru14lfru14lfru.png',
+      imageUrl: '/images/cups/Gemini_Generated_Image_lfru14lfru14lfru.png',
       weight: 220
     },
 
