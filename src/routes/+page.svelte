@@ -91,7 +91,7 @@
             </div>
 
             <div class="" in:fly={{duration: 1600, y: 50, delay: 1000, easing: quartOut}}>
-                <Collection link="shop/cups/molds" url = "/images/collections/silicone.jpeg" caption="Molds"/>
+                <Collection link="shop/molds/silicone" url = "/images/collections/silicone.jpeg" caption="Molds"/>
             </div>
 
             <div class="" in:fly={{duration: 1600, y: 50, delay: 1400, easing: quartOut}}>
