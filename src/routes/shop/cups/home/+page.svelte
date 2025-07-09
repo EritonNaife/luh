@@ -12,7 +12,7 @@
 
 
 
-<main class="">
+<main class="text-[#737373]">
 
     <section id="hero-section " >
 

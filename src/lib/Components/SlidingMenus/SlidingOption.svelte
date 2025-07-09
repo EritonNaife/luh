@@ -82,7 +82,7 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <!-- Mobile Version -->
-<div class="fixed inset-0 z-50 lg:hidden">
+<div class="fixed inset-0 z-50 lg:hidden text-[#737373]">
 	<!-- Backdrop -->
 	<div class="fixed inset-0 bg-black/20" 
 		 on:click={closeMenu} 
@@ -102,7 +102,7 @@
 		<div class="p-6 space-y-6">
 			<!-- Header -->
 			<div class="flex items-center justify-between">
-				<h2 id="modal-title" class="text-lg font-semibold text-gray-900">
+				<h2 id="modal-title" class="text-lg font-semibold ">
 					{product.name}
 				</h2>
 				<button 
@@ -125,14 +125,14 @@
 
 			<!-- Price -->
 			<div class="text-center">
-				<p class="text-2xl font-bold text-gray-900">
+				<p class="text-2xl font-bold">
 					{formatPrice(getCurrentPrice(), $selectedCurrency)}
 				</p>
 			</div>
 
 			<!-- Size Selection -->
 			<div class="space-y-3">
-				<h3 class="text-sm font-medium text-gray-700">Select Size:</h3>
+				<h3 class="text-sm font-medium">Select Size:</h3>
 				<div class="flex gap-3 justify-center">
 					{#each sizeOptions as option}
 						<label class="flex-1">
@@ -148,7 +148,7 @@
 								: 'border-gray-300 hover:border-gray-400'}">
 								<span class="font-medium">{option.label}</span>
 								{#if option.priceLabel}
-									<span class="text-xs block {selectedSize === option.value ? 'text-gray-300' : 'text-gray-500'}">
+									<span class="text-xs block {selectedSize === option.value ? 'text-[#737373]' : 'text-[#737373]'}">
 										{option.priceLabel}
 									</span>
 								{/if}
@@ -160,7 +160,7 @@
 
 			<!-- Quantity Selection -->
 			<div class="space-y-3">
-				<h3 class="text-sm font-medium text-gray-700">Quantity:</h3>
+				<h3 class="text-sm font-medium ">Quantity:</h3>
 				<div class="flex items-center justify-center gap-4">
 					<button
 						type="button"
@@ -205,7 +205,7 @@
 </div>
 
 <!-- Desktop Version -->
-<div class="hidden lg:block fixed inset-0 z-50">
+<div class="hidden lg:block fixed inset-0 z-50 text-[#737373]">
 	<!-- Backdrop -->
 	<div class="fixed inset-0 bg-black/20 flex items-center justify-center p-4" 
 		 on:click={closeMenu}
@@ -225,7 +225,7 @@
 		<div class="p-6">
 			<!-- Header -->
 			<div class="flex justify-between items-center mb-6">
-				<h2 id="modal-title-desktop" class="text-2xl font-bold text-gray-900">
+				<h2 id="modal-title-desktop" class="text-2xl font-bold text-[#737373]">
 					{product.name}
 				</h2>
 				<button 
@@ -252,7 +252,7 @@
 				<div class="space-y-6">
 					<!-- Price -->
 					<div>
-						<p class="text-3xl font-bold text-gray-900">
+						<p class="text-3xl font-bold text-[#737373]">
 							{formatPrice(getCurrentPrice(), $selectedCurrency)}
 						</p>
 					</div>
@@ -265,7 +265,7 @@
 
 					<!-- Size Selection -->
 					<div class="space-y-3">
-						<h3 class="text-sm font-medium text-gray-700">Select Size:</h3>
+						<h3 class="text-sm font-medium text-[#737373]">Select Size:</h3>
 						<div class="flex gap-3">
 							{#each sizeOptions as option}
 								<label>
@@ -293,7 +293,7 @@
 
 					<!-- Quantity Selection -->
 					<div class="space-y-3">
-						<h3 class="text-sm font-medium text-gray-700">Quantity:</h3>
+						<h3 class="text-sm font-medium text-[#737373]">Quantity:</h3>
 						<div class="flex items-center gap-3">
 							<button
 								type="button"
@@ -327,8 +327,8 @@
 					<!-- Product Description -->
 					{#if product.description}
 						<div class="space-y-2">
-							<h3 class="text-sm font-medium text-gray-700">Description:</h3>
-							<p class="text-sm text-gray-600">{product.description}</p>
+							<h3 class="text-sm font-medium text-[#737373]">Description:</h3>
+							<p class="text-sm text-[#737373]">{product.description}</p>
 						</div>
 					{/if}
 

@@ -17,7 +17,7 @@
 </script>
 
 
-<div class="card flex flex-col gap-2 group cursor-pointer">
+<div class="card flex flex-col gap-2 group cursor-pointer text-[#737373]">
 
     <div
        class="w-[45vw] h-[30vh] sm:w-[46vw] sm:h-100 md:w-[31vw] md:h-[30vh] 
