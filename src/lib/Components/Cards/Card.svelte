@@ -3,14 +3,19 @@
     import type { Product } from "$lib/data/products";
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
 	import Icon from "@iconify/svelte";
+	import { goto } from "$app/navigation";
     export let product:Product;
 
     let isSizeOptions = false;
-    let isAddingToCart = false;
+  
 
 
     function toggleSizeOptions(){
         isSizeOptions = !isSizeOptions;
+    }
+
+    function handleClick(){
+        goto(`/products/${product.id}`);
     }
 
 
@@ -22,7 +27,9 @@
     <div
        class="w-[45vw] h-[30vh] sm:w-[46vw] sm:h-100 md:w-[31vw] md:h-[30vh] 
               lg:w-[24vw] lg:h-[40vh] p-2 relative bg-cover bg-center flex justify-end items-end" 
-       style="background-image: url('{product.imageUrl}');">
+       style="background-image: url('{product.imageUrl}');"
+       
+    >
 
     
        

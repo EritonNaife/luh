@@ -11,8 +11,8 @@
 
 	// Size options with pricing (matching your main product page)
 	const sizeOptions = [
-		{ value: '220g', label: '220g', priceMultiplier: 1, priceLabel: '' },
-		{ value: '320g', label: '320g', priceMultiplier: 1.3, priceLabel: '+30%' }
+		{ value: '220g', label: '220g', priceMultiplier: 1},
+		{ value: '320g', label: '320g', priceMultiplier: 1.3}
 	];
 
 	// State management
@@ -147,11 +147,7 @@
 								? 'border-gray-900 bg-gray-900 text-white' 
 								: 'border-gray-300 hover:border-gray-400'}">
 								<span class="font-medium">{option.label}</span>
-								{#if option.priceLabel}
-									<span class="text-xs block {selectedSize === option.value ? 'text-[#737373]' : 'text-[#737373]'}">
-										{option.priceLabel}
-									</span>
-								{/if}
+							
 							</div>
 						</label>
 					{/each}
@@ -280,11 +276,6 @@
 										? 'border-gray-900 bg-gray-900 text-white' 
 										: 'border-gray-300 hover:border-gray-400'}">
 										<span class="font-medium">{option.label}</span>
-										{#if option.priceLabel}
-											<span class="text-xs block {selectedSize === option.value ? 'text-gray-300' : 'text-gray-500'}">
-												{option.priceLabel}
-											</span>
-										{/if}
 									</div>
 								</label>
 							{/each}
