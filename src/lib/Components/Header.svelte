@@ -83,7 +83,7 @@
       LOGO
     </a> 
 
-    <nav class="uppercase text-sm hidden lg:flex space-x-6 items-center">
+    <nav class="uppercase text-[11px] hidden lg:flex space-x-6 items-center">
       <ShopDropdown />
       <a href="/discounts" class="hover:underline">Discounts</a>
       <a href="/shop/points" class="hover:underline">Points Shop</a>
