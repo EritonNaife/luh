@@ -22,7 +22,7 @@
       },
       {
         title: 'Molds',
-        hrefBase: '/shop/moldes',
+        hrefBase: '/shop/molds',
         items: [
           { name: 'Silicone Molds', href: '/silicone' },
           //{ name: 'Pros Acrylic Molds', href: '/pros-acrylic' },
