@@ -196,11 +196,7 @@
 											? 'border-gray-900 bg-gray-900 text-white' 
 											: 'border-gray-300 hover:border-gray-400'}">
 											<span class="font-medium">{option.label}</span>
-											{#if option.value === '320g'}
-												<span class="text-xs block {selectedSize === option.value ? 'text-gray-300' : 'text-gray-500'}">
-													+30%
-												</span>
-											{/if}
+											
 										</div>
 									</label>
 								{/each}
