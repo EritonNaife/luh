@@ -40,7 +40,7 @@
 
   // For the header background and text
   $: baseBgClass = applyTransparentStyle ? 'bg-transparent' : 'bg-[#fae0df]'; // Or your specific pink e.g., 'bg-[#FADADD]'
-  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-black';
+  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-[#737373]';
 
   // For the search input placeholder and border (non-scrolled state)
   $: nonScrolledInputPlaceholderClass = applyTransparentStyle ? 'placeholder-white' : 'placeholder-black';
@@ -69,7 +69,7 @@
 </div>
 
 <header class="fixed top-5 left-0 w-full z-50 transition-all duration-300 ease-in-out flex flex-col {isScrolled
-    ? 'text-black bg-[#fae0df]' 
+    ? 'text-[#737373] bg-[#fae0df]' 
     : `${baseTextClass} ${baseBgClass}`}"
 >
   <div class="p-4 flex justify-between items-center lg:px-10">
@@ -110,7 +110,7 @@
         />
 
         <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
-          <Icon icon="mdi:magnify" class="w-6 h-6 {isScrolled ? 'text-black' : baseTextClass}" />
+          <Icon icon="mdi:magnify" class="w-6 h-6 {isScrolled ? 'text-[#737373]' : baseTextClass}" />
         </div>
       </div>
 
@@ -154,7 +154,7 @@
    
 
     <div class="absolute left-[92%] top-[69%] flex lg:hidden sm:left-[94%] md:left-[96%]">
-      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-black' : baseTextClass}" />
+      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-[#737373]' : baseTextClass}" />
     </div>
 </header>
 

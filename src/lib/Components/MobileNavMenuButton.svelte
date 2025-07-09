@@ -12,7 +12,7 @@
   let currentPath: string;
   $: currentPath = $page.url.pathname;
   $: applyTransparentStyle = currentPath === '/' || currentPath === '/shop/collections/calm' || currentPath === '/shop/collections/earth' || currentPath === '/shop/collections/gift' || currentPath === '/shop/collections/mood' || currentPath === '/discounts';
-  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-black';
+  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-[#737373]';
 
   // Update scrollY value when page is scrolled
   function handleScroll(): void {
