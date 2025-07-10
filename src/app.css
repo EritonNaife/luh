@@ -32,14 +32,12 @@
 }
 
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'linotype-didot', serif;
-}
 
 body {
     font-family: 'Work Sans', sans-serif;
+    color: gray;
 }
- */
+
 
  h1,h2,h3,h4{
     font-family: "Playfair Display", serif;
@@ -48,37 +46,4 @@ body {
  p,a,button{
     font-family: "Open Sans", sans-serif;
  }
-
-
-
-/* Utility classes for common color applications */
-.text-secondary {
-    color: var(--color-charcoal-gray);
-}
-
-.bg-accent {
-    background-color: var(--color-warm-peach);
-}
-
-.border-subtle {
-    border-color: var(--color-light-gray);
-}
-
-.btn-primary {
-    background-color: var(--color-deep-burgundy);
-    color: var(--color-soft-beige);
-}
-
-
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: var(--color-warm-peach);
-    color: var(--color-deep-burgundy);
-}
-
-.btn-secondary {
-    background-color: var(--color-warm-peach);
-    color: var(--color-deep-burgundy);
-}
-  
 
