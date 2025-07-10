@@ -79,8 +79,8 @@
       <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
     </div>
 
-    <a href="/" class="text-2xl flex items-center ">
-      LOGO
+    <a href="/" class="text-2xl flex items-center">
+      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-35 left-[1px]">
     </a> 
 
     <nav class="uppercase text-sm hidden lg:flex space-x-6 items-center">

@@ -94,7 +94,7 @@
         class="flex overflow-x-auto snap-x scroll-smooth p-4 space-x-4 scrollbar-hide"
       >
         {#each featuredCups as product}
-          <SliderCard {product}/>
+          <SliderCard {product} sectionCollections={true} />
         {/each}
       </div>
       

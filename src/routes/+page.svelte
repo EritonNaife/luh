@@ -16,13 +16,8 @@
 
 
     let isInView: boolean = false;
-	let sectionLatestProducts: boolean = false;
 	let sectionCollections: boolean = false;
 
-    
-    // State for controlling section visibility
-    let latestProductsVisible = false;
-    let collectionsVisible = false;
 
 	const handleInViewChange = (event: CustomEvent) => {
         const { inView } = event.detail;
@@ -76,7 +71,7 @@
         {#if sectionCollections}
 			<h2 
 			class="p-4 text-2xl text-center lg:text-3xl bg-[#fae0df]"
-			in:fly={{duration: 600, y: -30, delay: 800, easing: quartOut}}
+			in:fly={{duration: 3000, y: -30, delay: 1800, easing: quartOut}}
 		>
 			Collections
 			</h2>
@@ -86,15 +81,15 @@
 				
 			>
 				
-            <div class="" in:fly={{duration: 1800, y: 50, delay: 1000, easing: quartOut}}>
+            <div class="" in:fly={{duration: 3000, y: 50, delay: 2000, easing: quartOut}}>
                 <Collection link="shop/cups/home" url="/images/collections/home_cups.png" caption="Cups" />
             </div>
 
-            <div class="" in:fly={{duration: 1600, y: 50, delay: 1400, easing: quartOut}}>
+            <div class="" in:fly={{duration: 3000, y: 50, delay: 2400, easing: quartOut}}>
                 <Collection link="shop/molds/silicone" url = "/images/collections/silicone.jpeg" caption="Molds"/>
             </div>
 
-            <div class="" in:fly={{duration: 1600, y: 50, delay: 1800, easing: quartOut}}>
+            <div class="" in:fly={{duration: 3000, y: 50, delay: 2800, easing: quartOut}}>
                 <Collection link="shop/collections/ceramics" url = "/images/collections/ceramic.png" caption="Ceramic"/>
             </div>					
 				
