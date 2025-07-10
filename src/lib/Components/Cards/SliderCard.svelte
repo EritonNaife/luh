@@ -1,17 +1,25 @@
 <script lang="ts">
     import type {Product} from "$lib/data/products";
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
-    import { goto } from "$app/navigation";
 	import { quartOut } from "svelte/easing";
 	import { fly } from "svelte/transition";
+  
 
-    export let product: Product;
-    export let sectionCollections: boolean = false;
+    export let product;
+    export let index:number = 0;
+    export let isVisible:boolean = false;
     
 </script>
 
-{#if sectionCollections}
-  <a href={`/products/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer" in:fly={{duration: 1800, y: 50, delay: 1000, easing: quartOut}}>
+
+{#if isVisible} 
+  <a href={`/products/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer"  
+  in:fly={{
+    duration: 2000,
+    y: 50,
+    delay: index * 800,
+    easing: quartOut
+  }}>
 
     <div class="aspect-[4/5] sm:aspect-[3/4] md:aspect-[3/2] lg:aspect-[16/9]">
       <img
@@ -27,3 +35,4 @@
     </div>
   </a>
 {/if}
+

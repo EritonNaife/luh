@@ -3,6 +3,9 @@
   import { featuredCups} from "$lib/data/products";
   import SliderCard from "../Cards/SliderCard.svelte";
   import ProductCard from "../Cards/ProductCard.svelte";
+	import { inview } from "svelte-inview";
+	import { fly } from "svelte/transition";
+	import { quartOut } from "svelte/easing";
 
   // Reference to the scrollable container element
   let scrollContainer: HTMLElement;
@@ -81,21 +84,52 @@
 
   const debouncedScrollHandler = debounce(updateButtonStates, 100);
 
+  let visibleCards = {};
   
+  function handleCardInView(index:number) {
+    return function(event:CustomEvent) {
+      console.log(`Card ${index} inView:`, event.detail.inView);
+      visibleCards[index] = event.detail.inView;
+      visibleCards = { ...visibleCards }; // Trigger reactivity
+    };
+  }
+
+  
+
 </script>
 
-<div class="flex justify-center">
-  <div class="w-[80vw] font-sans">
+
+<div class="flex justify-center" >
+  <div class="w-[80vw]">
     <div class="relative">
+
       <div 
         bind:this={scrollContainer} 
         on:scroll={debouncedScrollHandler}  
         style="-webkit-overflow-scrolling: touch;"
         class="flex overflow-x-auto snap-x scroll-smooth p-4 space-x-4 scrollbar-hide"
       >
-        {#each featuredCups as product}
-          <SliderCard {product} sectionCollections={true} />
+
+      
+        {#each featuredCups as product, i}
+
+          <div class=""
+            use:inview={{
+            threshold: 0.1,
+            rootMargin: '0px',
+            unobserveOnEnter: true
+          }}
+          on:inview_change={handleCardInView(i)}>
+
+            <SliderCard {product} index={i} 
+            isVisible={visibleCards[i] || false}/>
+          </div>
+          
         {/each}
+
+       
+      
+       
       </div>
       
       <div class="absolute inset-y-0 left-0 flex items-center -translate-x-4 md:-translate-x-8">
@@ -126,6 +160,8 @@
     </div>
   </div>
 </div>
+
+
 
 <style>
   .scrollbar-hide::-webkit-scrollbar {

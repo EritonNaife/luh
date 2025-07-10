@@ -48,18 +48,15 @@
     </section>
    
     <section id="Latest-products" class="p-4" use:inview={{threshold: 0.3, rootMargin: '0px', unobserveOnEnter: true}} on:inview_change={handleInViewChange} >
+
         {#if isInView}
-		<div 
-		class="flex justify-center gap-4 p-4"
-		in:fly={{duration: 1800, y: 50, delay: 400, easing: quartOut}}
-	>
-		<h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
-	</div>
-	
-	<div in:fade={{duration: 1800, delay: 1000, easing: quartOut}}>
-		<ProductSlider/>
-	</div>
+
+            <div class="flex justify-center gap-4 p-4" in:fly={{duration: 1800, y: 50, delay: 400, easing: quartOut}}>
+                <h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
+            </div>
         {/if}
+        
+        <ProductSlider/>
     </section>
     
     <section 
