@@ -61,7 +61,7 @@
         <div class="grid grid-cols-3 gap-x-8 ">
           {#each categories as category (category.title)}
             <div class="space-y-3">
-              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+              <h3 class="text-sm font-semibol uppercase tracking-wider">
                 {category.title}
               </h3>
               <ul class="space-y-2" role="menu" aria-labelledby="{category.title.toLowerCase()}-heading">
@@ -70,7 +70,7 @@
                   <li role="none">
                     <a
                       href="{category.hrefBase}{item.href}"
-                      class="block text-sm text-gray-600 hover:text-gray-900 hover:underline"
+                      class="block text-sm hover:text-gray-900 hover:underline"
                       role="menuitem"
                     >
                       {item.name}

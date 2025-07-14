@@ -52,7 +52,7 @@
     <!-- Product info -->
     <div class="space-y-2">
         <p class="font-medium lg:text-lg">{product.name}</p>
-        <p class="text-gray-600 text-[14px] lg:text-sm">{product.description}</p>
+        <p class="text-[14px] lg:text-sm">{product.description}</p>
         <p class="font-bold lg:text-lg"><span>$</span>{product.price}</p>
     </div>
 </a>

@@ -79,17 +79,17 @@
       <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
     </div>
 
-    <a href="/" class="text-2xl flex items-center">
-      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-35 left-[1px]">
+    <a href="/" class="flex items-center">
+      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-55 left-[1px] ">
     </a> 
 
-    <nav class="uppercase text-sm hidden lg:flex space-x-6 items-center">
-      <ShopDropdown />
-      <a href="/discounts" class="hover:underline">Discounts</a>
-      <a href="/shop/points" class="hover:underline">Points Shop</a>
+    <nav class="uppercase text-[11px] hidden lg:flex space-x-6 items-center">
+      <a href="shop/cups/home" class="hover:underline">Cups</a>
+      <a href="shop/molds/silicone" class="hover:underline">Molds</a>
+      <a href="shop/ceramics" class="hover:underline">Ceramics</a>
     </nav>
 
-    <div class="hidden relative lg:flex items-center">
+    <div class="hidden relative lg:flex items-center ">
       
       <div class="relative flex justify-center">
         <input
@@ -100,20 +100,20 @@
             bg-transparent
             border-0 border-b-2
             focus:ring-0 focus:outline-none
-            py-2 pr-10
-            w-90 focus:w-120
-            {isScrolled ? 'placeholder-black border-black focus:border-black' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
+            placeholder:text-sm
+            h-10
+            w-70 focus:w-120
+            {isScrolled ? 'placeholder-black border-[#737373] focus:border-black' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
           "
           on:focus={() => (focused = true)}
           on:blur={() => (focused = false)}
         />
 
         <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
-          <Icon icon="mdi:magnify" class="w-6 h-6 {isScrolled ? 'text-[#737373]' : baseTextClass}" />
+          <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-[#737373]' : baseTextClass}" />
         </div>
       </div>
 
-      
     </div>
 
     <div class="flex gap-1 lg:gap-4">  

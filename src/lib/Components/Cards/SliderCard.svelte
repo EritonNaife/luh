@@ -15,7 +15,7 @@
 {#if isVisible} 
   <a href={`/products/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer"  
   in:fly={{
-    duration: 2000,
+    duration: 800,
     y: 50,
     delay: index * 800,
     easing: quartOut

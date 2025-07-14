@@ -5,7 +5,7 @@
   </script>
   
   <!-- Outer container to center the input -->
-  <div class="relative w-full flex justify-center text-[#737373]">
+  <div class="relative w-full flex justify-center">
   
     <!-- The search input -->
     <input

@@ -26,14 +26,14 @@
 
     <section id="product-display" class="mt-10">
         
-        <div class="flex justify-between w-full border-t-[1px] border-b-[1px]">
-
-            <div class="p-2 w-[30%] flex justify-center">
-                <button class="">Filter</button>
+        <div class="flex justify-end items-center mr-10">
+    
+            <div class="">
+                <button class="py-1 px-3 hover:font-bold">Filter</button>
             </div>
 
-            <div class="p-2 w-[30%] border-l-[0.5px] flex justify-center">
-                <button class="flex items-center">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
+            <div class="">
+                <button class="flex items-center py-1 px-3 py-1 px-3 hover:font-bold">Sort By  <Icon icon="lsicon:down-filled" width="16" height="16" /></button>
             </div>
            
         </div>
