@@ -80,7 +80,7 @@
     </div>
 
     <a href="/" class="flex items-center">
-      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-55 left-[1px] ">
+      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-55 left-[1px] mt-[1px]">
     </a> 
 
     <nav class="uppercase text-[12px] hidden lg:flex space-x-6 items-center">
@@ -101,7 +101,6 @@
             border-0 border-b-1
             focus:ring-0 focus:outline-none
             placeholder:text-[12px] 
-            placeholder:text-[#333333]
             h-10
             w-80 focus:w-120
             {isScrolled ? 'placeholder-black border-[#333333] focus:border-[#333333]' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
@@ -111,7 +110,7 @@
         />
 
         <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
-          <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-[#333333]' : baseTextClass}" />
+          <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-black' : baseTextClass}" />
         </div>
       </div>
 
@@ -121,9 +120,9 @@
       
        <CurrencyDropdown />
       
-      <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
+      <a href="#" on:click={() => (isSlidingRegisterOpen = true)}>
         <Icon icon="ph:user-light" class="size-[18px]" />
-      </button>
+      </a>
 
       <a href="/wishlist"> <Icon icon="ph:heart-light" class="size-[18px] hidden lg:flex" /></a>
 

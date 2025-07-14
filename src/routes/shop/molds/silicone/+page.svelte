@@ -8,7 +8,7 @@
 </script>
 
 
-<main class="text-[#737373]">
+<main class="text-[#333333]">
 
     <section class="hero-section" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }}>
  

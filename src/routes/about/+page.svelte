@@ -48,7 +48,7 @@
    
 </script>
 
-<main class="w-full mt-[25%] lg:mt-[5%] text-[#737373]">
+<main class="w-full mt-[25%] lg:mt-[5%] text-[#333333]">
 
     <header class="bg-white">
         
@@ -74,8 +74,6 @@
         </div>
 
     </header>
-
-
 
     <section id="section1" 
              class="container mx-auto px-6 py-16 lg:py-24 text-center max-w-4xl"

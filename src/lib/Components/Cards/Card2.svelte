@@ -3,6 +3,7 @@
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
     import Icon from "@iconify/svelte";
     import { goto } from "$app/navigation";
+	import { fade } from "svelte/transition";
 
     export let product:Mold;
 
@@ -18,24 +19,42 @@
     }
 </script>
 
-<div class="card flex flex-col gap-2 group cursor-pointer ">
+
+<div class="card flex flex-col gap-2 group cursor-pointer">
     <div
-       class="w-[45vw] h-[30vh] sm:w-[46vw] sm:h-100 md:w-[31vw] md:h-[30vh] 
-              lg:w-[24vw] lg:h-[40vh] p-2 relative bg-cover bg-center flex justify-end items-end" 
-       style="background-image: url('{hovered ? product.imageUrls[1] : product.imageUrls[0]}');"
-       on:click={handleClick}
-       on:mouseenter={() => hovered = true}
-       on:mouseleave={() => hovered = false}
+        class="relative w-[45vw] h-[30vh] sm:w-[46vw] sm:h-100 md:w-[31vw] md:h-[30vh] lg:w-[24vw] lg:h-[40vh] overflow-hidden"
+        on:click={handleClick}
+        on:mouseenter={() => (hovered = true)}
+        on:mouseleave={() => (hovered = false)}
     >
-        <div class="bg-white transition-transform duration-300 group-hover:-translate-y-2" on:click|stopPropagation={toggleSizeOptions}>
-            <Icon icon="mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90" />
+            {#if hovered}
+            <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src={product.imageUrls[1]}
+                alt={product.name}
+                transition:fade={{ duration: 600 }}
+            />
+        {:else}
+            <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src={product.imageUrls[0]}
+                alt={product.name}
+                transition:fade={{ duration: 600 }}
+            />
+        {/if}
+
+        <div class="absolute z-10 bottom-2 right-2">
+            <div
+                class="bg-white transition-transform duration-300 group-hover:-translate-y-2"
+                on:click|stopPropagation={toggleSizeOptions}
+            >
+                <Icon icon="mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90" />
+            </div>
         </div>
     </div>
 
     <footer>
         <h3>{product.name}</h3>
-        <p>{formatPrice(product.price,$selectedCurrency)}</p>
+        <p>{formatPrice(product.price, $selectedCurrency)}</p>
     </footer>
-    
 </div>
-
