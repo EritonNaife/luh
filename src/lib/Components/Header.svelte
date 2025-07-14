@@ -40,7 +40,7 @@
 
   // For the header background and text
   $: baseBgClass = applyTransparentStyle ? 'bg-transparent' : 'bg-white'; // Or your specific pink e.g., 'bg-[#FADADD]'
-  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-[#737373]';
+  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-[#333333]';
 
   // For the search input placeholder and border (non-scrolled state)
   $: nonScrolledInputPlaceholderClass = applyTransparentStyle ? 'placeholder-white' : 'placeholder-black';
@@ -69,7 +69,7 @@
 </div>
 
 <header class="fixed top-5 left-0 w-full z-50 transition-all duration-300 ease-in-out flex flex-col {isScrolled
-    ? 'text-[#737373] bg-white' 
+    ? 'text-[#333333] bg-white' 
     : `${baseTextClass} ${baseBgClass}`}"
 >
   <div class="p-4 flex justify-between items-center lg:px-10">
@@ -83,7 +83,7 @@
       <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-55 left-[1px] ">
     </a> 
 
-    <nav class="uppercase text-[11px] hidden lg:flex space-x-6 items-center">
+    <nav class="uppercase text-[12px] hidden lg:flex space-x-6 items-center">
       <a href="shop/cups/home" class="hover:underline">Cups</a>
       <a href="shop/molds/silicone" class="hover:underline">Molds</a>
       <a href="shop/ceramics" class="hover:underline">Ceramics</a>
@@ -91,43 +91,44 @@
 
     <div class="hidden relative lg:flex items-center ">
       
-      <div class="relative flex justify-center">
+      <div class="relative flex justify-center text-[#333333]">
         <input
           type="text"
           placeholder="Try searching for..."
           class="
             transition-all duration-300 ease-in-out
             bg-transparent
-            border-0 border-b-2
+            border-0 border-b-1
             focus:ring-0 focus:outline-none
-            placeholder:text-sm
+            placeholder:text-[12px] 
+            placeholder:text-[#333333]
             h-10
-            w-70 focus:w-120
-            {isScrolled ? 'placeholder-black border-[#737373] focus:border-black' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
+            w-80 focus:w-120
+            {isScrolled ? 'placeholder-black border-[#333333] focus:border-[#333333]' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
           "
           on:focus={() => (focused = true)}
           on:blur={() => (focused = false)}
         />
 
         <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
-          <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-[#737373]' : baseTextClass}" />
+          <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-[#333333]' : baseTextClass}" />
         </div>
       </div>
 
     </div>
 
-    <div class="flex gap-1 lg:gap-4">  
+    <div class="flex items-center gap-1 lg:gap-4 ">  
       
        <CurrencyDropdown />
       
       <button class="" on:click={() => (isSlidingRegisterOpen = true)}>
-        <Icon icon="ph:user-light" class="size-6" />
+        <Icon icon="ph:user-light" class="size-[18px]" />
       </button>
 
-      <a href="/wishlist"> <Icon icon="ph:heart-light" class="size-6 hidden lg:flex" /></a>
+      <a href="/wishlist"> <Icon icon="ph:heart-light" class="size-[18px] hidden lg:flex" /></a>
 
       <button class="" on:click={() => (isSlidingCartOpen = true)}>
-        <Icon icon="ph:shopping-cart-simple-light" class="size-6" />
+        <Icon icon="ph:shopping-cart-simple-light" class="size-[18px]" />
       </button>
       
     </div>
