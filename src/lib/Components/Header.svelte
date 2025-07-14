@@ -68,7 +68,7 @@
   <AnnouncementBar />
 </div>
 
-<header class="fixed top-5 left-0 w-full z-50 transition-all duration-300 ease-in-out flex flex-col {isScrolled
+<header class="fixed top-5 left-0 w-full z-50 transition-all duration-400 ease-in-out flex flex-col {isScrolled
     ? 'text-[#333333] bg-white' 
     : `${baseTextClass} ${baseBgClass}`}"
 >
@@ -79,8 +79,8 @@
       <a href="/wishlist"> <Icon icon="ph:heart-light" class="text-2xl" /></a>
     </div>
 
-    <a href="/" class="flex items-center">
-      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-55 left-[1px] mt-[1px]">
+    <a href="/" class="flex justify-center items-center">
+      <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-40 md:size-55 lg:size-55 lg:left-[1px]">
     </a> 
 
     <nav class="uppercase text-[12px] hidden lg:flex space-x-6 items-center">
