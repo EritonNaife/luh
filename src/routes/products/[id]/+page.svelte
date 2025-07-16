@@ -217,8 +217,9 @@
 			
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				<!-- Placeholder for related products -->
-				<!-- In a real app, you would loop through data.relatedProducts -->
-				{#each Array(4) as _, i}
+				<!-- In a real app, you would loop through 
+					
+					data.relatedProducts {#each Array(4) as _, i}
 					<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
 						<div class="aspect-square bg-gray-200 flex items-center justify-center">
 							<span class="text-gray-500">Product {i + 1}</span>
@@ -228,7 +229,8 @@
 							<p class="text-gray-600">{formatPrice(product.price,$selectedCurrency)}</p>
 						</div>
 					</div>
-				{/each}
+				{/each}-->
+				
 			</div>
 		</div>
 	</section>
