@@ -14,12 +14,14 @@
  
         <div class="h-[70vh] flex justify-center items-end sm:h-[80vh] md:h-[70vh] lg:h-[80vh]"  >
             <img src="/images/collections/cups_hero_section.png" alt="" class="w-full h-full object-cover">
-            <h1 class="absolute text-3xl text-white lg:text-5xl mb-20" in:fly={{duration:2000, y:100}} >Home Collection</h1>
+            <h1 class="absolute text-3xl text-white lg:text-5xl mb-20" in:fly={{duration:2000, y:100}} >Silicone Collection</h1>
         </div>
 
         <div class="p-4 flex flex-col justify-center items-center gap-2" in:fly={{duration:2000, y:100}} >
-            <h2 class="text-2xl/8 font-light lg:text-2xl"> Bring the Forest Home</h2>
-            <p class="text-center text-md/8 font-light lg:text-xl"> Ground yourself in nature’s finest: warm cedarwood, fresh eucalyptus, and rich vetiver to reconnect mind and space</p>
+            <h2 class="text-2xl/8 font-light lg:text-2xl">Versatile Silicone Mold Collection</h2>
+            <p class="text-center text-md/8 font-light lg:text-xl">
+              Discover durable, flexible molds perfect for candles, soaps, resin art, and more — crafted for creativity without limits.
+            </p>
         </div>
 
     </section>

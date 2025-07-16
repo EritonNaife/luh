@@ -1,11 +1,11 @@
 <script lang="ts">
-    import type { Mold } from "$lib/data/products";
+    import type { Product2} from "$lib/data/products";
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
     import Icon from "@iconify/svelte";
     import { goto } from "$app/navigation";
 	import { fade } from "svelte/transition";
 
-    export let product:Mold;
+    export let product:Product2;
 
     let isSizeOptions = false;
     let hovered = false;

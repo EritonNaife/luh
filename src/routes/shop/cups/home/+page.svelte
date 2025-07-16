@@ -1,12 +1,12 @@
 <script lang="ts">
+    
 	import Icon from "@iconify/svelte";
     import Card from "$lib/Components/Cards/Card.svelte";
     import {featuredCups} from "$lib/data/products";
 	import { fly, scale } from "svelte/transition";
 
-
-    
 </script>
+
 
 
 
@@ -15,6 +15,7 @@
 <main class="text-[#333333]">
 
     <section id="hero-section " >
+        
 
        <section class="hero-section" in:scale={{duration: 1000, start: 1.5 , opacity: 0 }}>
 

@@ -7,11 +7,8 @@
     import { fade, fly} from "svelte/transition";
     import { cubicIn, quartOut } from "svelte/easing";
 
-    function handleClick(){
-        goto('/products');
-    }
-    
-	
+   
+
     export let data:PageData;
 
 
@@ -87,7 +84,7 @@
             </div>
 
             <div class="" in:fly={{duration: 3000, y: 50, delay: 2800, easing: quartOut}}>
-                <Collection link="shop/collections/ceramics" url = "/images/collections/ceramic.png" caption="Ceramic"/>
+                <Collection link="shop/ceramics" url = "/images/collections/ceramic.png" caption="Ceramic"/>
             </div>					
 				
 			</div>
