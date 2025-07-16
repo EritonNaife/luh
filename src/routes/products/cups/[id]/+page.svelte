@@ -4,7 +4,6 @@
 	import { page } from '$app/stores';
 	import { formatPrice,selectedCurrency } from '$lib/stores/currency';
 
-
 	export let data: PageData;
 
 	const { product } = data;
@@ -14,6 +13,22 @@
 	let activeTab = 'description';
 	let isLoading = false;
 	let addToCartMessage = '';
+	let selectedSize = '220g';
+	let currentImageIndex = 0;
+
+	// Size options with pricing
+	const sizeOptions = [
+		{ value: '220g', label: '220g', priceMultiplier: 1 },
+		{ value: '320g', label: '320g', priceMultiplier: 1.3 }
+	];
+
+	// Image gallery (in real app, this would come from product data)
+	const productImages = [
+		{ url: product.imageUrl, alt: `${product.name} - Main view` },
+		{ url: product.imageUrl, alt: `${product.name} - Side view` },
+		{ url: product.imageUrl, alt: `${product.name} - Top view` },
+		{ url: product.imageUrl, alt: `${product.name} - Detail view` }
+	];
 
 	// Tab content (in real app, this would come from the product data)
 	const tabContent = {
@@ -39,11 +54,29 @@
 		// Simulate API call
 		setTimeout(() => {
 			isLoading = false;
-			addToCartMessage = 'Added to cart!';
+			addToCartMessage = `Added ${quantity}x ${product.name} (${selectedSize}) to cart!`;
 			setTimeout(() => {
 				addToCartMessage = '';
 			}, 3000);
 		}, 500);
+	}
+
+	function changeImage(index: number) {
+		currentImageIndex = index;
+	}
+
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % productImages.length;
+	}
+
+	function prevImage() {
+		currentImageIndex = currentImageIndex === 0 ? productImages.length - 1 : currentImageIndex - 1;
+	}
+
+	// Get current price based on selected size
+	function getCurrentPrice(): number {
+		const selectedOption = sizeOptions.find(option => option.value === selectedSize);
+		return product.price * (selectedOption?.priceMultiplier || 1);
 	}
 
 	
@@ -54,11 +87,11 @@
 	<meta name="description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price,$selectedCurrency)}`} />
 	<meta property="og:title" content={product.name} />
 	<meta property="og:description" content={product.description || `Buy ${product.name} for ${formatPrice(product.price,$selectedCurrency)}`} />
-	<meta property="og:image" content={product.imageUrls[0]} />
+	<meta property="og:image" content={product.imageUrl} />
 	<meta property="og:url" content={$page.url.toString()} />
 </svelte:head>
 
-<main class="mt-30 mb-250 min-h-screen bg-gray-50 text-[#333333] lg:mb-150">
+<main class="mt-40 mb-250 min-h-screen bg-gray-50 text-[#333333] lg:mb-150">
 	<!-- Product Hero Section -->
 	<section 
 		class="bg-white py-8 lg:py-16"
@@ -66,15 +99,61 @@
 	>
 		<div class="container mx-auto px-4 max-w-7xl">
 			<div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
-				<!-- Product Image -->
+				<!-- Product Image Gallery -->
 				<div class="flex-1 flex justify-center">
 					<div class="w-full max-w-md lg:max-w-lg">
-						<img 
-							src={product.imageUrls[0]} 
-							alt={product.name}
-							class="w-full aspect-square object-cover object-center rounded-lg shadow-lg"
-							loading="eager"
-						/>
+						<!-- Main Image -->
+						<div class="relative mb-4">
+							<img 
+								src={productImages[currentImageIndex].url} 
+								alt={productImages[currentImageIndex].alt}
+								class="w-full aspect-square object-cover object-center rounded-lg shadow-lg"
+								loading="eager"
+							/>
+							
+							<!-- Navigation arrows -->
+							<button
+								type="button"
+								class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+								on:click={prevImage}
+								aria-label="Previous image"
+							>
+								<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								</svg>
+							</button>
+							
+							<button
+								type="button"
+								class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+								on:click={nextImage}
+								aria-label="Next image"
+							>
+								<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
+						</div>
+
+						<!-- Image Thumbnails -->
+						<div class="flex gap-2 justify-center">
+							{#each productImages as image, index}
+								<button
+									type="button"
+									class="w-16 h-16 rounded-md overflow-hidden border-2 transition-colors {currentImageIndex === index 
+										? 'border-gray-900' 
+										: 'border-gray-200 hover:border-gray-400'}"
+									on:click={() => changeImage(index)}
+									aria-label={`View ${image.alt}`}
+								>
+									<img 
+										src={image.url} 
+										alt={image.alt}
+										class="w-full h-full object-cover object-center"
+									/>
+								</button>
+							{/each}
+						</div>
 					</div>
 				</div>
 
@@ -85,8 +164,9 @@
 							{product.name}
 						</h1>
 						<p class="text-3xl font-semibold text-gray-900">
-							{formatPrice(product.price,$selectedCurrency)}
+							{formatPrice(getCurrentPrice(),$selectedCurrency)}
 						</p>
+						
 					</div>
 
 					<!-- Stock Status -->
@@ -95,8 +175,35 @@
 						<span class="text-sm text-green-600 font-medium">In stock</span>
 					</div>
 
-					<!-- Quantity and Add to Cart -->
+					<!-- Size Selection and Quantity -->
 					<div class="space-y-4">
+						<!-- Size Selection -->
+						<div>
+							<label class="block text-sm font-medium text-gray-700 mb-2">
+								Size:
+							</label>
+							<div class="flex gap-3">
+								{#each sizeOptions as option}
+									<label class="flex items-center">
+										<input
+											type="radio"
+											name="size"
+											value={option.value}
+											bind:group={selectedSize}
+											class="sr-only"
+										/>
+										<div class="relative border-2 rounded-md px-4 py-2 cursor-pointer transition-colors {selectedSize === option.value 
+											? 'border-gray-900 bg-gray-900 text-white' 
+											: 'border-gray-300 hover:border-gray-400'}">
+											<span class="font-medium">{option.label}</span>
+											
+										</div>
+									</label>
+								{/each}
+							</div>
+						</div>
+
+						<!-- Quantity Selection -->
 						<div class="flex items-center gap-3">
 							<label for="quantity" class="text-sm font-medium text-gray-700">
 								Quantity:
@@ -130,6 +237,7 @@
 							</div>
 						</div>
 
+						<!-- Add to Cart Button -->
 						<button
 							type="button"
 							class="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
@@ -137,7 +245,7 @@
 							disabled={isLoading}
 							aria-describedby={addToCartMessage ? 'cart-message' : undefined}
 						>
-							{isLoading ? 'Adding...' : 'Add to Cart'}
+							{isLoading ? 'Adding...' : `Add to Cart - ${formatPrice(getCurrentPrice() * quantity,$selectedCurrency)}`}
 						</button>
 
 						{#if addToCartMessage}
@@ -218,17 +326,7 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				<!-- Placeholder for related products -->
 				<!-- In a real app, you would loop through data.relatedProducts -->
-				{#each Array(4) as _, i}
-					<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-						<div class="aspect-square bg-gray-200 flex items-center justify-center">
-							<span class="text-gray-500">Product {i + 1}</span>
-						</div>
-						<div class="p-4">
-							<h3 class="font-medium text-gray-900 mb-2">Related Product {i + 1}</h3>
-							<p class="text-gray-600">{formatPrice(product.price,$selectedCurrency)}</p>
-						</div>
-					</div>
-				{/each}
+				
 			</div>
 		</div>
 	</section>

@@ -84,9 +84,9 @@
     </a> 
 
     <nav class="uppercase text-[12px] hidden lg:flex space-x-6 items-center">
-      <a href="shop/cups/home" class="hover:underline">Cups</a>
-      <a href="shop/molds/silicone" class="hover:underline">Molds</a>
-      <a href="shop/ceramics" class="hover:underline">Ceramics</a>
+      <a href="/shop/cups/home" class="hover:underline">Cups</a>
+      <a href="/shop/molds/silicone" class="hover:underline">Molds</a>
+      <a href="/shop/ceramics" class="hover:underline">Ceramics</a>
     </nav>
 
     <div class="hidden relative lg:flex items-center ">

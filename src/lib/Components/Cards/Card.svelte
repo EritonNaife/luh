@@ -15,7 +15,7 @@
     }
 
     function handleClick(){
-        goto(`/products/${product.id}`);
+        goto(`/products/cups/${product.id}`);
     }
 
 
