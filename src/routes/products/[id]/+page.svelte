@@ -30,6 +30,20 @@
 		{ id: 'usage', label: 'Mode of use' }
 	];
 
+	let currentImageIndex = 0;
+
+	function changeImage(index: number) {
+		currentImageIndex = index;
+	}
+
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % product.imageUrls.length;
+	}
+
+	function prevImage() {
+		currentImageIndex = currentImageIndex === 0 ? product.imageUrls.length- 1 : currentImageIndex - 1;
+	}
+
 	function updateQuantity(delta: number) {
 		quantity = Math.max(1, quantity + delta);
 	}
@@ -70,11 +84,34 @@
 				<div class="flex-1 flex justify-center">
 					<div class="w-full max-w-md lg:max-w-lg">
 						<img 
-							src={product.imageUrls[0]} 
+							src={product.imageUrls[currentImageIndex]} 
 							alt={product.name}
 							class="w-full aspect-square object-cover object-center rounded-lg shadow-lg"
 							loading="eager"
 						/>
+						
+						<!-- Navigation arrows -->
+						<button
+						type="button"
+						class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+						on:click={prevImage}
+						aria-label="Previous image"
+					>
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+						</svg>
+					</button>
+					
+					<button
+						type="button"
+						class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+						on:click={nextImage}
+						aria-label="Next image"
+					>
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
+					</button>
 					</div>
 				</div>
 
