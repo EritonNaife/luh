@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {Product} from "$lib/data/products";
+
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
 	import { quartOut } from "svelte/easing";
 	import { fly } from "svelte/transition";
@@ -13,7 +13,7 @@
 
 
 {#if isVisible} 
-  <a href={`/products/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer"  
+  <a href={`/products/cups/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer"  
   in:fly={{
     duration: 800,
     y: 50,

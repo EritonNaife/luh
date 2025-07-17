@@ -1,50 +1,78 @@
-import { writable } from 'svelte/store';
-import type { Writable } from 'svelte/store';
-import type { Product } from '$lib/data/products';
 
-/**
- * Defines the core properties of a product.
- * You can expand this with more details like `imageUrl`, `description`, etc.
- */
 
-/**
- * Represents a product within the shopping cart, extending the base Product
- * with a quantity.
- */
-export interface CartItem extends Product {
-	quantity: number;
+import { writable, derived } from 'svelte/store';
+import { browser } from '$app/environment';
+import type { AnyProduct, CartItem } from '$lib/data/products';
+
+
+// --- Store Definition ---
+
+// Get the initial value from localStorage if in the browser, otherwise use an empty array.
+const initialValue: CartItem[] = browser ? JSON.parse(window.localStorage.getItem('cart') || '[]') : [];
+
+// Create the writable store.
+const cart = writable<CartItem[]>(initialValue);
+
+// If in the browser, subscribe to changes and update localStorage.
+if (browser) {
+  cart.subscribe((value) => {
+    window.localStorage.setItem('cart', JSON.stringify(value));
+  });
 }
 
+// --- Derived Stores (for easy calculations) ---
+
+// A store that automatically calculates the total price of all items in the cart.
+export const cartTotal = derived(cart, ($cart) => {
+  return $cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+});
+
+// A store that automatically calculates the total number of items in the cart.
+export const itemCount = derived(cart, ($cart) => {
+  return $cart.reduce((sum, item) => sum + item.quantity, 0);
+});
+
+
+// --- Cart Management Functions ---
+
 /**
- * Creates a custom store for managing the shopping cart.
- * The store holds an array of CartItem objects and provides methods
- * for safe manipulation.
+ * Adds a product to the cart. If the product is already in the cart,
+ * its quantity is incremented.
+ * @param {AnyProduct} product - The product to add.
  */
-function createCart() {
-	const { subscribe, set, update }: Writable<CartItem[]> = writable([]);
+export const addToCart = (product: AnyProduct) => {
+  cart.update((items) => {
+    const itemIndex = items.findIndex((item) => item.productId === product.id);
 
-	return {
-		subscribe,
-		/** Add an item to the cart or update its quantity if it already exists. */
-		addItem: (product: Product) => {
-			update((items) => {
-				const itemIndex = items.findIndex((i) => i.id === product.id);
+    if (itemIndex !== -1) {
+      // Item exists, so just update the quantity
+      items[itemIndex].quantity += 1;
+    } else {
+      // Item doesn't exist, add it to the cart
+      items.push({
+        productId: product.id,
+        product: product,
+        quantity: 1
+      });
+    }
+    return items;
+  });
+};
 
-				if (itemIndex > -1) {
-					items[itemIndex].quantity++;
-				} else {
-					items.push({ ...product, quantity: 1 });
-				}
-				return items;
-			});
-		},
-		/** Remove an item from the cart by its ID. */
-		removeItem: (productId: string) => {
-			update((items) => items.filter((item) => item.id !== productId));
-		},
-		/** Clear all items from the cart. */
-		clear: () => set([])
-	};
-}
+/**
+ * Removes a product completely from the cart.
+ * @param {string} productId - The ID of the product to remove.
+ */
+export const removeFromCart = (productId: string) => {
+  cart.update((items) => items.filter((item) => item.productId !== productId));
+};
 
-export const cart = createCart();
+/**
+ * Clears all items from the cart.
+ */
+export const clearCart = () => {
+  cart.set([]);
+};
+
+// Expose the main cart store so components can subscribe to it.
+export default cart;

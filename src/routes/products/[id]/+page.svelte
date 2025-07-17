@@ -3,6 +3,7 @@
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import { formatPrice,selectedCurrency } from '$lib/stores/currency';
+	import { products2 } from '$lib/data/products';
 
 
 	export let data: PageData;
@@ -78,11 +79,13 @@
 		class="bg-white py-8 lg:py-16"
 		aria-labelledby="product-title"
 	>
-		<div class="container mx-auto px-4 max-w-7xl">
-			<div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
-				<!-- Product Image -->
-				<div class="flex-1 flex justify-center">
-					<div class="w-full max-w-md lg:max-w-lg">
+	<div class="container mx-auto px-4 max-w-7xl">
+		<div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
+			<!-- Product Image Gallery -->
+			<div class="flex-1 flex justify-center">
+				<div class="w-full max-w-md lg:max-w-lg">
+					<!-- Main Image -->
+					<div class="relative mb-4">
 						<img 
 							src={product.imageUrls[currentImageIndex]} 
 							alt={product.name}
@@ -92,100 +95,122 @@
 						
 						<!-- Navigation arrows -->
 						<button
-						type="button"
-						class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
-						on:click={prevImage}
-						aria-label="Previous image"
-					>
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-						</svg>
-					</button>
-					
-					<button
-						type="button"
-						class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
-						on:click={nextImage}
-						aria-label="Next image"
-					>
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-						</svg>
-					</button>
-					</div>
-				</div>
-
-				<!-- Product Information -->
-				<div class="flex-1 space-y-6">
-					<div>
-						<h1 id="product-title" class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
-							{product.name}
-						</h1>
-						<p class="text-3xl font-semibold text-gray-900">
-							{formatPrice(product.price,$selectedCurrency)}
-						</p>
-					</div>
-
-					<!-- Stock Status -->
-					<div class="flex items-center gap-2">
-						<div class="w-2 h-2 bg-green-500 rounded-full"></div>
-						<span class="text-sm text-green-600 font-medium">In stock</span>
-					</div>
-
-					<!-- Quantity and Add to Cart -->
-					<div class="space-y-4">
-						<div class="flex items-center gap-3">
-							<label for="quantity" class="text-sm font-medium text-gray-700">
-								Quantity:
-							</label>
-							<div class="flex items-center border border-gray-300 rounded-md">
-								<button
-									type="button"
-									class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
-									on:click={() => updateQuantity(-1)}
-									disabled={quantity <= 1}
-									aria-label="Decrease quantity"
-								>
-									-
-								</button>
-								<input
-									id="quantity"
-									type="number"
-									min="1"
-									bind:value={quantity}
-									class="w-16 text-center border-x border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-									aria-label="Product quantity"
-								/>
-								<button
-									type="button"
-									class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
-									on:click={() => updateQuantity(1)}
-									aria-label="Increase quantity"
-								>
-									+
-								</button>
-							</div>
-						</div>
-
+							type="button"
+							class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+							on:click={prevImage}
+							aria-label="Previous image"
+						>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+							</svg>
+						</button>
+						
 						<button
 							type="button"
-							class="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-							on:click={handleAddToCart}
-							disabled={isLoading}
-							aria-describedby={addToCartMessage ? 'cart-message' : undefined}
+							class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-colors"
+							on:click={nextImage}
+							aria-label="Next image"
 						>
-							{isLoading ? 'Adding...' : 'Add to Cart'}
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
 						</button>
+					</div>
 
-						{#if addToCartMessage}
-							<div id="cart-message" class="text-green-600 text-sm font-medium" role="status">
-								{addToCartMessage}
-							</div>
-						{/if}
+					<!-- Image Thumbnails -->
+					<div class="flex gap-2 justify-center">
+						{#each product.imageUrls as image, index}
+							<button
+								type="button"
+								class="w-16 h-16 rounded-md overflow-hidden border-2 transition-colors {currentImageIndex === index 
+									? 'border-gray-900' 
+									: 'border-gray-200 hover:border-gray-400'}"
+								on:click={() => changeImage(index)}
+								aria-label={`View ${product.name}`}
+							>
+								<img 
+									src={image} 
+									alt={product.name}
+									class="w-full h-full object-cover object-center"
+								/>
+							</button>
+						{/each}
 					</div>
 				</div>
 			</div>
+
+			<!-- Product Information -->
+			<div class="flex-1 space-y-6">
+				<div>
+					<h1 id="product-title" class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+						{product.name}
+					</h1>
+					<p class="text-3xl font-semibold text-gray-900">
+						{formatPrice(product.price,$selectedCurrency)}
+					</p>
+					
+				</div>
+
+				<!-- Stock Status -->
+				<div class="flex items-center gap-2">
+					<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+					<span class="text-sm text-green-600 font-medium">In stock</span>
+				</div>
+
+				<!-- Quantity Selection -->
+				<div class="flex items-center gap-3">
+					<label for="quantity" class="text-sm font-medium text-gray-700">
+						Quantity:
+					</label>
+					<div class="flex items-center border border-gray-300 rounded-md">
+						<button
+							type="button"
+							class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+							on:click={() => updateQuantity(-1)}
+							disabled={quantity <= 1}
+							aria-label="Decrease quantity"
+						>
+							-
+						</button>
+						<input
+							id="quantity"
+							type="number"
+							min="1"
+							bind:value={quantity}
+							class="w-16 text-center border-x border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+							aria-label="Product quantity"
+						/>
+						<button
+							type="button"
+							class="px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors"
+							on:click={() => updateQuantity(1)}
+							aria-label="Increase quantity"
+						>
+							+
+						</button>
+					</div>
+				</div>
+				<div class="space-y-4">
+					<!-- Add to Cart Button -->
+					<button
+						type="button"
+						class="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+						on:click={handleAddToCart}
+						disabled={isLoading}
+						aria-describedby={addToCartMessage ? 'cart-message' : undefined}
+					>
+						{isLoading ? 'Adding...' : `Add to Cart - ${formatPrice(quantity*product.price,$selectedCurrency)}`}
+					</button>
+
+					{#if addToCartMessage}
+						<div id="cart-message" class="text-green-600 text-sm font-medium" role="status">
+							{addToCartMessage}
+						</div>
+					{/if}
+				</div>
+			</div>
 		</div>
+	</div>
 	</section>
 
 	<!-- Product Details Section -->
