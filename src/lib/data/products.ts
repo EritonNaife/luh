@@ -185,7 +185,67 @@ export const products2:Product2[] = [
       "/images/silicone_prod_grid/silcone-spiral1.png",
       "https://example.com/images/spiral-2.jpg"
     ]
+  },{
+    id: 'candle-001',
+    name: 'Minimalist White Ceramic Candle',
+    price: 24.99,
+    description: 'A hand-poured soy candle in a matte white ceramic container. Perfect for modern home decor.',
+    imageUrls: [
+      '/images/ceramic_prod_grid/matte_white_1.png',
+      '/images/ceramic_prod_grid/matte_white_2.png',
+    ],
   },
+  {
+    id: 'candle-002',
+    name: 'Rustic Earth-Tone Candle Pot',
+    price: 29.99,
+    description: 'Earthy tones and a natural finish define this ceramic candle, scented with sandalwood and vanilla.',
+    imageUrls: [
+      '/images/ceramic_prod_grid/Earthy_tone_1.png',
+      '/images/ceramic_prod_grid/Earthy_tone_2.png',
+      
+    ],
+  },
+  {
+    id: 'candle-003',
+    name: 'Speckled Ceramic Scented Candle',
+    price: 19.5,
+    description: 'Speckled ceramic jar with a fresh linen scent. Reusable container after the wax burns out.',
+    imageUrls: [
+      '/images/ceramic_prod_grid/Speckled ceramic_1.png',
+      '/images/ceramic_prod_grid/Speckled_ceramic_2.png',
+    ],
+  },
+  {
+    id: 'candle-004',
+    name: 'Matte Black Ceramic Candle',
+    price: 34.0,
+    description: 'A sleek matte black ceramic candle infused with cedarwood and amber. Modern and bold.',
+    imageUrls: [
+      '/images/ceramic_prod_grid/Matte_Black_1.png',
+      '/images/ceramic_prod_grid/Matte_Black_2.png',
+    ],
+  },
+  {
+    id: 'candle-005',
+    name: 'Handcrafted Blue Glaze Candle',
+    price: 27.75,
+    description: 'Hand-thrown ceramic with a glossy blue glaze, filled with a calming lavender soy wax blend.',
+    imageUrls: [
+      '/images/ceramic_prod_grid/glossy_blue_glaze_1.png',
+      '/images/ceramic_prod_grid/glossy_blue_glaze_2.png',
+    ],
+  },
+  {
+    id: 'candle-006',
+    name: 'Terracotta Clay Candle Bowl',
+    price: 22.5,
+    description: 'Rustic terracotta ceramic bowl candle with a wood wick, giving a gentle crackling sound.',
+    imageUrls: [
+      '/images/ceramic_prod_grid/Rustic_terracotta_1.png',
+      '/images/ceramic_prod_grid/Rustic_terracotta_2.png',
+    ],
+  }
   
 ]
 

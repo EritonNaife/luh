@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { formatPrice,selectedCurrency } from '$lib/stores/currency';
 	import { products2 } from '$lib/data/products';
+	import { addToCart } from '$lib/stores/cart';
 
 
 	export let data: PageData;
@@ -59,7 +60,7 @@
 				addToCartMessage = '';
 			}, 3000);
 		}, 500);
-		
+		addToCart(product)
 	}
 
 	
