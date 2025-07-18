@@ -39,6 +39,7 @@ export const itemCount = derived(cart, ($cart) => {
  * Adds a product to the cart. If the product is already in the cart,
  * its quantity is incremented.
  * @param {AnyProduct} product - The product to add.
+ * @param {string} productId 
  */
 export const addToCart = (product: AnyProduct) => {
   cart.update((items) => {
@@ -72,6 +73,37 @@ export const removeFromCart = (productId: string) => {
  */
 export const clearCart = () => {
   cart.set([]);
+};
+/**
+ * Increases the quantity of a product in the cart by one.
+ * @param {string} productId - The ID of the product to update.
+ */
+export const increaseQuantity = (productId: string) => {
+  cart.update((items) => {
+    const itemIndex = items.findIndex((item) => item.productId === productId);
+    if (itemIndex !== -1) {
+      items[itemIndex].quantity++;
+    }
+    return items;
+  });
+};
+
+/**
+ * Decreases the quantity of a product in the cart. If the quantity
+ * reaches zero, the item is removed.
+ * @param {string} productId - The ID of the product to update.
+ */
+export const decreaseQuantity = (productId: string) => {
+  cart.update((items) => {
+    const itemIndex = items.findIndex((item) => item.productId === productId);
+    if (itemIndex !== -1 && items[itemIndex].quantity > 1) {
+      items[itemIndex].quantity--;
+    } else if (itemIndex !== -1) {
+      // If quantity is 1, remove the item
+      items.splice(itemIndex, 1);
+    }
+    return items;
+  });
 };
 
 // Expose the main cart store so components can subscribe to it.

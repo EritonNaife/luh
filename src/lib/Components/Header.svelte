@@ -22,7 +22,7 @@
 
   let isMobileNavOpen = false;
   let isScrolled: boolean = false;
-  let shopDropdown: boolean = false;
+  let isHovering = false;
   let isSlidingRegisterOpen: boolean = false;
   let isSlidingCartOpen: boolean = false;
   let focused = false;
@@ -51,6 +51,14 @@
     scrollY = window.pageYOffset;
     isScrolled = scrollY > SCROLL_THRESHOLD;
   }
+
+   function showDropdown() {
+      isHovering = true;
+    }
+  
+    function hideDropdown() {
+      isHovering = false;
+    }
 
   export let onClose = () => {}; // This prop seems unused in the provided snippet, ensure it's needed.
 
@@ -83,10 +91,9 @@
       <img src="/LuhBea Logotipo.svg" alt="" class="absolute size-40 md:size-55 lg:size-55 lg:left-[1px]">
     </a> 
 
+  
     <nav class="uppercase text-[12px] hidden lg:flex space-x-6 items-center">
-      <a href="/shop/cups/home" class="hover:underline">Cups</a>
-      <a href="/shop/molds/silicone" class="hover:underline">Molds</a>
-      <a href="/shop/ceramics" class="hover:underline">Ceramics</a>
+      <ShopDropdown/>
     </nav>
 
     <div class="hidden relative lg:flex items-center ">
@@ -117,8 +124,7 @@
     </div>
 
     <div class="flex items-center gap-1 lg:gap-4 ">  
-      
-       <CurrencyDropdown />
+     
       
       <a href="#" on:click={() => (isSlidingRegisterOpen = true)}>
         <Icon icon="ph:user-light" class="size-[18px]" />

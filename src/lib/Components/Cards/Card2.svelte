@@ -4,15 +4,12 @@
     import Icon from "@iconify/svelte";
     import { goto } from "$app/navigation";
 	import { fade } from "svelte/transition";
+    import { addToCart } from "$lib/stores/cart";
 
     export let product:Product2;
 
     let isSizeOptions = false;
     let hovered = false;
-
-    function toggleSizeOptions(){
-        isSizeOptions = !isSizeOptions;
-    }
 
     function handleClick(){
         goto(`/products/${product.id}`);
@@ -46,7 +43,7 @@
         <div class="absolute z-10 bottom-2 right-2">
             <div
                 class="bg-white transition-transform duration-300 group-hover:-translate-y-2"
-                on:click|stopPropagation={toggleSizeOptions}
+                on:click|stopPropagation={() => addToCart(product)}
             >
                 <Icon icon="mynaui:plus" class="size-7 transition-transform duration-200 hover:rotate-90" />
             </div>
