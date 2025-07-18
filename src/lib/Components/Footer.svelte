@@ -24,6 +24,9 @@
                     <a href="https://www.instagram.com/luhbeacandles?igsh=dDR5cXlhOHpobzQ2">
                         <Icon icon="skill-icons:instagram" width="25" height="25" />
                     </a>
+                    <a href="https://www.instagram.com/luhbeacandles?igsh=dDR5cXlhOHpobzQ2">
+                        <Icon icon="devicon:twitter" width="25" height="25" />
+                    </a>
                     
                 </div>
                 
