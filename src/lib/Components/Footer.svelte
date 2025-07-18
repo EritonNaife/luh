@@ -11,7 +11,7 @@
             <!-- Brand Section -->
             <div class="space-y-4 ">
 
-                <h3 class="text-2xl font-bold">LuhBea</h3>
+                <h3 class="text-2xl font-bold">LuhBeaCandles</h3>
                 <p class="">Bring a little bit of light into your life.</p>
 
                 <div class="mt-25 flex space-x-4">
