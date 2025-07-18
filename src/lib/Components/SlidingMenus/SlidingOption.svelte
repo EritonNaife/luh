@@ -4,6 +4,7 @@
 	import { cubicInOut } from "svelte/easing";
 	import { scale, slide, fade } from "svelte/transition";
 	import { formatPrice, selectedCurrency } from '$lib/stores/currency';
+	import { addToCart } from "$lib/stores/cart";
 
 	export let closeMenu: () => void = () => {};
 	export let product: Product;
@@ -42,6 +43,7 @@
 		} finally {
 			isLoading = false;
 		}
+		addToCart(product)
 	}
 
 	// Handle escape key
