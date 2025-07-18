@@ -31,7 +31,7 @@
 
     ],
     ceramics: [
-      { href: '/shop/ceramics/', label: 'cups' },
+      { href: '/ceramics/', label: 'cups' },
       { href: '/shop/ceramics/plates', label: 'Candle Bases' },
     ]
   };

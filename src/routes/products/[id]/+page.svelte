@@ -59,6 +59,7 @@
 				addToCartMessage = '';
 			}, 3000);
 		}, 500);
+		
 	}
 
 	
@@ -195,7 +196,7 @@
 					<button
 						type="button"
 						class="w-full bg-black text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-						on:click={handleAddToCart}
+						on:click={handleAddToCart }
 						disabled={isLoading}
 						aria-describedby={addToCartMessage ? 'cart-message' : undefined}
 					>

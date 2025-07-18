@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Icon from '@iconify/svelte';
+  import { itemCount } from '$lib/stores/cart';
   import CurrencyDropdown from './Dropdowns/CurrencyDropdown.svelte';
   // import SearchBar from './SearchBar.svelte'; // Assuming SearchBar is not used if input is directly in header
   import AnnouncementBar from './AnnouncementBar.svelte';
@@ -134,6 +135,9 @@
 
       <button class="" on:click={() => (isSlidingCartOpen = true)}>
         <Icon icon="ph:shopping-cart-simple-light" class="size-[18px]" />
+          {#if $itemCount > 0}
+            <span class="absolute top-3 ml-4 bg-[#D4A373] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{$itemCount}</span>
+          {/if}
       </button>
       
     </div>
