@@ -2,6 +2,7 @@
 	import Icon from '@iconify/svelte';
 	import { slide } from 'svelte/transition';
 	import { quartInOut } from 'svelte/easing';
+    import { formatPrice,selectedCurrency } from '$lib/stores/currency';
     
 	
     // --- 1. Imports for cart logic ---
@@ -57,7 +58,7 @@
 
                     <div class="info space-y-2 col-span-2">
                         <h3>{item.product.name}</h3>
-                        <p class="text-gray-600">${item.product.price.toFixed(2)}</p>
+                        <p class="text-gray-600">{formatPrice(item.product.price,$selectedCurrency)}</p>
                         <div class="flex items-center gap-4 text-sm">
                             <div class="flex items-center gap-3 border rounded">
                                 <button on:click={() => decreaseQuantity(item.productId)} class="px-2 py-1">-</button>
@@ -78,7 +79,7 @@
 	<div class="footer p-5 flex flex-col gap-3 border-t bg-gray-50">
         <div class="flex justify-between text-lg">
             <span>Subtotal</span>
-            <strong>${$cartTotal.toFixed(2)}</strong>
+            <strong>{formatPrice($cartTotal,$selectedCurrency)}</strong>
         </div>
 		<p class="text-sm text-gray-500">Taxes and shipping calculated at checkout</p>
 		<button class="text-white bg-black h-12 rounded-md hover:bg-gray-800 transition-colors">Checkout</button>
