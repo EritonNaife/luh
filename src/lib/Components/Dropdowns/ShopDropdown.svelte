@@ -31,7 +31,7 @@
 
     ],
     ceramics: [
-      { href: '/shop/ceramics/bowls', label: 'cups' },
+      { href: '/shop/ceramics/', label: 'cups' },
       { href: '/shop/ceramics/plates', label: 'Candle Bases' },
     ]
   };
@@ -71,7 +71,8 @@
   <div class="relative">
     <button
       on:mouseenter={() => showDropdown('cups')}
-      on:mouseleave={hideDropdown}
+      on:focusin={() => showDropdown('cups')}
+      on:focusout={hideDropdown}
       on:keydown={(e) => handleKeydown(e, 'cups')}
       class="hover:underline focus:outline-none focus:underline flex items-center gap-1"
       aria-haspopup="true"
@@ -103,7 +104,8 @@
   <div class="relative">
     <button
       on:mouseenter={() => showDropdown('molds')}
-      on:mouseleave={hideDropdown}
+      on:focusin={() => showDropdown('molds')}
+      on:focusout={hideDropdown}
       on:keydown={(e) => handleKeydown(e, 'molds')}
       class="hover:underline focus:outline-none focus:underline flex items-center gap-1"
       aria-haspopup="true"
@@ -135,7 +137,8 @@
   <div class="relative">
     <button
       on:mouseenter={() => showDropdown('ceramics')}
-      on:mouseleave={hideDropdown}
+      on:focusin={() => showDropdown('ceramics')}
+      on:focusout={hideDropdown}
       on:keydown={(e) => handleKeydown(e, 'ceramics')}
       class="hover:underline focus:outline-none focus:underline flex items-center gap-1"
       aria-haspopup="true"
