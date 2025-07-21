@@ -1,15 +1,12 @@
 <script lang="ts">
-	import cart, { cartTotal, clearCart } from '$lib/stores/cart';
+	import cart, { cartTotal, itemCount } from '$lib/stores/cart';
 	import type { AnyProduct } from '$lib/data/products';
 	import { enhance } from '$app/forms';
     import { selectedCurrency, formatPrice } from '$lib/stores/currency';
 	import type { SubmitFunction } from '@sveltejs/kit';
+    import { goto } from "$app/navigation";
 
-	// Helper function to get the correct image URL
-	function getImageUrl(p: AnyProduct): string {
-		if ('imageUrl' in p) return p.imageUrl;
-		return p.imageUrls?.[0] || '';
-	}
+
 
 	// This function runs after the form submission.
 	// We use it to clear the cart only if the server-side action was successful.
@@ -187,14 +184,22 @@
     paymentData.securityCode = target.value.replace(/\D/g, '').substring(0, 4);
   }
 
-  
+  const SHIPPING_RATE = 9.99;
+  const TAX_RATE = 0.08625; // 8.625% tax rate
+
+  // Reactive calculations based on cart
+  $: subtotal = $cartTotal;
+  $: shipping = $itemCount > 0 ? SHIPPING_RATE : 0;
+  $: tax = subtotal * TAX_RATE;
+  $: total = subtotal + shipping + tax;
 
 </script>
 
 
-<main class="h-screen w-full flex justify-center">
+<main class="min-h-screen w-full md:h-screen md:flex md:justify-center">
+    
     <!-- Left side - Scrollable forms -->
-    <div class="w-full overflow-y-auto flex justify-end">
+    <div class="w-full md:overflow-y-auto md:flex md:justify-end my-40">
         <div class="p-8 space-y-12">
             <!-- Delivery Form -->
             <div class="w-full flex flex-col justify-center items-center">
@@ -326,15 +331,7 @@
                         />
                     </div>
 
-                    <!-- Submit Button -->
-                    <div class="pt-4">
-                        <button
-                            type="submit"
-                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                        >
-                            Continue to Shipping
-                        </button>
-                    </div>
+                    
                 </form>
             </div>
 
@@ -566,44 +563,52 @@
     <!-- Right side - Fixed Order Summary -->
     <div class="w-full h-full bg-gray-100 flex justify-start items-center shadow-xl">
         <div class="p-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
+            <h2 class="text-lg font-medium text-gray-900 mb-4">Order summary</h2>
             
-            <!-- Order items -->
-            <div class="space-y-4 mb-6">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-600">Product 1 × 2</span>
-                    <span class="font-semibold">$99.98</span>
+            {#if $itemCount > 0}
+                <!-- Items -->
+                <div class="space-y-3 mb-4">
+                {#each $cart as item}
+                    <div class="flex justify-between text-sm gap-4">
+                        <span class="text-gray-600">{item.product.name} × {item.quantity}</span>
+                        <span class="text-gray-900">{formatPrice(item.product.price * item.quantity,$selectedCurrency)}</span>
+                    </div>
+                {/each}
                 </div>
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-600">Product 2 × 1</span>
-                    <span class="font-semibold">$29.99</span>
-                </div>
-            </div>
-            
-            <hr class="border-gray-300 mb-4" />
-            
-            <!-- Totals -->
-            <div class="space-y-2 mb-6">
+
+                <hr class="border-gray-200 mb-4" />
+
+                <!-- Totals -->
+                <div class="space-y-2 text-sm">
                 <div class="flex justify-between">
                     <span class="text-gray-600">Subtotal</span>
-                    <span>$129.97</span>
+                    <span class="text-gray-900">{formatPrice(subtotal,$selectedCurrency)}</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-600">Shipping</span>
-                    <span>$9.99</span>
+                    <span class="text-gray-900">{formatPrice(shipping,$selectedCurrency)}</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-600">Tax</span>
-                    <span>$11.20</span>
+                    <span class="text-gray-900">{formatPrice(tax,$selectedCurrency)}</span>
                 </div>
-            </div>
-            
-            <hr class="border-gray-300 mb-4" />
-            
-            <div class="flex justify-between text-xl font-bold">
-                <span>Total</span>
-                <span>$151.16</span>
-            </div>
+                </div>
+
+                <hr class="border-gray-200 my-4" />
+
+                <div class="flex justify-between text-lg font-medium">
+                <span class="text-gray-900">Total</span>
+                <span class="text-gray-900">{formatPrice(total,$selectedCurrency)}</span>
+                </div>
+            {:else}
+                <!-- Empty Cart Message -->
+                <div class="text-center py-8">
+                <p class="text-gray-500 mb-4">Your cart is empty</p>
+                <a href="/products" class="text-blue-600 hover:text-blue-700 font-medium">
+                    Continue shopping
+                </a>
+                </div>
+            {/if}
         </div>
     </div>
 </main>

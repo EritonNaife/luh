@@ -13,6 +13,7 @@
         cartTotal 
     } from '$lib/stores/cart';
 	import type { AnyProduct } from '$lib/data/products';
+	import { goto } from '$app/navigation';
 
 	export let isMenuOpen = false;
 	export let closeMenu: () => void = () => {};
@@ -24,6 +25,12 @@
 		}
 		return p.imageUrls[0] || ''; // For Product2 type, with a fallback
 	}
+
+    function handleClick(){
+        goto(`/checkout`);
+        closeMenu();
+    }
+
 </script>
 
 <div
@@ -82,7 +89,7 @@
             <strong>{formatPrice($cartTotal,$selectedCurrency)}</strong>
         </div>
 		<p class="text-sm text-gray-500">Taxes and shipping calculated at checkout</p>
-		<button class="mx-auto text-white bg-black h-11 w-90 rounded-md hover:bg-gray-800 transition-colors">Checkout</button>
+		<button class="mx-auto text-white bg-black h-11 w-90 rounded-md hover:bg-gray-800 transition-colors" on:click={handleClick}>Checkout</button>
 	</div>
     {/if}
 </div>
