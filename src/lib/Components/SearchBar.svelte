@@ -15,7 +15,7 @@
         transition-all duration-300 ease-in-out  <!-- Makes width and style changes smooth -->
         bg-transparent  <!-- No background color -->
                                                   <!-- Placeholder and text are white -->
-        border-0 border-b-10 
+        border-0 border-b-1 
         focus:ring-0 focus:border-black focus:outline-none  <!-- Remove default focus styles, keep bottom border white -->
         py-2 pr-10  <!-- Vertical padding and extra right padding for the icon space -->
         w-90 focus:w-120  <!-- Initial width is small (w-40), expands to larger width (w-90) on focus -->

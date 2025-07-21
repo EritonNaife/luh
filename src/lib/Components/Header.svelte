@@ -155,7 +155,7 @@
  
   <input type="text" placeholder="Try searching for..." class=" transition-all duration-300 ease-in-out
                                                                 flex lg:hidden
-                                                                border-0 border-b-2
+                                                                border-0 border-b-1
                                                                 focus:ring-0 focus:outline-none
                                                                 py-2 pr-10
                                                                 w-full
@@ -163,7 +163,7 @@
    
 
     <div class="absolute left-[92%] top-[69%] flex lg:hidden sm:left-[94%] md:left-[96%]">
-      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-[#737373]' : baseTextClass}" />
+      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-[#333333]' : baseTextClass}" />
     </div>
 </header>
 
