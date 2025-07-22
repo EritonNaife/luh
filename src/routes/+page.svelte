@@ -23,7 +23,7 @@
  
 </script>
 
-<main class="text-[#333333]">
+<main class="">
     
 
     <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
@@ -36,7 +36,7 @@
 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
                 <p class="text-md md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
-                <button class="mt-8 py-1 px-3 bg-white text-black hover:bg-black hover:text-white font-semibold lg:py-3 lg:px-6 rounded-md">Learn More</button>
+                <button class="mt-8 h-12 px-4 text-base text-[#333333] rounded-md bg-white hover:bg-black hover:text-white  transition lg:py-3 lg:px-6 ">Learn More</button>
 
             </div>
 
