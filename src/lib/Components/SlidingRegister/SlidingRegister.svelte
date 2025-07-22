@@ -121,7 +121,8 @@ aria-modal="true"
 aria-labelledby="modal-title">
     <!-- Header -->
     <div class="flex items-center justify-between p-6 border-b border-gray-100">
-        <h2 id="modal-title" class="text-2xl text-[#6B6B6B]">
+        
+        <h2 id="modal-title" class="text-2xl font-[800] text-[#6B6B6B]">
             Welcome Back
         </h2>
         
