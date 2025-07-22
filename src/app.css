@@ -1,35 +1,33 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 
-:root {
-    /* Primary Foundation */
-    --color-soft-beige: #ECE6D4;
-    
-    /* Key Information & Depth */
-    --color-deep-burgundy: #470303;
-    
-    /* Supportive Details & Structure */
-    --color-charcoal-gray: #787878;
-    
-    /* Engagement & Highlights */
-    --color-warm-peach: #EEC78B;
-    
-    /* Subtle Separation */
-    --color-light-gray: #DDDDDD;
-}
 
 
 
 
 
-
- h1,h2,h3,h4{
+ h1,h2,h3{
     font-family: "Playfair Display", serif;
     font-weight: 200;
     line-height: 1.3;
 }
 
- p,a,button{
+h4{
+
+    font-family: "Playfair Display", serif;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+ p{
     font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+ }
+
+ button{
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
  }
 
