@@ -50,8 +50,8 @@
                 <p>Remember me</p>
             </div>
                             
-            <button class="py-3 border-1 w-[70%] mx-auto bg-black text-white">Sign In</button>
-            <button class="py-3 border-1 w-[70%] mx-auto hover:bg-black hover:text-white">Create An Account</button>
+            <button class="mx-auto py-2 px-16 text-white bg-black rounded-md hover:bg-white hover:text-black  hover:border-black hover:border-1 transition-colors duration-300">Sign In</button>
+            <button class="mx-auto py-2 px-4 text-black bg-white border-1 border-black rounded-md hover:bg-black hover:text-white transition-colors duration-300">Create An Account</button>
 
             <div class="flex justify-center mt-5">
                 <a href="">Lost Your Password</a>

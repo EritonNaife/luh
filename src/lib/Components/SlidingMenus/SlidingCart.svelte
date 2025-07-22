@@ -89,7 +89,7 @@
             <strong>{formatPrice($cartTotal,$selectedCurrency)}</strong>
         </div>
 		<p class="text-sm text-gray-500">Taxes and shipping calculated at checkout</p>
-		<button class="mx-auto text-white bg-black h-11 w-90 rounded-md hover:bg-gray-800 transition-colors" on:click={handleClick}>Checkout</button>
+		<button class="mx-auto py-2 px-16 text-white bg-black rounded-md hover:bg-gray-800 transition-colors" on:click={handleClick}>Checkout</button>
 	</div>
     {/if}
 </div>
