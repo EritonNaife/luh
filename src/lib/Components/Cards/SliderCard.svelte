@@ -30,7 +30,7 @@
     </div>
   
     <div class="py-4 space-y-2">
-      <h3 class="text-lg lg:text-xl italic">{product.name}</h3>
+      <h3 class="text-lg lg:text-xl">{product.name}</h3>
       <p class="text-xs">{formatPrice(product.price,$selectedCurrency)}</p> 
     </div>
   </a>

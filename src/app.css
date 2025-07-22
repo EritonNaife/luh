@@ -18,29 +18,15 @@
     --color-light-gray: #DDDDDD;
 }
 
-@font-face {
-    font-family: 'Europa';
-    src: url('/Europa/europa.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'linotype-didot';
-    src: url('/fonts/linotype-didot/DidotLTPro-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-}
 
 
 
-body {
-    font-family: 'Work Sans', sans-serif;
-    color: gray;
-}
 
 
  h1,h2,h3,h4{
     font-family: "Playfair Display", serif;
+    font-weight: 200;
+    line-height: 1.3;
 }
 
  p,a,button{
