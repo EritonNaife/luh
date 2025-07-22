@@ -2,7 +2,7 @@
     import Icon from "@iconify/svelte";
 </script>
 
-<footer class="p-12 bg-[#fae0df] border-[#f3e0df] border-t-1 text-[#333333]">
+<footer class="p-12 bg-[#fae0df] border-[#f3e0df] border-t-1 text-[#6B6B6B]">
     
     <div class="container mx-auto">
 
@@ -11,7 +11,7 @@
             <!-- Brand Section -->
             <div class="space-y-4 ">
 
-                <h3 class="text-2xl font-bold">LuhBeaCandles</h3>
+                <h3 class="text-2xl font-[700]">LuhBeaCandles</h3>
                 <p class="">Bring a little bit of light into your life.</p>
 
                 <div class="mt-25 flex space-x-4">
@@ -54,7 +54,7 @@
             
             <!-- Newsletter -->
             <div>
-                <h4 class="text-lg font-semibold mb-4">Stay Updated</h4>
+                <h4 class="text-lg font-[900] mb-4">Stay Updated</h4>
                 <p class="mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
                 <form class="space-y-2">
                     <input type="email" placeholder="Your email address" class="w-full border-2 border-primary-500/20 rounded-lg focus:outline-none focus:border-primary-500 text-dark ">

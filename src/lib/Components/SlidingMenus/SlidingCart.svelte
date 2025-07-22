@@ -43,7 +43,7 @@
 ></div>
 
 <div
-	class="fixed inset-y-0 top-0 right-0 w-full max-w-sm md:max-w-md h-full shadow-lg bg-white z-50 flex flex-col"
+	class="fixed inset-y-0 top-0 right-0 w-full max-w-sm md:max-w-md h-full shadow-lg bg-white z-50 flex flex-col text-[#6B6B6B]" 
 	transition:slide={{ duration: 300, axis: 'x', easing: quartInOut }}
 >
 	<div class="header p-5 flex justify-between items-center text-2xl border-b">

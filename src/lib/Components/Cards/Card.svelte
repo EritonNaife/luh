@@ -22,7 +22,7 @@
 </script>
 
 
-<div class="card flex flex-col gap-2 group cursor-pointer text-[#737373]">
+<div class="card flex flex-col gap-2 group cursor-pointer text-[#6B6B6B]">
 
     <div
        class="w-[45vw] h-[30vh] sm:w-[46vw] sm:h-100 md:w-[31vw] md:h-[30vh] 
@@ -39,8 +39,8 @@
     </div>
 
     <footer>
-        <h3>{product.name}</h3>
-        <p>{formatPrice(product.price,$selectedCurrency)}</p>
+        <h3 class="italic">{product.name}</h3>
+        <p class="text-sm">{formatPrice(product.price,$selectedCurrency)}</p>
     </footer>
 </div>
 

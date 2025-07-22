@@ -84,7 +84,7 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <!-- Mobile Version -->
-<div class="fixed inset-0 z-50 lg:hidden text-[#737373]">
+<div class="fixed inset-0 z-50 lg:hidden text-[#6B6B6B]">
 	<!-- Backdrop -->
 	<div class="fixed inset-0 bg-black/20" 
 		 on:click={closeMenu} 
@@ -203,7 +203,7 @@
 </div>
 
 <!-- Desktop Version -->
-<div class="hidden lg:block fixed inset-0 z-50 text-[#737373]">
+<div class="hidden lg:block fixed inset-0 z-50 text-[#6B6B6B]">
 	<!-- Backdrop -->
 	<div class="fixed inset-0 bg-black/20 flex items-center justify-center p-4" 
 		 on:click={closeMenu}
@@ -223,7 +223,7 @@
 		<div class="p-6">
 			<!-- Header -->
 			<div class="flex justify-between items-center mb-6">
-				<h2 id="modal-title-desktop" class="text-2xl font-bold text-[#737373]">
+				<h2 id="modal-title-desktop" class="text-2xl text-[#6B6B6B]">
 					{product.name}
 				</h2>
 				<button 
@@ -250,7 +250,7 @@
 				<div class="space-y-6">
 					<!-- Price -->
 					<div>
-						<p class="text-3xl font-bold text-[#737373]">
+						<p class="text-3xl font-bold text-[#6B6B6B]">
 							{formatPrice(getCurrentPrice(), $selectedCurrency)}
 						</p>
 					</div>
@@ -263,7 +263,7 @@
 
 					<!-- Size Selection -->
 					<div class="space-y-3">
-						<h3 class="text-sm font-medium text-[#737373]">Select Size:</h3>
+						<h3 class="text-sm text-[#6B6B6B]">Select Size:</h3>
 						<div class="flex gap-3">
 							{#each sizeOptions as option}
 								<label>
@@ -286,7 +286,7 @@
 
 					<!-- Quantity Selection -->
 					<div class="space-y-3">
-						<h3 class="text-sm font-medium text-[#737373]">Quantity:</h3>
+						<h3 class="text-sm font-medium text-[#6B6B6B]">Quantity:</h3>
 						<div class="flex items-center gap-3">
 							<button
 								type="button"
@@ -302,7 +302,7 @@
 								type="number"
 								min="1"
 								bind:value={quantity}
-								class="w-20 text-center border border-gray-300 rounded-md py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+								class="w-20 text-center border border-gray-300 rounded-md py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-300"
 								aria-label="Quantity"
 							/>
 							
@@ -320,8 +320,8 @@
 					<!-- Product Description -->
 					{#if product.description}
 						<div class="space-y-2">
-							<h3 class="text-sm font-medium text-[#737373]">Description:</h3>
-							<p class="text-sm text-[#737373]">{product.description}</p>
+							<h3 class="text-sm text-[#6B6B6B]">Description:</h3>
+							<p class="text-sm text-[#6B6B6B]">{product.description}</p>
 						</div>
 					{/if}
 
