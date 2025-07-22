@@ -41,7 +41,7 @@
 
   // For the header background and text
   $: baseBgClass = applyTransparentStyle ? 'bg-transparent' : 'bg-white'; // Or your specific pink e.g., 'bg-[#FADADD]'
-  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-[#333333]';
+  $: baseTextClass = applyTransparentStyle ? 'text-white' : 'text-[#6B6B6B]';
 
   // For the search input placeholder and border (non-scrolled state)
   $: nonScrolledInputPlaceholderClass = applyTransparentStyle ? 'placeholder-white' : 'placeholder-black';
@@ -78,7 +78,7 @@
 </div>
 
 <header class="fixed top-5 left-0 w-full z-50 transition-all duration-400 ease-in-out flex flex-col {isScrolled
-    ? 'text-[#333333] bg-white' 
+    ? 'text-[#6B6B6B] bg-white' 
     : `${baseTextClass} ${baseBgClass}`}"
 >
   <div class="p-4 flex justify-between items-center lg:px-10">
@@ -99,7 +99,7 @@
 
     <div class="hidden relative lg:flex items-center ">
       
-      <div class="relative flex justify-center text-[#333333]">
+      <div class="relative flex justify-center text-[#6B6B6B]">
         <input
           type="text"
           placeholder="Try searching for..."
@@ -163,7 +163,7 @@
    
 
     <div class="absolute left-[92%] top-[69%] flex lg:hidden sm:left-[94%] md:left-[96%]">
-      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-[#333333]' : baseTextClass}" />
+      <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-[#6B6B6B]' : baseTextClass}" />
     </div>
 </header>
 

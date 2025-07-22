@@ -23,7 +23,7 @@
  
 </script>
 
-<main class="">
+<main class="text-[#6B6B6B]">
     
 
     <section id="Hero-section" in:fade={{duration: 2000, delay: 50 ,easing: quartOut}}>
@@ -34,9 +34,9 @@
 
             <div class="absolute bottom-30 text-white mb-5 md:right-30 md:top-90" in:fly={{duration:800, x: 30 ,easing:cubicIn}}>
 
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Your Awesome Headline</h1>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl mb-4">Your Awesome Headline</h1>
                 <p class="text-md md:text-xl lg:text-2xl max-w-2xl">A compelling description or call to action.</p>
-                <button class="mt-8 h-12 px-4 text-base text-[#333333] rounded-md bg-white hover:bg-black hover:text-white  transition lg:py-3 lg:px-6 ">Learn More</button>
+                <button class="mt-8 min-h-10 px-4 text-base text-[#333333] shadow-sm rounded-md bg-white hover:bg-black hover:text-white transition md:min-h-xs lg:px-6 ">Learn More</button>
 
             </div>
 
@@ -49,7 +49,7 @@
         {#if isInView}
 
             <div class="flex justify-center gap-4 p-4" in:fly={{duration: 1800, y: 50, delay: 400, easing: quartOut}}>
-                <h2 class="text-2xl lg:text-3xl font-medium">You might like</h2>
+                <h2 class="text-2xl lg:text-3xl">You might like</h2>
             </div>
         {/if}
         
