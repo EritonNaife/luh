@@ -53,7 +53,7 @@
 
     <div class="p-5 content flex-1 flex-col gap-5 overflow-y-auto">
         {#if $cart.length === 0}
-            <div class="flex flex-col items-center justify-center h-full text-gray-500">
+            <div class="flex flex-col items-center justify-center h-full">
                 <Icon icon="mdi:cart-outline" class="size-16" />
                 <p class="mt-4">Your cart is empty.</p>
             </div>
@@ -65,7 +65,7 @@
 
                     <div class="info space-y-2 col-span-2">
                         <h3>{item.product.name}</h3>
-                        <p class="text-gray-600">{formatPrice(item.product.price,$selectedCurrency)}</p>
+                        <p class="">{formatPrice(item.product.price,$selectedCurrency)}</p>
                         <div class="flex items-center gap-4 text-sm">
                             <div class="flex items-center gap-3 border rounded">
                                 <button on:click={() => decreaseQuantity(item.productId)} class="px-2 py-1">-</button>
@@ -88,7 +88,7 @@
             <span>Subtotal</span>
             <strong>{formatPrice($cartTotal,$selectedCurrency)}</strong>
         </div>
-		<p class="text-sm text-gray-500">Taxes and shipping calculated at checkout</p>
+		<p class="text-sm">Taxes and shipping calculated at checkout</p>
 		<button class="mx-auto py-2 px-16 text-white bg-black rounded-md hover:bg-gray-800 transition-colors" on:click={handleClick}>Checkout</button>
 	</div>
     {/if}
