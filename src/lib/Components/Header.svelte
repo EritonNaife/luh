@@ -10,6 +10,53 @@
   import SlidingRegister from './SlidingRegister/SlidingRegister.svelte';
   import SlidingCart from './SlidingMenus/SlidingCart.svelte';
   import { page } from '$app/stores'; // Corrected import
+  import { products, type Product } from '$lib/data/products';
+  import { createEventDispatcher } from 'svelte';
+	import { fade } from 'svelte/transition';
+
+  const dispatch = createEventDispatcher();
+  let searchQuery = '';
+  let filteredProducts: Product[] = [];
+
+// Custom debounce function
+function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
+    let timeout: NodeJS.Timeout;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
+
+  // Search function
+  const searchProducts = debounce((query: string) => {
+    if (query.trim() === '') {
+      filteredProducts = [];
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase().trim();
+    filteredProducts = products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(lowerQuery) ||
+        product.description.toLowerCase().includes(lowerQuery) ||
+        product.category.toLowerCase().includes(lowerQuery)
+    );
+  }, 300);
+
+  // Handle input change
+  function handleInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    searchQuery = target.value;
+    searchProducts(searchQuery);
+  }
+
+  // Handle product selection
+  function selectProduct(productId: string) {
+    searchQuery = '';
+    filteredProducts = [];
+    dispatch('selectProduct', { productId });
+  }
+
 
   // Define props with TypeScript types
   // These props define the SCROLLED state colors.
@@ -70,6 +117,8 @@
       window.removeEventListener('scroll', handleScroll);
     };
   });
+
+  
 </script>
 
 <div class="fixed top-0 left-0 w-full z-1">
@@ -96,32 +145,68 @@
       <ShopDropdown/>
     </nav>
 
-    <div class="hidden relative lg:flex items-center ">
-      
-      <div class="relative flex justify-center text-[#6B6B6B]">
-        <input
-          type="text"
-          placeholder="Try searching for..."
-          class="
-            transition-all duration-300 ease-in-out
-            bg-transparent
-            border-0 border-b-1
-            focus:ring-0 focus:outline-none
-            placeholder:text-[12px] 
-            h-10
-            w-80 focus:w-120
-            {isScrolled ? 'placeholder-black border-[#333333] focus:border-[#333333]' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
-          "
-          on:focus={() => (focused = true)}
-          on:blur={() => (focused = false)}
-        />
+    <div class="relative hidden lg:flex items-center">
+  <div class="relative flex justify-center text-[#6B6B6B]">
+    <input
+      type="text"
+      placeholder="Try searching for..."
+      bind:value={searchQuery}
+      on:input={handleInput}
+      on:focus={() => (focused = true)}
+      on:blur={() => setTimeout(() => (focused = false), 200)}
+      class="
+        transition-all duration-300 ease-in-out
+        bg-transparent
+        border-0 border-b-1
+        focus:ring-0 focus:outline-none
+        placeholder:text-[12px]
+        h-10
+        w-80 focus:w-120
+        {isScrolled ? 'placeholder-black border-[#333333] focus:border-[#333333]' : `${nonScrolledInputPlaceholderClass} ${nonScrolledInputBorderClass} focus:${nonScrolledInputBorderClass}`}
+      "
+    />
 
-        <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
-          <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-black' : baseTextClass}" />
-        </div>
-      </div>
-
+    <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
+      <Icon icon="mdi:magnify" class="size-[18px] {isScrolled ? 'text-black' : baseTextClass}" />
     </div>
+  </div>
+
+  <!-- Search Results Dropdown -->
+  {#if focused && filteredProducts.length > 0}
+    <div
+      class="absolute top-full left-0 mt-2 w-80 bg-white shadow-lg rounded-md z-50 max-h-96 overflow-y-auto"
+      transition:fade={{ duration: 200 }}
+    >
+      {#each filteredProducts as product}
+        <div
+          class="flex items-center p-3 hover:bg-gray-100 cursor-pointer"
+          on:mousedown={() => selectProduct(product.id)}
+        >
+          <img
+            src={product.imageUrls[0]}
+            alt={product.name}
+            class="w-12 h-12 object-cover rounded mr-3"
+          />
+          <div>
+            <p class="text-sm font-medium text-gray-900">{product.name}</p>
+            <p class="text-xs text-gray-500 truncate">{product.description}</p>
+            <p class="text-sm text-gray-700">${product.price.toFixed(2)}</p>
+          </div>
+        </div>
+      {/each}
+    </div>
+  {/if}
+
+  <!-- No Results Message -->
+  {#if focused && searchQuery.trim() && filteredProducts.length === 0}
+    <div
+      class="absolute top-full left-0 mt-2 w-80 bg-white shadow-lg rounded-md z-50 p-3 text-gray-500 text-sm"
+      transition:fade={{ duration: 200 }}
+    >
+      No results found for "{searchQuery}".
+    </div>
+  {/if}
+</div>
 
     <div class="flex items-center gap-1 lg:gap-4 ">  
      
@@ -152,7 +237,13 @@
   </div>
   -->
  
-  <input type="text" placeholder="Try searching for..." class=" transition-all duration-300 ease-in-out
+  <div class="">
+    <input type="text" placeholder="Try searching for..." 
+            bind:value={searchQuery}
+            on:input={handleInput}
+            on:focus={() => (focused = true)}
+            on:blur={() => setTimeout(() => (focused = false), 200)}
+    class=" transition-all duration-300 ease-in-out
                                                                 flex lg:hidden
                                                                 border-0 border-b-1
                                                                 focus:ring-0 focus:outline-none
@@ -164,6 +255,44 @@
     <div class="absolute left-[92%] top-[69%] flex lg:hidden sm:left-[94%] md:left-[96%]">
       <Icon icon="mdi:magnify" class="size-7 {isScrolled ? 'text-[#6B6B6B]' : baseTextClass}" />
     </div>
+
+    <!-- Search Results Dropdown -->
+    {#if focused && filteredProducts.length > 0}
+    <div
+      class="absolute top-full left-0 mt-2 w-80 bg-white shadow-lg rounded-md z-50 max-h-96 overflow-y-auto"
+      transition:fade={{ duration: 200 }}
+    >
+      {#each filteredProducts as product}
+        <div
+          class="flex items-center p-3 hover:bg-gray-100 cursor-pointer"
+          on:mousedown={() => selectProduct(product.id)}
+        >
+          <img
+            src={product.imageUrls[0]}
+            alt={product.name}
+            class="w-12 h-12 object-cover rounded mr-3"
+          />
+          <div>
+            <p class="text-sm font-medium text-gray-900">{product.name}</p>
+            <p class="text-xs text-gray-500 truncate">{product.description}</p>
+            <p class="text-sm text-gray-700">${product.price.toFixed(2)}</p>
+          </div>
+        </div>
+      {/each}
+    </div>
+  {/if}
+
+  <!-- No Results Message -->
+  {#if focused && searchQuery.trim() && filteredProducts.length === 0}
+    <div
+      class="absolute top-full left-0 mt-2 w-80 bg-white shadow-lg rounded-md z-50 p-3 text-gray-500 text-sm"
+      transition:fade={{ duration: 200 }}
+    >
+      No results found for "{searchQuery}".
+    </div>
+  {/if}
+  </div>
+  
 </header>
 
 {#if isMobileNavOpen}
