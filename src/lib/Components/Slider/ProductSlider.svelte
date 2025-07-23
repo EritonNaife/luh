@@ -1,11 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { featuredCups} from "$lib/data/products";
+  import { products} from "$lib/data/products";
   import SliderCard from "../Cards/SliderCard.svelte";
-  import ProductCard from "../Cards/ProductCard.svelte";
 	import { inview } from "svelte-inview";
-	import { fly } from "svelte/transition";
-	import { quartOut } from "svelte/easing";
 
   // Reference to the scrollable container element
   let scrollContainer: HTMLElement;
@@ -111,7 +108,7 @@
       >
 
       
-        {#each featuredCups as product, i}
+        {#each products as product, i}
 
           <div class=""
             use:inview={{
@@ -121,8 +118,12 @@
           }}
           on:inview_change={handleCardInView(i)}>
 
+          {#if product.category === "featured-cup"}
             <SliderCard {product} index={i} 
             isVisible={visibleCards[i] || false}/>
+          {/if}
+            
+            
           </div>
           
         {/each}

@@ -48,7 +48,7 @@
    
 </script>
 
-<main class="w-full mt-[25%] lg:mt-[5%] text-[#333333]">
+<main class="w-full mt-[25%] lg:mt-[5%]">
 
     <header class="bg-white">
         
@@ -56,13 +56,13 @@
 
             <div class="text-center md:text-left">
 
-                <h1 class="text-5xl font-light leading-tight tracking-tight mb-4" in:fade={{delay:300,duration:800,easing:quintOut
+                <h1 class="text-5xl tracking-tight mb-4" in:fade={{delay:300,duration:800,easing:quintOut
 
                 }}>
                     Care is a flame that never fades.
                 </h1>
 
-                <p class="text-lg font-light leading-relaxed" in:fade={{delay:400,duration:800, easing:quintOut}} >
+                <p class="text-lg text-[#6B6B6B] leading-relaxed" in:fade={{delay:400,duration:800, easing:quintOut}} >
                     At Luh Bea, we believe that care is more than a gesture — it’s a presence, an intention, a flame that stays lit even on the calmest days.
                 </p>
 
@@ -83,7 +83,7 @@
 
             {#if isInView}
                 <h2 class="text-4xl font-light leading-snug tracking-tight mb-4" in:fade={{ delay: 200, duration: 800 }} > Turning Moments into Memories</h2>
-                <p class="font-light leading-relaxed" in:fade={{ delay: 400, duration: 800 }} >
+                <p class="text-[#6B6B6B] leading-relaxed" in:fade={{ delay: 400, duration: 800 }} >
                         We are a brand of decorative and aromatic candles created with one purpose: to turn everyday moments into sensory experiences full of meaning. Every candle we craft is thoughtfully designed — made to delight the eyes, warm the space, and touch the heart.
                 </p>  
             {/if}       
@@ -103,7 +103,7 @@
                         </svg>
                     </div>
         
-                    <h3 class="text-2xl font-normal leading-normal max-w-3xl" in:fade={{duration: 800}}>
+                    <h3 class="text-2xl text-[#6B6B6B] font-normal leading-normal max-w-3xl" in:fade={{duration: 800}}>
                         Crafted with 100% organic waxes, each candle offers a clean, toxin-free burn for moments of comfort and peace.
                     </h3>
                 </div>
@@ -121,7 +121,7 @@
                         <h2 class="text-4xl font-light leading-snug tracking-tight "
                             in:fly={{  delay: 200, duration: 800, y: 20 }}
                         >Our Commitment to You</h2>
-                        <p class="mt-4 font-light leading-relaxed"
+                        <p class="mt-4 text-[#6B6B6B] leading-relaxed"
                             in:fly={{delay: 350, duration: 800, y: 20 }}
                         > 
                             Our commitment is to be different — not just in what we offer, but in how we connect with you. From the packaging to the fragrances, everything is done with attention, authenticity, and affection.
@@ -141,7 +141,7 @@
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                                 </div>
                                 <h3 class="text-2xl font-normal leading-normal mb-2">Thoughtfully Designed</h3>
-                                <p class="font-light leading-relaxed">Made to delight the eyes, warm the space, and touch the heart.</p>
+                                <p class="text-[#6B6B6B] leading-relaxed">Made to delight the eyes, warm the space, and touch the heart.</p>
                             </div>
 
                             <div class="p-8 border border-stone-200 rounded-lg" in:fly={{delay: 1100, duration: 700, y: 40 }}>
@@ -149,7 +149,7 @@
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                                 </div>
                                 <h3 class="text-2xl font-normal leading-normal mb-2">Authenticity & Affection</h3>
-                                <p class="font-light leading-relaxed">From packaging to fragrance, every detail is chosen with genuine care.</p>
+                                <p class="text-[#6B6B6B] leading-relaxed">From packaging to fragrance, every detail is chosen with genuine care.</p>
                             </div>
 
                             <div class="p-8 border border-stone-200 rounded-lg"in:fly={{ delay: 1500, duration: 700, y: 40 }}>
@@ -157,7 +157,7 @@
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m-2.122-2.122a2 2 0 010 2.828m-2.121-2.121a2 2 0 00-2.828 0M4.929 4.929a10 10 0 0114.142 0"></path></svg>
                                 </div>
                                 <h3 class="text-2xl font-normal leading-normal  mb-2">Sensory Experiences</h3>
-                                <p class="font-light leading-relaxed">Transforming your space with scents that evoke emotion and meaning.</p>
+                                <p class="text-[#6B6B6B] leading-relaxed">Transforming your space with scents that evoke emotion and meaning.</p>
                             </div>
                         {/if}
                         
@@ -190,7 +190,7 @@
         </h2>
         
         <p 
-          class="text-lg font-light leading-relaxed mb-8"
+          class="text-lg text-[#6B6B6B] leading-relaxed mb-8"
           in:fade={{ delay: 500, duration: 800 }}
         >
           Each candle is a reminder that care begins within — and spreads gently, like a flame, to every place it reaches. Thank you for letting us be part of your space.
@@ -205,7 +205,7 @@
         </a>
       {/if}
     </div>
-  </section>
+    </section>
 
 </main>
 

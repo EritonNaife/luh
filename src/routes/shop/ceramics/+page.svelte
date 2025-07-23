@@ -1,8 +1,20 @@
-<script>
-	import { fly, scale } from "svelte/transition";
-    import { ceramicCandles } from "$lib/data/products";
-	import Card2 from "$lib/Components/Cards/Card2.svelte";
+<script lang="ts">
+    
 	import Icon from "@iconify/svelte";
+	import { fly, scale } from "svelte/transition";
+    import { onMount } from "svelte";
+	import Card from "$lib/Components/Cards/Card.svelte";
+	import type { Product } from "$lib/data/products";
+
+
+    let ceramicCandles : Product[] = [];
+
+    onMount(async () => {
+        const response = await fetch('/api/products?category=ceramic-candle');
+        ceramicCandles = await response.json();
+  });
+
+
 
 </script>
 
@@ -43,11 +55,8 @@
         <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4 md:grid-cols-3 lg:grid-cols-4">
 
             {#each ceramicCandles as product}
-
-                <Card2 {product}/>
-           
-            {/each}
-           
+                <Card {product}/>            
+            {/each}           
         </div>
 
 </section>

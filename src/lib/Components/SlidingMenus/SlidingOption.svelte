@@ -43,7 +43,7 @@
 		} finally {
 			isLoading = false;
 		}
-		addToCart(product)
+		addToCart(product.id,quantity)
 	}
 
 	// Handle escape key
@@ -119,7 +119,7 @@
 			<!-- Product Image (Mobile) -->
 			<div class="flex justify-center">
 				<img 
-					src={product.imageUrl} 
+					src={product.imageUrls[0]} 
 					alt={product.name}
 					class="w-24 h-24 object-cover rounded-lg"
 				/>
@@ -132,29 +132,32 @@
 				</p>
 			</div>
 
-			<!-- Size Selection -->
-			<div class="space-y-3">
-				<h3 class="text-sm font-medium">Select Size:</h3>
-				<div class="flex gap-3 justify-center">
-					{#each sizeOptions as option}
-						<label class="flex-1">
-							<input
-								type="radio"
-								name="size-mobile"
-								value={option.value}
-								bind:group={selectedSize}
-								class="sr-only"
-							/>
-							<div class="relative border-2 rounded-lg px-4 py-3 cursor-pointer transition-colors text-center {selectedSize === option.value 
-								? 'border-gray-900 bg-gray-900 text-white' 
-								: 'border-gray-300 hover:border-gray-400'}">
-								<span class="font-medium">{option.label}</span>
-							
-							</div>
-						</label>
-					{/each}
+			{#if product.type === "weighted"}
+				<!-- Size Selection -->
+				<div class="space-y-3">
+					<h3 class="text-sm font-medium">Select Size:</h3>
+					<div class="flex gap-3 justify-center">
+						{#each sizeOptions as option}
+							<label class="flex-1">
+								<input
+									type="radio"
+									name="size-mobile"
+									value={option.value}
+									bind:group={selectedSize}
+									class="sr-only"
+								/>
+								<div class="relative border-2 rounded-lg px-4 py-3 cursor-pointer transition-colors text-center {selectedSize === option.value 
+									? 'border-gray-900 bg-gray-900 text-white' 
+									: 'border-gray-300 hover:border-gray-400'}">
+									<span class="font-medium">{option.label}</span>
+								
+								</div>
+							</label>
+						{/each}
+					</div>
 				</div>
-			</div>
+			{/if}
+			
 
 			<!-- Quantity Selection -->
 			<div class="space-y-3">
@@ -240,7 +243,7 @@
 				<!-- Product Image -->
 				<div class="flex justify-center">
 					<img 
-						src={product.imageUrl} 
+						src={product.imageUrls[0]} 
 						alt={product.name}
 						class="w-full max-w-md aspect-square object-cover rounded-lg"
 					/>
@@ -261,7 +264,8 @@
 						<span class="text-sm text-green-600 font-medium">In stock</span>
 					</div>
 
-					<!-- Size Selection -->
+					{#if product.type === "weighted"}
+						<!-- Size Selection -->
 					<div class="space-y-3">
 						<h3 class="text-sm text-[#6B6B6B]">Select Size:</h3>
 						<div class="flex gap-3">
@@ -283,6 +287,7 @@
 							{/each}
 						</div>
 					</div>
+					{/if}
 
 					<!-- Quantity Selection -->
 					<div class="space-y-3">

@@ -2,9 +2,16 @@
     
 	import Icon from "@iconify/svelte";
     import Card from "$lib/Components/Cards/Card.svelte";
-    import {featuredCups} from "$lib/data/products";
 	import { fly, scale } from "svelte/transition";
+	import { onMount } from "svelte";
+    import type { Product } from '$lib/data/products';
 
+    let cups :Product[] = [];
+
+    onMount(async () => {
+        const response = await fetch('/api/products?category=cup');
+        cups = await response.json();
+  });
 </script>
 
 
@@ -45,7 +52,7 @@
             
             <div id="product-grid" class="mt-10 p-2 grid grid-cols-2 justify-items-center space-y-4 md:grid-cols-3 lg:grid-cols-4">
 
-                {#each featuredCups as product}
+                {#each cups as product}
 
                     <Card {product}/>
                

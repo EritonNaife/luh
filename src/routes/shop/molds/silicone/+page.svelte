@@ -1,9 +1,16 @@
 <script lang="ts">
 	import { fly, scale } from "svelte/transition";
-    import { siliconeMolds } from "$lib/data/products";
-    import Card2 from "$lib/Components/Cards/Card2.svelte";
+    import { onMount } from "svelte";
+    import Card from "$lib/Components/Cards/Card.svelte";
 	import Icon from "@iconify/svelte";
+    import type { Product } from "$lib/data/products";
 
+    let siliconeMolds : Product[] = [];
+
+    onMount(async () => {
+        const response = await fetch('/api/products?category=silicone-mold');
+        siliconeMolds = await response.json();
+  });
 
 </script>
 
@@ -44,7 +51,7 @@
 
             {#each siliconeMolds as product}
 
-                <Card2 {product}/>
+                <Card {product}/>
            
             {/each}
            

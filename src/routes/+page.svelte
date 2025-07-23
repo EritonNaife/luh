@@ -2,14 +2,11 @@
     import Collection from "$lib/Components/Cards/Collection.svelte"
     import ProductSlider from "$lib/Components/Slider/ProductSlider.svelte";
     import { inview } from 'svelte-inview';
-    import type { PageData } from "./$types";
-    import { goto } from "$app/navigation";
     import { fade, fly} from "svelte/transition";
     import { cubicIn, quartOut } from "svelte/easing";
+    import type { Product } from '$lib/data/products';
+    export let data: { featuredCups: Product[] };
 
-   
-
-    export let data:PageData;
 
 
     let isInView: boolean = false;

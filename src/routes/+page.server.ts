@@ -1,11 +1,9 @@
 
-import { cups,type Product } from "$lib/data/products";
-import type { ServerLoad } from "@sveltejs/kit";
+// src/routes/+page.server.ts
+import type { PageServerLoad } from './$types';
 
-export const load: ServerLoad = async () =>{
-    const products: Product[] =cups;
-
-    return{
-        products
-    };
-}
+export const load:PageServerLoad = async ({fetch}) => {
+    const response = await fetch('/api/products?category=featured-cup');
+    const featuredCups = await response.json();
+    return { featuredCups };
+  };

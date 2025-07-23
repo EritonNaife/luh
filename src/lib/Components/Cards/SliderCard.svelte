@@ -1,11 +1,12 @@
 <script lang="ts">
 
     import { selectedCurrency,formatPrice } from "$lib/stores/currency";
-	import { quartOut } from "svelte/easing";
-	import { fly } from "svelte/transition";
+    import { type BaseProduct } from "$lib/data/products";
+	  import { quartOut } from "svelte/easing";
+	  import { fly } from "svelte/transition";
   
 
-    export let product;
+    export let product:BaseProduct;
     export let index:number = 0;
     export let isVisible:boolean = false;
     
@@ -13,7 +14,7 @@
 
 
 {#if isVisible} 
-  <a href={`/products/cups/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer"  
+  <a href={`/products/${product.id}`} class="product-card group flex-shrink-0 snap-center overflow-hidden flex flex-col w-48 md:w-64 lg:w-72 cursor-pointer"  
   in:fly={{
     duration: 800,
     y: 50,
@@ -23,7 +24,7 @@
 
     <div class="aspect-[4/5] sm:aspect-[3/4] md:aspect-[3/2] lg:aspect-[16/9]">
       <img
-        src={product.imageUrl}
+        src={product.imageUrls[0]}
         alt={product.name}
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
