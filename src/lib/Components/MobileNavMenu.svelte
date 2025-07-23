@@ -4,6 +4,7 @@
     
     // Import the SearchBar component
     import SearchBar from './SearchBar.svelte';
+	import { itemCount } from '$lib/stores/cart';
     
     const dispatch = createEventDispatcher();
     let openItem: string | null = null;
@@ -21,14 +22,14 @@
   </script>
   
   <!-- Backdrop -->
-  <div class="fixed inset-0 z-50 bg-[#8D3C42]/50 backdrop-blur-sm transition-opacity" on:click={handleClose} />
+  <div class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity" on:click={handleClose} />
   
   <!-- Menu Container -->
-  <div class="fixed inset-y-0 left-0 z-50 w-full max-w-xs bg-white shadow-xl overflow-y-auto">
+  <div class="fixed inset-y-0 left-0 z-50 w-full max-w-xs bg-white shadow-xl overflow-y-auto ">
     <div class="flex h-full flex-col">
         <!-- Header -->
         <div class="flex items-center justify-between border-b border-[#F9F5F3] px-4 py-4">
-            <span class="text-lg font-[PlayfairDisplay] font-semibold text-[#8D3C42]">Candle Menu</span>
+            <h1 class="text-lg ">Candle Menu</h1>
             <button 
                 on:click={handleClose} 
                 class="rounded-full p-2 hover:bg-[#F9F5F3] transition-colors"
@@ -44,15 +45,15 @@
         </div>
   
         <!-- User Account & Cart Row -->
-        <div class="flex justify-between items-center px-4 py-3 bg-[#F9F5F3]/50">
-            <a href="/register" class="flex items-center text-[#8D3C42] font-medium">
+        <div class="flex justify-between items-center px-4 py-3 ">
+            <a href="/register" class="flex items-center font-medium">
                 <Icon icon="mdi:account" class="h-5 w-5 mr-2" />
                 My Account
             </a>
             <a href="/cart" class="flex items-center text-[#8D3C42] font-medium relative">
                 <Icon icon="mdi:shopping-outline" class="h-5 w-5 mr-1" />
-                {#if cartCount > 0}
-                    <span class="absolute -top-3 -right-3 bg-[#D4A373] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">{cartCount}</span>
+                {#if $itemCount > 0}
+                    <span class="absolute -top-3 -right-3 bg-[#D4A373] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">{$itemCount}</span>
                 {/if}
             </a>
         </div>
