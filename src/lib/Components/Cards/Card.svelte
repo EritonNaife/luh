@@ -19,6 +19,7 @@
     function handleClick(){
         
         goto(`/products/${product.id}`);
+        
 
     }
 

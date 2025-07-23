@@ -1,7 +1,18 @@
 import { writable, derived } from 'svelte/store';
 import { browser } from '$app/environment';
-import { products } from '$lib/data/products';
 import type { CartItem, Product } from '$lib/data/products';
+
+// --- Helper Function to Fetch Product ---
+async function fetchProduct(productId: string): Promise<Product | null> {
+  if (!browser) return null; // Skip fetch in server-side context
+  try {
+    const response = await fetch(`/api/products/${productId}`);
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
 
 // --- Store Definition ---
 
@@ -20,23 +31,40 @@ if (browser) {
 
 // --- Derived Stores ---
 
-// A store that combines cart items with product details.
-export const cartWithProducts = derived(cart, ($cart) =>
-  $cart
-    .map((item) => {
-      const product = products.find((p) => p.id === item.productId);
-      return product ? { ...product, quantity: item.quantity } : null;
-    })
-    .filter((item): item is Product & { quantity: number } => item !== null)
-);
+// A store that combines cart items with product details fetched from API.
+export const cartWithProducts = derived(cart, ($cart, set: (value: (Product & { quantity: number })[]) => void) => {
+  async function loadCartProducts() {
+    const cartProducts = await Promise.all(
+      $cart.map(async (item) => {
+        const product = await fetchProduct(item.productId);
+        return product ? { ...product, quantity: item.quantity } : null;
+      })
+    );
+    set(cartProducts.filter((item): item is Product & { quantity: number } => item !== null));
+  }
+  if (browser) {
+    loadCartProducts();
+  } else {
+    set([]);
+  }
+}, [] as (Product & { quantity: number })[]);
 
 // A store that calculates the total price of all items in the cart.
-export const cartTotal = derived(cart, ($cart) => {
-  return $cart.reduce((sum, item) => {
-    const product = products.find((p) => p.id === item.productId);
-    return product ? sum + product.price * item.quantity : sum;
-  }, 0);
-});
+export const cartTotal = derived(cart, ($cart, set: (value: number) => void) => {
+  async function calculateTotal() {
+    const total = await $cart.reduce(async (sumPromise, item) => {
+      const sum = await sumPromise;
+      const product = await fetchProduct(item.productId);
+      return product ? sum + product.price * item.quantity : sum;
+    }, Promise.resolve(0));
+    set(total);
+  }
+  if (browser) {
+    calculateTotal();
+  } else {
+    set(0);
+  }
+}, 0);
 
 // A store that calculates the total number of items in the cart.
 export const itemCount = derived(cart, ($cart) => {

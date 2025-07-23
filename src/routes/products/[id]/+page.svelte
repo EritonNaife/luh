@@ -63,6 +63,7 @@
 				addToCartMessage = '';
 			}, 3000);
 		}, 500);
+		addToCart(data.product.id,quantity);
 	}
 
 	// Get current price based on selected size
@@ -167,7 +168,7 @@
 
 				{#if data.product.type ==='weighted'}
 					<!-- Size Selection and Quantity -->
-					
+
 					<div class="space-y-4">
 						<!-- Size Selection -->
 						<div>

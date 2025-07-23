@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import Icon from '@iconify/svelte';
   import { itemCount } from '$lib/stores/cart';
-  import CurrencyDropdown from './Dropdowns/CurrencyDropdown.svelte';
   // import SearchBar from './SearchBar.svelte'; // Assuming SearchBar is not used if input is directly in header
   import AnnouncementBar from './AnnouncementBar.svelte';
   import MobileNavMenuButton from './MobileNavMenuButton.svelte';
