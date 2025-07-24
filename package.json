@@ -48,9 +48,11 @@
 	},
 	"dependencies": {
 		"@slidy/svelte": "^3.5.3",
+		"@stripe/stripe-js": "^7.6.1",
 		"@types/lodash": "^4.17.20",
 		"lodash": "^4.17.21",
 		"lodash-es": "^4.17.21",
+		"stripe": "^18.3.0",
 		"svelte-inview": "^4.0.4"
 	}
 }
