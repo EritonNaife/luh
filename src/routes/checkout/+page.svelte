@@ -193,7 +193,7 @@
 		<div class="px-4 flex justify-between mt-3 ">
 
 			<button class="flex justify-between items-center gap-2 mt-2" on:click={toggleDropdown} aria-expanded={isOpen} aria-haspopup="true">
-				<span class="text-xs mb-4">Order summary</span>
+				<span class="text-xs mb-5">Order summary</span>
 				<Icon icon="mdi:chevron-down" class="mb-4 w-6 h-6 transition-transform duration-200 {isOpen ? 'rotate-180' : ''}"/>
 			</button>
 
@@ -261,72 +261,6 @@
 	</div>
 
 	
-	<!-- Left side - Scrollable forms -->
-	<div class="w-full md:overflow-y-auto md:flex md:justify-end my-40">
-		
-		<form on:submit={handleFormSubmit} class="p-8 space-y-12">
-			
-		</form>
-
-	</div>
-
-
-	<!-- Desktop Right side - Fixed Order Summary  -->
-	<div class="hidden w-full h-full bg-gray-100 md:flex justify-start items-center shadow-xl">
-		<div class="p-12">
-			<h2 class="text-lg font-medium text-gray-900 mb-4">Order summary</h2>
-
-			{#if isLoading}
-				<div class="text-center py-8">
-					<p class="text-gray-500 mb-4">Loading cart...</p>
-				</div>
-			{:else if $itemCount > 0}
-				<!-- Items -->
-				<div class="space-y-3 mb-4">
-					{#each $cartWithProducts as item}
-						<div class="flex justify-between text-sm gap-4">
-							<span class="text-gray-600">{item.name} × {item.quantity}</span>
-							<span class="text-gray-900">{formatPrice(item.price * item.quantity, $selectedCurrency)}</span>
-						</div>
-					{/each}
-				</div>
-
-				<hr class="border-gray-200 mb-4" />
-
-				<!-- Totals -->
-				<div class="space-y-2 text-sm">
-					<div class="flex justify-between">
-						<span class="text-gray-600">Subtotal</span>
-						<span class="text-gray-900">{formatPrice(subtotal, $selectedCurrency)}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="text-gray-600">Shipping</span>
-						<span class="text-gray-900">{formatPrice(shipping, $selectedCurrency)}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="text-gray-600">Tax</span>
-						<span class="text-gray-900">{formatPrice(tax, $selectedCurrency)}</span>
-					</div>
-				</div>
-
-				<hr class="border-gray-200 my-4" />
-
-				<div class="flex justify-between text-lg font-medium">
-					<span class="text-gray-900">Total</span>
-					<span class="text-gray-900">{formatPrice(total, $selectedCurrency)}</span>
-				</div>
-			{:else}
-				<!-- Empty Cart Message -->
-				<div class="text-center py-8">
-					<p class="text-gray-500 mb-4">Your cart is empty</p>
-					<a href="/" class="text-blue-600 hover:text-blue-700 font-medium">
-						Continue shopping
-					</a>
-				</div>
-			{/if}
-		</div>
-	</div>
-
 </main>
 
 
